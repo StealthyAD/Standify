@@ -111,10 +111,6 @@ end
             },
         }
     }
-    local update_success
-    if config.auto_update then
-        update_success = auto_updater.run_auto_update(auto_update_config)
-    end
 
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
@@ -138,6 +134,7 @@ end
         auto_updater = require("auto-updater")
     end
     if auto_updater == true then error("Invalid auto-updater lib. Please delete your Stand/Lua Scripts/lib/auto-updater.lua and try again") end
+
 
     -- Run Auto Update
     auto_updater.run_auto_update({
