@@ -136,7 +136,7 @@ end
     menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
         auto_update_config.check_interval = 0
         if auto_updater.run_auto_update(auto_update_config) then
-            util.toast(t("No updates found"))
+            util.toast("No updates found")
         else
             auto_updater.run_auto_update(auto_update_config)
         end
