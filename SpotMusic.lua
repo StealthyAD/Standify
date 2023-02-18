@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local version = "0.15"
+local version = "0.15.1"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
