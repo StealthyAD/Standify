@@ -50,7 +50,7 @@ end
     end
 
     local SpotFiles = {}
-        function update_all_music_files()
+        function UpdateAutoMusics()
             Music_TempFiles = {}
             for i, path in ipairs(filesystem.list_files(script_store_dir)) do
                 local file_str = path:gsub(script_store_dir, ''):gsub("\\","")
@@ -60,7 +60,7 @@ end
             end
             SpotFiles = Music_TempFiles
         end
-        update_all_music_files()
+        UpdateAutoMusics()
 
     local function join_path(parent, child)
         local sub = parent:sub(-1)
@@ -137,7 +137,7 @@ end
 
     util.create_thread(function()
         while true do
-            update_all_music_files()
+            UpdateAutoMusics()
             menu.set_list_action_options(MusicAdding, SpotFiles)
             util.yield(5000)
         end
