@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local version = "0.13"
+local version = "0.15"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -145,7 +145,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
-            ["\nWelcome to SpotMusic"] = "\nBienvenue dans le script SpotMusic",
+            ["\nWelcome to SpotMusic "] = "\nBienvenue sur le script SpotMusic ",
         },
 
         de = { -- German Language (Deutsch)
@@ -168,7 +168,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
-            ["\nWelcome to SpotMusic"] = "\nWillkommen im script SpotMusic",
+            ["\nWelcome to SpotMusic "] = "\nWillkommen im script SpotMusic ",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -190,7 +190,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: è necessario ottenere il file, altrimenti non è possibile interrompere il suono.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nSi è fermato correttamente.",
             ["Hello "] = "Ciao ",
-            ["\nWelcome to SpotMusic"] = "\nBenvenuti a SpotMusic",
+            ["\nWelcome to SpotMusic "] = "\nBenvenuti a SpotMusic ",
         },
 
         es = { -- Spanish Language (Español)
@@ -213,7 +213,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nLa música se detuvo con éxito.",
             ["Hello "] = "Hola como estas",
-            ["\nWelcome to SpotMusic"] = "Bienvenido a SpotMusic",
+            ["\nWelcome to SpotMusic "] = "Bienvenido a SpotMusic ",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -235,7 +235,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nA música parou com sucesso.",
             ["Hello "] = "Olá",
-            ["\nWelcome to SpotMusic"] = "Bem-vindo ao SpotMusic",
+            ["\nWelcome to SpotMusic "] = "Bem-vindo ao SpotMusic ",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -257,7 +257,7 @@ end
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nМузыка успешно остановлена.",
             ["Hello "] = "Привет",
-            ["\nWelcome to SpotMusic"] = "\nДобро пожаловать в SpotMusic"
+            ["\nWelcome to SpotMusic "] = "\nДобро пожаловать в SpotMusic "
         }
     }
 
@@ -335,7 +335,7 @@ end
     end)
 
     if not SCRIPT_SILENT_START then
-        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotMusic " ..version))
+        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotMusic ") ..version)
     end
 
     --------------------------------
