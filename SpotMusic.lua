@@ -93,22 +93,35 @@ end
 -- Update Features
 --------------------------------
 
-    async_http.init('raw.githubusercontent.com','/StealthyAD/SpotMusic/main/SpotMusic.lua',function(a)
-        local err = select(2,load(a))
-            if err then
-                util.toast("Script failed to download. Please try again later. If this continues to happen then manually update via github.")
-            return end
-            local f = io.open(filesystem.scripts_dir()..SCRIPT_RELPATH, "wb")
-                f:write(a)
-                f:close()
-                util.toast("Successfully downloaded SpotMusic." ..version)
-            util.restart_script()
-        end)
-            async_http.dispatch()
-        repeat 
-            util.yield()
-        until response
-    util.keep_running()
+    local status, auto_updater = pcall(require, "auto-updater")
+    if not status then
+        local auto_update_complete = nil util.toast("Installing auto-updater...", TOAST_ALL)
+        async_http.init("raw.githubusercontent.com", "/hexarobi/stand-lua-auto-updater/main/auto-updater.lua",
+                function(result, headers, status_code)
+                    local function parse_auto_update_result(result, headers, status_code)
+                        local error_prefix = "Error downloading auto-updater: "
+                        if status_code ~= 200 then util.toast(error_prefix..status_code, TOAST_ALL) return false end
+                        if not result or result == "" then util.toast(error_prefix.."Found empty file.", TOAST_ALL) return false end
+                        filesystem.mkdir(filesystem.scripts_dir() .. "lib")
+                        local file = io.open(filesystem.scripts_dir() .. "lib\\auto-updater.lua", "wb")
+                        if file == nil then util.toast(error_prefix.."Could not open file for writing.", TOAST_ALL) return false end
+                        file:write(result) file:close() util.toast("Successfully installed auto-updater lib", TOAST_ALL) return true
+                    end
+                    auto_update_complete = parse_auto_update_result(result, headers, status_code)
+                end, function() util.toast("Error downloading auto-updater lib. Update failed to download.", TOAST_ALL) end)
+        async_http.dispatch() local i = 1 while (auto_update_complete == nil and i < 20) do util.yield(250) i = i + 1 end
+        if auto_update_complete == nil then error("Error downloading auto-updater lib. HTTP Request timeout") end
+        auto_updater = require("auto-updater")
+    end
+    if auto_updater == true then error("Invalid auto-updater lib. Please delete your Stand/Lua Scripts/lib/auto-updater.lua and try again") end
+
+    local auto_update_config = {
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+        script_relpath=SCRIPT_RELPATH,
+        switch_to_branch=selected_branch,
+        verify_file_begins_with="--",
+    }
+    auto_updater.run_auto_update(auto_update_config)
 
 --------------------------------
 -- Translations Features
