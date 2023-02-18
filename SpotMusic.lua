@@ -101,16 +101,8 @@ end
         verify_file_begins_with="--",
         check_interval=86400,
         silent_updates=true,
-        dependencies={
-            {
-                name="SpotMusic",
-                source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
-                script_relpath=SCRIPT_RELPATH,
-                verify_file_begins_with="--",
-                is_required=true,
-            },
-        }
     }
+
 
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
