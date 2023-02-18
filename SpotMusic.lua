@@ -146,6 +146,12 @@ end
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
             ["\nWelcome to SpotMusic "] = "\nBienvenue sur le script SpotMusic ",
+            ["Informations"] = "Informations",
+            ["Credits"] = "Crédits",
+            ["Resources"] = "Ressources",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Développeur SpotMusic)",
+            ["Version: "] = "Version: ",
+            ["Menu Edition Stand: "] = "Edition du menu Stand: ",
         },
 
         de = { -- German Language (Deutsch)
@@ -169,6 +175,12 @@ end
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
             ["\nWelcome to SpotMusic "] = "\nWillkommen im script SpotMusic ",
+            ["Informations"] = "Informationen",
+            ["Credits"] = "Impressum",
+            ["Resources"] = "Ressourcen",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Entwickler SpotMusic)",
+            ["Version: "] = "Version: ",
+            ["Menu Edition Stand: "] = "Editionsmenü Stand: ",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -191,6 +203,12 @@ end
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nSi è fermato correttamente.",
             ["Hello "] = "Ciao ",
             ["\nWelcome to SpotMusic "] = "\nBenvenuti a SpotMusic ",
+            ["Informations"] = "Informazioni",
+            ["Credits"] = "Crediti",
+            ["Resources"] = "Risorse",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotMusic)",
+            ["Version: "] = "Versione: ",
+            ["Menu Edition Stand: "] = "Menu dell'edizione Stand: ",
         },
 
         es = { -- Spanish Language (Español)
@@ -212,8 +230,14 @@ end
             ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nLa música se detuvo con éxito.",
-            ["Hello "] = "Hola como estas",
-            ["\nWelcome to SpotMusic "] = "Bienvenido a SpotMusic ",
+            ["Hello "] = "Hola ",
+            ["\nWelcome to SpotMusic "] = "\nBienvenido a SpotMusic ",
+            ["Informations"] = "Información",
+            ["Credits"] = "Créditos",
+            ["Resources"] = "Recursos",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desarrollador SpotMusic)",
+            ["Version: "] = "Versión: ",
+            ["Menu Edition Stand: "] = "Menú Edición Stand: ",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -234,8 +258,14 @@ end
             ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nFicheiro de música não existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nA música parou com sucesso.",
-            ["Hello "] = "Olá",
-            ["\nWelcome to SpotMusic "] = "Bem-vindo ao SpotMusic ",
+            ["Hello "] = "Olá ",
+            ["\nWelcome to SpotMusic "] = "\nBem-vindo ao SpotMusic ",
+            ["Informations"] = "Informações",
+            ["Credits"] = "Créditos",
+            ["Resources"] = "Recursos",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotMusic)",
+            ["Version: "] = "Versão: ",
+            ["Menu Edition Stand: "] = "Menu Edição Stand: ",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -256,8 +286,14 @@ end
             ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
             ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nМузыка успешно остановлена.",
-            ["Hello "] = "Привет",
-            ["\nWelcome to SpotMusic "] = "\nДобро пожаловать в SpotMusic "
+            ["Hello "] = "Привет ",
+            ["\nWelcome to SpotMusic "] = "\nДобро пожаловать в SpotMusic ",
+            ["Informations"] = "Информация",
+            ["Credits"] = "Кредиты",
+            ["Resources"] = "Ресурсы",
+            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Разрабо SpotMusic)",
+            ["Version: "] = "Версия: ",
+            ["Menu Edition Stand: "] = "Меню издания Stand: "
         }
     }
 
@@ -347,16 +383,16 @@ end
     -- Informations
     ----------------
 
-        SpotMiscs:divider("Informations")
-        SpotMiscs:action("Version: " ..version, {}, "", function()end)
-        SpotMiscs:action("Menu Edition: " ..edition_menu, {}, "", function()end)
+        SpotMiscs:divider(ForceTranslate("Informations"))
+        SpotMiscs:action(ForceTranslate("Version: ") ..version, {}, "", function()end)
+        SpotMiscs:action(ForceTranslate("Menu Edition Stand: ") ..edition_menu, {}, "", function()end)
 
     -------------
     -- Credits
     -------------
 
-        SpotMiscs:divider("Credits")
-        local SpotStealthy = SpotMiscs:list("StealthyAD.#8293 (Developer SpotMusic)")
+        SpotMiscs:divider(ForceTranslate("Credits"))
+        local SpotStealthy = SpotMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer SpotMusic)"))
         SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/SpotMusic")
         SpotStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         SpotMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
@@ -365,6 +401,6 @@ end
     -- Resources
     -------------
 
-        SpotMiscs:divider("Resources")
+        SpotMiscs:divider(ForceTranslate("Resources"))
         SpotMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
         SpotMiscs:hyperlink("NativeDB", "https://nativedb.dotindustries.dev/natives", ForceTranslate("Provided for using GTAV natives."))
