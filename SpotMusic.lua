@@ -137,8 +137,6 @@ end
         auto_update_config.check_interval = 0
         if auto_updater.run_auto_update(auto_update_config) then
             util.toast("No updates found")
-        else
-            auto_updater.run_auto_update(auto_update_config)
         end
     end)
 
