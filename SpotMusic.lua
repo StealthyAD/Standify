@@ -148,6 +148,7 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Développeur SpotMusic)",
             ["Version: "] = "Version: ",
             ["Menu Edition Stand: "] = "Edition du menu Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
         },
 
         de = { -- German Language (Deutsch)
@@ -177,6 +178,7 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Entwickler SpotMusic)",
             ["Version: "] = "Version: ",
             ["Menu Edition Stand: "] = "Editionsmenü Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB."
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -205,6 +207,7 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotMusic)",
             ["Version: "] = "Versione: ",
             ["Menu Edition Stand: "] = "Menu dell'edizione Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB."
         },
 
         es = { -- Spanish Language (Español)
@@ -234,6 +237,7 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desarrollador SpotMusic)",
             ["Version: "] = "Versión: ",
             ["Menu Edition Stand: "] = "Menú Edición Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB."
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -262,6 +266,7 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotMusic)",
             ["Version: "] = "Versão: ",
             ["Menu Edition Stand: "] = "Menu Edição Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -289,7 +294,8 @@ end
             ["Resources"] = "Ресурсы",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Разрабо SpotMusic)",
             ["Version: "] = "Версия: ",
-            ["Menu Edition Stand: "] = "Меню издания Stand: "
+            ["Menu Edition Stand: "] = "Меню издания Stand: ",
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ."
         }
     }
 
@@ -342,7 +348,7 @@ end
     local songs_direct = join_path(script_store_dir, "")
     local songs = SpotLoading(songs_direct)
     
-    local SpotMusicList = SpotRoot:list_action(ForceTranslate("Saved Playlists"), {}, "", SpotFiles, function(selected_index)
+    local SpotMusicList = SpotRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
         local selected_file = SpotFiles[selected_index]
         local sound_location = join_path(script_store_dir, selected_file)
         if not filesystem.exists(sound_location) then
