@@ -132,14 +132,6 @@ end
         script_relpath=SCRIPT_RELPATH,
         verify_file_begins_with="--"
     })
-    -- Manual Update
-    menu.action(SpotRoot, ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
-        auto_update_config.check_interval = 0
-        if auto_updater.run_auto_update(auto_update_config) then
-            util.toast("No updates found.")
-        end
-    end)
-
     auto_updater.run_auto_update(auto_update_config)
 
 --------------------------------
@@ -460,6 +452,12 @@ end
         SpotMiscs:divider(ForceTranslate("Informations"))
         SpotMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
         SpotMiscs:action(ForceTranslate("Menu Edition Stand: ") ..edition_menu, {}, "", function()end)
+        SpotMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+            auto_update_config.check_interval = 0
+            if auto_updater.run_auto_update(auto_update_config) then
+                util.toast("No updates found.")
+            end
+        end)
 
     -------------
     -- Credits
