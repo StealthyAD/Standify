@@ -27,12 +27,12 @@ util.keep_running()
 -- File Storage Direction
 --------------------------------
 
-local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs'
+local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '/songs'
 if not filesystem.is_dir(script_store_dir) then
     filesystem.mkdirs(script_store_dir)
 end
 
-local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '\\stop_sounds'
+local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds'
 if not filesystem.is_dir(script_store_dir_stop) then
     filesystem.mkdirs(script_store_dir_stop)
 end
@@ -53,7 +53,7 @@ end
         function update_all_music_files()
             Music_TempFiles = {}
             for i, path in ipairs(filesystem.list_files(script_store_dir)) do
-                local file_str = path:gsub(script_store_dir, '')
+                local file_str = path:gsub(script_store_dir, ''):gsub("\\","")
                 if ends_with(file_str, '.wav') then
                     Music_TempFiles[#Music_TempFiles+1] = file_str
                 end
