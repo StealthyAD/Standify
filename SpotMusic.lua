@@ -154,5 +154,5 @@ end
     SpotCreditsAndMiscs:hyperlink("Github Link", "https://github.com/StealthyAD/SpotMusic")
     SpotCreditsAndMiscs:divider("Credits")
     
-    SpotCreditsAndMiscs:action("StealthyAD. (Developper SpotMusic)", {}, "", function()end)
+    SpotCreditsAndMiscs:action("StealthyAD. (Developer SpotMusic)", {}, "", function()end)
     SpotCreditsAndMiscs:action("Lance", {}, "Created Startup Sound but improving the lua to create Playlists", function()end)
