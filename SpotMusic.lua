@@ -115,13 +115,14 @@ end
         auto_updater = require("auto-updater")
     end
     if auto_updater == true then error("Invalid auto-updater lib. Please delete your Stand/Lua Scripts/lib/auto-updater.lua and try again") end
+    auto_updater.run_auto_update()
 
     -- Run Auto Update
     auto_updater.run_auto_update({
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
-        script_relpath=SCRIPT_RELPATH,
-        verify_file_begins_with="--"
-    })
+    source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+    script_relpath=SCRIPT_RELPATH,
+    verify_file_begins_with="--"
+   })
 
 --------------------------------
 -- Translations Features
