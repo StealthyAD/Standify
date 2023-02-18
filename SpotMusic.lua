@@ -116,12 +116,12 @@ end
     end
     if auto_updater == true then error("Invalid auto-updater lib. Please delete your Stand/Lua Scripts/lib/auto-updater.lua and try again") end
 
-    -- Manual Auto-Update
-    menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
-        auto_update_config.check_interval = 0
-        util.toast("Checking for updates")
-        auto_updater.run_auto_update(auto_update_config)
-    end)
+    -- Run Auto Update
+    auto_updater.run_auto_update({
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+        script_relpath=SCRIPT_RELPATH,
+        verify_file_begins_with="--"
+    })
 
 --------------------------------
 -- Translations Features
