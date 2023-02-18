@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.15.6"
+local SCRIPT_VERSION = "0.15.7"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -133,10 +133,10 @@ end
         verify_file_begins_with="--"
     })
     -- Manual Update
-    menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
+    menu.action(SpotRoot, ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
         if auto_updater.run_auto_update(auto_update_config) then
-            util.toast("No updates found")
+            util.toast("No updates found.")
         end
     end)
 
@@ -203,6 +203,8 @@ end
             ["Menu Edition Stand: "] = "Edition du menu Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
             ["WAV Compress"] = "Compresseur WAV",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
+            ["Check for Update"] = "Vérifier les mises à jour",
         },
 
         de = { -- German Language (Deutsch)
@@ -234,6 +236,8 @@ end
             ["Menu Edition Stand: "] = "Editionsmenü Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
             ["WAV Compress"] = "WAV-Kompressor",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
+            ["Check for Update"] = "Überprüfung auf Aktualisierung",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -264,6 +268,8 @@ end
             ["Menu Edition Stand: "] = "Menu dell'edizione Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compressore WAV",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Lo script controlla automaticamente la presenza di aggiornamenti al massimo ogni giorno, ma è possibile controllare manualmente utilizzando questa opzione in qualsiasi momento.",
+            ["Check for Update"] = "Verifica dell'aggiornamento",
         },
 
         es = { -- Spanish Language (Español)
@@ -295,6 +301,8 @@ end
             ["Menu Edition Stand: "] = "Menú Edición Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compresor WAV",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
+            ["Check for Update"] = "Comprobar la actualización",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -325,6 +333,8 @@ end
             ["Menu Edition Stand: "] = "Menu Edição Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
             ["WAV Compress"] = "Compressor WAV",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
+            ["Check for Update"] = "Verificar por Actualização",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -354,7 +364,9 @@ end
             ["Version: "] = "Версия: ",
             ["Menu Edition Stand: "] = "Меню издания Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
-            ["WAV Compress"] = "WAV-компрессор"
+            ["WAV Compress"] = "WAV-компрессор",
+            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
+            ["Check for Update"] = "Проверка обновления"
         }
     }
 
