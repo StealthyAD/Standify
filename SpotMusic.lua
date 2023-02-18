@@ -95,7 +95,7 @@ end
 
     local default_check_interval = 604800
     local auto_update_config = {
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/lib/SpotMusic.lua",
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
         script_relpath=SCRIPT_RELPATH,
         switch_to_branch=selected_branch,
         verify_file_begins_with="--",
@@ -104,8 +104,8 @@ end
         dependencies={
             {
                 name="SpotMusic",
-                source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/lib/SpotMusic.lua",
-                script_relpath="lib/SpotMusic.lua",
+                source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+                script_relpath=SCRIPT_RELPATH,
                 verify_file_begins_with="--",
                 is_required=true,
             },
@@ -134,8 +134,7 @@ end
         auto_updater = require("auto-updater")
     end
     if auto_updater == true then error("Invalid auto-updater lib. Please delete your Stand/Lua Scripts/lib/auto-updater.lua and try again") end
-
-
+    
     -- Run Auto Update
     auto_updater.run_auto_update({
         source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
