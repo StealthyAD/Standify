@@ -29,12 +29,12 @@ util.keep_running()
 -- File Storage Direction
 --------------------------------
 
-local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs'
+local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotMusic\songs
 if not filesystem.is_dir(script_store_dir) then
     filesystem.mkdirs(script_store_dir)
 end
 
-local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds'
+local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotMusic\stop_sounds
 if not filesystem.is_dir(script_store_dir_stop) then
     filesystem.mkdirs(script_store_dir_stop)
 end
@@ -42,10 +42,6 @@ end
 --------------------------------
 -- Function Execution Important
 --------------------------------
-
-    if not filesystem.is_dir(script_store_dir) then
-        util.toast("SpotMusic Files are not installed.")
-    end
 
     local function ends_with(str, ending)
         return ending == "" or str:sub(-#ending) == ending
