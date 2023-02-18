@@ -123,13 +123,6 @@ end
         verify_file_begins_with="--"
     })
 
-    -- Run Manual Update
-    menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
-        auto_update_config.check_interval = 0
-        util.toast("Checking for updates")
-        auto_updater.run_auto_update(auto_update_config)
-    end)
-
 --------------------------------
 -- Translations Features
 --------------------------------
