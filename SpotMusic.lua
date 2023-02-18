@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local version = "0.15.3"
+local SCRIPT_VERSION = "0.15.3"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -414,7 +414,7 @@ end
     end)
 
     if not SCRIPT_SILENT_START then
-        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotMusic ") ..version)
+        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotMusic ") ..SCRIPT_VERSION)
     end
 
     --------------------------------
@@ -427,7 +427,7 @@ end
     ----------------
 
         SpotMiscs:divider(ForceTranslate("Informations"))
-        SpotMiscs:action(ForceTranslate("Version: ") ..version, {}, "", function()end)
+        SpotMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
         SpotMiscs:action(ForceTranslate("Menu Edition Stand: ") ..edition_menu, {}, "", function()end)
 
     -------------
