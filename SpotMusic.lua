@@ -197,6 +197,7 @@ end
             ["WAV Compress"] = "Compresseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
             ["Check for Update"] = "Vérifier les mises à jour",
+            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nPas de mise à jour trouvé.",
         },
 
         de = { -- German Language (Deutsch)
@@ -230,6 +231,7 @@ end
             ["WAV Compress"] = "WAV-Kompressor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Update"] = "Überprüfung auf Aktualisierung",
+            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nKeine Updates gefunden.",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -262,6 +264,7 @@ end
             ["WAV Compress"] = "Compressore WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Lo script controlla automaticamente la presenza di aggiornamenti al massimo ogni giorno, ma è possibile controllare manualmente utilizzando questa opzione in qualsiasi momento.",
             ["Check for Update"] = "Verifica dell'aggiornamento",
+            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nNessun aggiornamento trovato.",
         },
 
         es = { -- Spanish Language (Español)
@@ -295,6 +298,7 @@ end
             ["WAV Compress"] = "Compresor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Update"] = "Comprobar la actualización",
+            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nNo se han encontrado actualizaciones."
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -327,6 +331,7 @@ end
             ["WAV Compress"] = "Compressor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
             ["Check for Update"] = "Verificar por Actualização",
+            ["> SpotMusic\nNo updates found."] = "Nenhuma actualização encontrada",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -358,7 +363,8 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
             ["WAV Compress"] = "WAV-компрессор",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
-            ["Check for Update"] = "Проверка обновления"
+            ["Check for Update"] = "Проверка обновления",
+            ["> SpotMusic\nNo updates found."] = "Обновления не найдены"
         }
     }
 
@@ -455,7 +461,7 @@ end
         SpotMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
             auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
-                util.toast("No updates found.")
+                util.toast(ForceTranslate("> SpotMusic\nNo updates found."))
             end
         end)
 
