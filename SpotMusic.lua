@@ -103,7 +103,6 @@ end
         silent_updates=true,
     }
 
-
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
     if not status then
