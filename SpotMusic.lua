@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.15.5"
+local SCRIPT_VERSION = "0.15.6"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -135,8 +135,11 @@ end
     -- Manual Update
     menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
         auto_update_config.check_interval = 0
-        util.toast("Checking for updates")
-        auto_updater.run_auto_update(auto_update_config)
+        if auto_updater.run_auto_update(auto_update_config) then
+            util.toast(t("No updates found"))
+        else
+            auto_updater.run_auto_update(auto_update_config)
+        end
     end)
 
     auto_updater.run_auto_update(auto_update_config)
