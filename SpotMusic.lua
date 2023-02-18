@@ -28,7 +28,7 @@ util.keep_running()
 -- File Storage Direction
 --------------------------------
 
-local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '/songs'
+local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs'
 if not filesystem.is_dir(script_store_dir) then
     filesystem.mkdirs(script_store_dir)
 end
