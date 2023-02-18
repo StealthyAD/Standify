@@ -82,6 +82,9 @@ end
         return loaded_songs
     end
 
+    --------------------------------
+    -- Update Features
+    --------------------------------
 
     local update_available
     async_http.init("raw.githubusercontent.com","/StealthyAD/SpotMusic/main/SpotMusic.lua",function(online_script)
@@ -93,7 +96,7 @@ end
         if tonumber(version) < tonumber(latest_version) then
             update_available = true
             util.toast("Version".." "..string.gsub(latest_version,"\n","",1).." ".."available.\nPress Update to get it.",false)
-            update_button = menu.action(menu.my_root(),Tr("Update to").." "..latest_version,{},"",function()
+            update_button = menu.action(menu.my_root(),"Update to".." "..latest_version,{},"",function()
                 local f = io.open(filesystem.scripts_dir()..SCRIPT_RELPATH,"wb")
                 f:write(online_script)
                 f:close()
@@ -179,4 +182,3 @@ end
     SpotCreditsAndMiscs:divider("Credits")
     
     SpotCreditsAndMiscs:action("StealthyAD. (Developping SpotMusic)", {}, "", function()end)
-    SpotCreditsAndMiscs:action("Lance", {}, "Improving his Startup Sound and create Music Playlist.", function()end)
