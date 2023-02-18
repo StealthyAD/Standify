@@ -135,7 +135,7 @@ end
     -- Manual Update
     auto_updater.run_auto_update({
         source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
-        script_relpath="lib/SpotMusic.lua",
+        script_relpath="SpotMusic.lua",
         verify_file_begins_with="--"
     })
 
