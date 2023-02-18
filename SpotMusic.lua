@@ -149,6 +149,7 @@ end
             ["Version: "] = "Version: ",
             ["Menu Edition Stand: "] = "Edition du menu Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
+            ["WAV Compress"] = "Compresseur WAV",
         },
 
         de = { -- German Language (Deutsch)
@@ -178,7 +179,8 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Entwickler SpotMusic)",
             ["Version: "] = "Version: ",
             ["Menu Edition Stand: "] = "Editionsmenü Stand: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB."
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
+            ["WAV Compress"] = "WAV-Kompressor",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -207,7 +209,8 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotMusic)",
             ["Version: "] = "Versione: ",
             ["Menu Edition Stand: "] = "Menu dell'edizione Stand: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB."
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
+            ["WAV Compress"] = "Compressore WAV",
         },
 
         es = { -- Spanish Language (Español)
@@ -237,7 +240,8 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desarrollador SpotMusic)",
             ["Version: "] = "Versión: ",
             ["Menu Edition Stand: "] = "Menú Edición Stand: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB."
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
+            ["WAV Compress"] = "Compresor WAV",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -267,6 +271,7 @@ end
             ["Version: "] = "Versão: ",
             ["Menu Edition Stand: "] = "Menu Edição Stand: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
+            ["WAV Compress"] = "Compressor WAV",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -295,7 +300,8 @@ end
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Разрабо SpotMusic)",
             ["Version: "] = "Версия: ",
             ["Menu Edition Stand: "] = "Меню издания Stand: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ."
+            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
+            ["WAV Compress"] = "WAV-компрессор"
         }
     }
 
@@ -323,6 +329,7 @@ end
     end)
 
     SpotRoot:divider(ForceTranslate("Main Menu"))
+    SpotRoot:hyperlink(ForceTranslate("WAV Compress"), "https://www.freeconvert.com/wav-compressor")
     SpotRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."))
 
     --------------------------------
