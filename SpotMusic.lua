@@ -13,6 +13,7 @@ local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
 local version = "0.13"
+local edition_menu = "99.3"
 
 util.require_natives(1663599433)
 util.keep_running()
@@ -128,7 +129,7 @@ end
     local songs_direct = join_path(script_store_dir, "")
     local songs = SpotLoading(songs_direct)
     
-    local MusicAdding = SpotRoot:list_action("Saved Playlists", {}, "", SpotFiles, function(selected_index)
+    local SpotMusicList = SpotRoot:list_action("Saved Playlists", {}, "", SpotFiles, function(selected_index)
         local selected_file = SpotFiles[selected_index]
         local sound_location = join_path(script_store_dir, selected_file)
         if not filesystem.exists(sound_location) then
@@ -147,7 +148,7 @@ end
     util.create_thread(function()
         while true do
             UpdateAutoMusics()
-            menu.set_list_action_options(MusicAdding, SpotFiles)
+            menu.set_list_action_options(SpotMusicList, SpotFiles)
             util.yield(5000)
         end
     end)
@@ -171,14 +172,16 @@ end
 
         SpotMiscs:divider("Informations")
         SpotMiscs:action("Version: " ..version, {}, "", function()end)
-        SpotMiscs:hyperlink("Github Link", "https://github.com/StealthyAD/SpotMusic")
+        SpotMiscs:action("Menu Edition: " ..edition_menu, {}, "", function()end)
 
     -------------
     -- Credits
     -------------
 
         SpotMiscs:divider("Credits")
-        SpotMiscs:action("StealthyAD.#8293 (Developer SpotMusic)", {}, "", function()end)
+        local SpotStealthy = SpotMiscs:list("StealthyAD.#8293 (Developer SpotMusic)")
+        SpotStealthy:hyperlink("Github Link", "https://github.com/StealthyAD/SpotMusic")
+        SpotStealthy:hyperlink("Join my TikTok", "https://www.tiktok.com/@xstealthyhd")
         SpotMiscs:action("Lance", {}, "Created Startup Sound and I improve the lua to create Playlists and make easier.", function()end)
     
     -------------
