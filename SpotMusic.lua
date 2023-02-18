@@ -49,7 +49,7 @@ end
         return ending == "" or str:sub(-#ending) == ending
     end
 
-    local Music_Files = {}
+    local SpotFiles = {}
         function update_all_music_files()
             Music_TempFiles = {}
             for i, path in ipairs(filesystem.list_files(script_store_dir)) do
@@ -58,7 +58,7 @@ end
                     Music_TempFiles[#Music_TempFiles+1] = file_str
                 end
             end
-            Music_Files = Music_TempFiles
+            SpotFiles = Music_TempFiles
         end
         update_all_music_files()
 
@@ -71,16 +71,16 @@ end
         end
     end
 
-    local function load_songs(directory)
-        local loaded_songs = {}
+    local function SpotLoading(directory)
+        local SpotLoadedSongs = {}
         for _, filepath in ipairs(filesystem.list_files(directory)) do
             local _, filename, ext = string.match(filepath, "(.-)([^\\/]-%.?([^%.\\/]*))$")
             if not filesystem.is_dir(script_store_dir) and ext == "wav" then
-                local sound_location = join_path(script_store_dir, filename)
-                loaded_songs[#loaded_songs + 1] = {file=filename, sound=aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)}
+                local name = string.gsub(filename, "%.wav$", "")
+                SpotLoadedSongs[#SpotLoadedSongs + 1] = {file=name, sound=aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)}
             end
         end
-        return loaded_songs
+        return SpotLoadedSongs
     end
 
 --------------------------------
@@ -117,15 +117,17 @@ end
     --------------------------------
 
     local songs_direct = join_path(script_store_dir, "")
-    local songs = load_songs(songs_direct)
+    local songs = SpotLoading(songs_direct)
     
-    local MusicAdding = SpotRoot:list_action("Saved Playlists", {}, "", Music_Files, function(selected_index)
-        local selected_file = Music_Files[selected_index]
+    local MusicAdding = SpotRoot:list_action("Saved Playlists", {}, "", SpotFiles, function(selected_index)
+        local selected_file = SpotFiles[selected_index]
         local sound_location = join_path(script_store_dir, selected_file)
         if not filesystem.exists(sound_location) then
             util.toast("Sound file does not exist: " .. sound_location)
         else
+            local display_text = string.gsub(selected_file, "%.wav$", "") -- remove last 4 characters (".wav")
             PlaySound(sound_location, SND_FILENAME | SND_ASYNC)
+            util.toast("SpotMusic Script\nMusic choosen: " .. display_text)
         end
     end)
 
@@ -136,13 +138,13 @@ end
     util.create_thread(function()
         while true do
             update_all_music_files()
-            menu.set_list_action_options(MusicAdding, Music_Files)
+            menu.set_list_action_options(MusicAdding, SpotFiles)
             util.yield(5000)
         end
     end)
 
     if not SCRIPT_SILENT_START then
-        util.toast("Hello ".. players.get_name(players.user()).. "\nWelcome to SpotMusic.")
+        util.toast("Hello ".. players.get_name(players.user()).. "\nWelcome to SpotMusic " ..version)
     end
 
     --------------------------------
@@ -150,9 +152,14 @@ end
     --------------------------------
 
     local SpotCreditsAndMiscs = SpotRoot:list("Miscs")
+    SpotCreditsAndMiscs:divider("Informations")
     SpotCreditsAndMiscs:action("Version: " ..version, {}, "", function()end)
     SpotCreditsAndMiscs:hyperlink("Github Link", "https://github.com/StealthyAD/SpotMusic")
+
     SpotCreditsAndMiscs:divider("Credits")
-    
-    SpotCreditsAndMiscs:action("StealthyAD. (Developer SpotMusic)", {}, "", function()end)
-    SpotCreditsAndMiscs:action("Lance", {}, "Created Startup Sound but improving the lua to create Playlists", function()end)
+    SpotCreditsAndMiscs:action("StealthyAD.#8293 (Developer SpotMusic)", {}, "", function()end)
+    SpotCreditsAndMiscs:action("Lance", {}, "Created Startup Sound and I improve the lua to create Playlists and make greater.", function()end)
+
+    SpotCreditsAndMiscs:divider("Resources")
+    SpotCreditsAndMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", "Provides much features & essentials for Lua Scripts.")
+    SpotCreditsAndMiscs:hyperlink("NativeDB", "https://nativedb.dotindustries.dev/natives", "Provided for natives.")
