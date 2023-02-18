@@ -107,8 +107,6 @@ end
     end)
     async_http.dispatch()
 
-
-
 --------------------------------
 -- Main Menu Features
 --------------------------------
@@ -181,4 +179,4 @@ end
     SpotCreditsAndMiscs:divider("Credits")
     
     SpotCreditsAndMiscs:action("StealthyAD. (Developping SpotMusic)", {}, "", function()end)
-end
+    SpotCreditsAndMiscs:action("Lance", {}, "Improving his Startup Sound and create Music Playlist.", function()end)
