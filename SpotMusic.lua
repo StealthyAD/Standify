@@ -99,7 +99,8 @@ end
         script_relpath=SCRIPT_RELPATH,
         switch_to_branch=selected_branch,
         verify_file_begins_with="--",
-        check_interval=config.auto_update_check_interval,
+        check_interval=86400,
+        silent_updates=true,
         dependencies={
             {
                 name="SpotMusic",
