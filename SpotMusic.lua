@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.15.4"
+local SCRIPT_VERSION = "0.15.5"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -130,6 +130,12 @@ end
     auto_updater.run_auto_update({
         source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
         script_relpath=SCRIPT_RELPATH,
+        verify_file_begins_with="--"
+    })
+    -- Manual Update
+    auto_updater.run_auto_update({
+        source_url="https://raw.githubusercontent.com/hexarobi/stand-lua-auto-updater/main/auto-updater.lua",
+        script_relpath="lib/auto-updater.lua",
         verify_file_begins_with="--"
     })
 
