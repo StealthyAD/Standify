@@ -93,6 +93,28 @@ end
 -- Update Features
 --------------------------------
 
+    local default_check_interval = 604800
+    local auto_update_config = {
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/lib/SpotMusic.lua",
+        script_relpath=SCRIPT_RELPATH,
+        switch_to_branch=selected_branch,
+        verify_file_begins_with="--",
+        check_interval=config.auto_update_check_interval,
+        dependencies={
+            {
+                name="SpotMusic",
+                source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/lib/SpotMusic.lua",
+                script_relpath="lib/SpotMusic.lua",
+                verify_file_begins_with="--",
+                is_required=true,
+            },
+        }
+    }
+    local update_success
+    if config.auto_update then
+        update_success = auto_updater.run_auto_update(auto_update_config)
+    end
+
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
     if not status then
@@ -122,6 +144,13 @@ end
         script_relpath=SCRIPT_RELPATH,
         verify_file_begins_with="--"
     })
+
+    -- Manually check for updates with a menu option
+    menu.action(SpotRoot, "Check for Update", {}, "The script will automatically check for updates at most daily, but you can manually check using this option anytime.", function()
+        auto_update_config.check_interval = 0
+        util.toast("Checking for updates")
+        auto_updater.run_auto_update(auto_update_config)
+    end)
 
 --------------------------------
 -- Translations Features
