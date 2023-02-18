@@ -12,10 +12,15 @@ local aalib = require("aalib")
 local PlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local root = menu.my_root()
 
 util.require_natives(1663599433)
 util.keep_running()
+
+--------------------------------
+-- Root Parts
+--------------------------------
+
+    local SpotRoot = menu.my_root()
 
 --------------------------------
 -- File Storage Direction
@@ -78,16 +83,41 @@ end
     end
 
 
+    local update_available
+    async_http.init("raw.githubusercontent.com","/StealthyAD/SpotMusic/main/SpotMusic.lua",function(online_script)
+        if select(2,load(online_script)) then
+            util.toast("Script failed to check for update. Please try again later. If this continues to happen then manually update via github.")
+            return
+        end
+        local latest_version = online_script:match("^local%s+version%s*=%s*\"(%d+%.%d+)\"")
+        if tonumber(version) < tonumber(latest_version) then
+            update_available = true
+            util.toast("Version".." "..string.gsub(latest_version,"\n","",1).." ".."available.\nPress Update to get it.",false)
+            update_button = menu.action(menu.my_root(),Tr("Update to").." "..latest_version,{},"",function()
+                local f = io.open(filesystem.scripts_dir()..SCRIPT_RELPATH,"wb")
+                f:write(online_script)
+                f:close()
+                util.restart_script()
+            end)
+            menu.attach_before(self,menu.detach(update_button))
+        elseif tonumber(version) > tonumber(latest_version) then
+            dev_build = main:divider("Unreleased Version",{},"",function() end)
+            menu.attach_before(self,menu.detach(dev_build))
+        end
+    end)
+    async_http.dispatch()
+
+
 
 --------------------------------
 -- Main Menu Features
 --------------------------------
 
-menu.action(root, "Restart Script", {'spotrestart'}, "", function()
-    util.restart_script()
-end)
-menu.divider(root, "Main Menu")
-menu.hyperlink(root, "Open Music Folders", "file://"..script_store_dir, "Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")
+    SpotRoot:action("Restart Script", {'spotrestart'}, "", function()
+        util.restart_script()
+    end)
+    SpotRoot:divider("Main Menu")
+    SpotRoot:hyperlink("Open Music Folders", "file://"..script_store_dir, "Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")
 
     --------------------------------
     -- Stop Sounds
@@ -95,7 +125,7 @@ menu.hyperlink(root, "Open Music Folders", "file://"..script_store_dir, "Edit yo
 
     local sound_handle = nil
 
-    menu.action(root, "Stop Music", {'spotstopmusic'}, "It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file.", function()
+    SpotRoot:action("Stop Music", {'spotstopmusic'}, "It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file.", function()
         local sound_location = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location) then
             util.toast("[SpotMusic] : Sound file does not exist: " .. sound_location)
@@ -115,7 +145,7 @@ menu.hyperlink(root, "Open Music Folders", "file://"..script_store_dir, "Edit yo
     local songs_direct = join_path(script_store_dir, "")
     local songs = load_songs(songs_direct)
     
-    local MusicAdding = menu.list_action(root, "Saved Playlists", {}, "", Music_Files, function(selected_index)
+    local MusicAdding = SpotRoot:list_action("Saved Playlists", {}, "", Music_Files, function(selected_index)
         local selected_file = Music_Files[selected_index]
         local sound_location = join_path(script_store_dir, selected_file)
         if not filesystem.exists(sound_location) then
@@ -137,6 +167,18 @@ menu.hyperlink(root, "Open Music Folders", "file://"..script_store_dir, "Edit yo
         end
     end)
 
-if not SCRIPT_SILENT_START then
-    util.toast("Hello ".. players.get_name(players.user()).. "\nWelcome to SpotMusic.")
+    if not SCRIPT_SILENT_START then
+        util.toast("Hello ".. players.get_name(players.user()).. "\nWelcome to SpotMusic.")
+    end
+
+    --------------------------------
+    -- Credits & GitHub
+    --------------------------------
+
+    local SpotCreditsAndMiscs = SpotRoot:list("Miscs")
+    SpotCreditsAndMiscs:action("Version: 0.1", {}, "", function()end)
+    SpotCreditsAndMiscs:hyperlink("Github Link", "https://github.com/StealthyAD/SpotMusic")
+    SpotCreditsAndMiscs:divider("Credits")
+    
+    SpotCreditsAndMiscs:action("StealthyAD. (Developping SpotMusic)", {}, "", function()end)
 end
