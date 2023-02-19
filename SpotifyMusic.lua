@@ -152,7 +152,7 @@ end
 
     if not supported_lang then
         local SupportedLang = function()
-            local supported_lang_table = {"fr", "de", "it", "es", "pt", "ru"}
+            local supported_lang_table = {"fr", "de", "es", "pt", "ru"}
             for _,tested_lang in pairs(supported_lang_table) do
                 if tested_lang == user_lang then
                     supported_lang = true
@@ -233,40 +233,6 @@ end
             ["Check for Update"] = "Überprüfung auf Aktualisierung",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nKeine Updates gefunden.",
         },
-        it = { -- Italian Language (Italiano)
-            ["Restart Script"] = "Script di riavvio",
-            ["Main Menu"] = "Menu principale",
-            ["Open Music Folders"] = "Aprire le cartelle musicali",
-            ["Stop Music"] = "Fermare la musica",
-            ["Saved Playlists"] = "Playlist salvate",
-            ["Miscellaneous"] = "Varie",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Riavviare immediatamente lo script in caso di problemi.\nNOTA: la musica si spegnerà immediatamente.",
-            ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Modifica la tua musica e divertiti.\nNOTA: è necessario inserire un file .wav.\nNon sono accettati file .mp3 o altri file contenenti file non validi.",
-            ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "La musica si interromperà all'istante.\nNOTA: non eliminare la cartella denominata Stop Sounds, la musica non si interromperà e rimarrà in loop. Non rinominare i file.",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Creato Startup Sound e migliorato il lua per creare Playlist e rendere più facile.",
-            ["Provides much features & essentials for Lua Scripts."] = "Fornisce molte funzioni ed elementi essenziali per gli script Lua.",
-            ["Provided for using GTAV natives."] = "Fornito per l'utilizzo dei nativi di GTAV.",
-            ["Visit my GitHub Page"] = "Visita la mia pagina GitHub",
-            ["Join my TikTok"] = "Unisciti al mio TikTok",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMusica selezionata:",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic : Il file musicale non esiste:",
-            ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: è necessario ottenere il file, altrimenti non è possibile interrompere il suono.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nSi è fermato correttamente.",
-            ["Hello "] = "Ciao ",
-            ["\nWelcome to SpotifyMusic "] = "\nBenvenuti a SpotifyMusic ",
-            ["Informations"] = "Informazioni",
-            ["Credits"] = "Crediti",
-            ["Resources"] = "Risorse",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotifyMusic)",
-            ["Version: "] = "Versione: ",
-            ["Stand Edition: "] = "Stand Edizione: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
-            ["WAV Compress"] = "Compressore WAV",
-            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Lo script controlla automaticamente la presenza di aggiornamenti al massimo ogni giorno, ma è possibile controllare manualmente utilizzando questa opzione in qualsiasi momento.",
-            ["Check for Update"] = "Verifica dell'aggiornamento",
-            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNessun aggiornamento trovato.",
-        },
-
         es = { -- Spanish Language (Español)
             ["Restart Script"] = "Script de reinicio",
             ["Main Menu"] = "Menú principal",
