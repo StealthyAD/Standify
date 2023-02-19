@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.16 bis"
+local SCRIPT_VERSION = "0.16 bis-1"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -298,7 +298,7 @@ end
             ["WAV Compress"] = "Compresor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Update"] = "Comprobar la actualización",
-            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones."
+            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones.",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
