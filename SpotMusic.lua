@@ -192,7 +192,7 @@ end
             ["Resources"] = "Ressources",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Développeur SpotMusic)",
             ["Version: "] = "Version: ",
-            ["Menu Edition Stand: "] = "Edition du menu Stand: ",
+            ["Stand Edition: "] = "Stand Edition: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
             ["WAV Compress"] = "Compresseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
@@ -226,7 +226,7 @@ end
             ["Resources"] = "Ressourcen",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Entwickler SpotMusic)",
             ["Version: "] = "Version: ",
-            ["Menu Edition Stand: "] = "Editionsmenü Stand: ",
+            ["Stand Edition: "] = "Stand Ausgabe: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
             ["WAV Compress"] = "WAV-Kompressor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
@@ -259,7 +259,7 @@ end
             ["Resources"] = "Risorse",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotMusic)",
             ["Version: "] = "Versione: ",
-            ["Menu Edition Stand: "] = "Menu dell'edizione Stand: ",
+            ["Stand Edition: "] = "Stand Edizione: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compressore WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Lo script controlla automaticamente la presenza di aggiornamenti al massimo ogni giorno, ma è possibile controllare manualmente utilizzando questa opzione in qualsiasi momento.",
@@ -293,7 +293,7 @@ end
             ["Resources"] = "Recursos",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desarrollador SpotMusic)",
             ["Version: "] = "Versión: ",
-            ["Menu Edition Stand: "] = "Menú Edición Stand: ",
+            ["Stand Edition: "] = "Stand Edición: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compresor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
@@ -326,7 +326,7 @@ end
             ["Resources"] = "Recursos",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotMusic)",
             ["Version: "] = "Versão: ",
-            ["Menu Edition Stand: "] = "Menu Edição Stand: ",
+            ["Stand Edition: "] = "Stand Edição: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
             ["WAV Compress"] = "Compressor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
@@ -359,7 +359,7 @@ end
             ["Resources"] = "Ресурсы",
             ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Разрабо SpotMusic)",
             ["Version: "] = "Версия: ",
-            ["Menu Edition Stand: "] = "Меню издания Stand: ",
+            ["Stand Edition: "] = "Stand Издание: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
             ["WAV Compress"] = "WAV-компрессор",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
@@ -457,7 +457,7 @@ end
 
         SpotMiscs:divider(ForceTranslate("Informations"))
         SpotMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
-        SpotMiscs:action(ForceTranslate("Menu Edition Stand: ") ..edition_menu, {}, "", function()end)
+        SpotMiscs:action(ForceTranslate("Stand Edition: ") ..edition_menu, {}, "", function()end)
         SpotMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
             auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
