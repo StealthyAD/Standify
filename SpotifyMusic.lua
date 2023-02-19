@@ -1,5 +1,5 @@
 -------------------------------
----      SpotMusic by
+---      SpotifyMusic by
 ---       StealthyAD
 ---    For Stand Mod Menu
 ---     Multi-Language
@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.15.8"
+local SCRIPT_VERSION = "0.16"
 local edition_menu = "99.3"
 
 util.require_natives(1663599433)
@@ -23,18 +23,18 @@ util.keep_running()
 -- Root Parts
 --------------------------------
 
-    local SpotRoot = menu.my_root()
+    local SpotifyRoot = menu.my_root()
 
 --------------------------------
 -- File Storage Direction
 --------------------------------
 
-local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotMusic\songs
+local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\songs
 if not filesystem.is_dir(script_store_dir) then
     filesystem.mkdirs(script_store_dir)
 end
 
-local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotMusic\stop_sounds
+local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\stop_sounds
 if not filesystem.is_dir(script_store_dir_stop) then
     filesystem.mkdirs(script_store_dir_stop)
 end
@@ -88,14 +88,14 @@ end
         end
         return nil
     end
-
+	
 --------------------------------
 -- Update Features
 --------------------------------
 
     local default_check_interval = 604800
     local auto_update_config = {
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotifyMusic/main/SpotifyMusic.lua",
         script_relpath=SCRIPT_RELPATH,
         switch_to_branch=selected_branch,
         verify_file_begins_with="--",
@@ -128,7 +128,7 @@ end
     
     -- Run Auto Update
     auto_updater.run_auto_update({
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotMusic/main/SpotMusic.lua",
+        source_url="https://raw.githubusercontent.com/StealthyAD/SpotifyMusic/main/SpotifyMusic.lua",
         script_relpath=SCRIPT_RELPATH,
         verify_file_begins_with="--"
     })
@@ -160,7 +160,7 @@ end
                 end
             end
             english = true
-            util.toast("> SpotMusic\nSorry your language isn't supported. Script language set to English.")
+            util.toast("> SpotifyMusic\nSorry your language isn't supported. Script language set to English.")
         end
         SupportedLang()
     end
@@ -181,23 +181,23 @@ end
             ["Provided for using GTAV natives."] = "Fourni en utilisant les natives.",
             ["Visit my GitHub Page"] = "Visite ma page GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nMusique choisie: ",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nLe fichier musical n'existe pas :",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMusique choisie: ",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nLe fichier musical n'existe pas :",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nMusique arrêté avec succès.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
-            ["\nWelcome to SpotMusic "] = "\nBienvenue sur le script SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nBienvenue sur le script SpotifyMusic ",
             ["Informations"] = "Informations",
             ["Credits"] = "Crédits",
             ["Resources"] = "Ressources",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Développeur SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Développeur SpotifyMusic)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Edition: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
             ["WAV Compress"] = "Compresseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
             ["Check for Update"] = "Vérifier les mises à jour",
-            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nPas de mise à jour trouvé.",
+            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nPas de mise à jour trouvé.",
         },
 
         de = { -- German Language (Deutsch)
@@ -215,23 +215,23 @@ end
             ["Provided for using GTAV natives."] = "Vorgesehen für die Verwendung von GTAV-Eingeborenen.",
             ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nAusgewählte Musik: ",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nDie Musikdatei existiert nicht:",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nAusgewählte Musik: ",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nDie Musikdatei existiert nicht:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nWurde erfolgreich beendet.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
-            ["\nWelcome to SpotMusic "] = "\nWillkommen im script SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nWillkommen im script SpotifyMusic ",
             ["Informations"] = "Informationen",
             ["Credits"] = "Impressum",
             ["Resources"] = "Ressourcen",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Entwickler SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Entwickler SpotifyMusic)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Ausgabe: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
             ["WAV Compress"] = "WAV-Kompressor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Update"] = "Überprüfung auf Aktualisierung",
-            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nKeine Updates gefunden.",
+            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nKeine Updates gefunden.",
         },
         it = { -- Italian Language (Italiano)
             ["Restart Script"] = "Script di riavvio",
@@ -248,23 +248,23 @@ end
             ["Provided for using GTAV natives."] = "Fornito per l'utilizzo dei nativi di GTAV.",
             ["Visit my GitHub Page"] = "Visita la mia pagina GitHub",
             ["Join my TikTok"] = "Unisciti al mio TikTok",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nMusica selezionata:",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic : Il file musicale non esiste:",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMusica selezionata:",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic : Il file musicale non esiste:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: è necessario ottenere il file, altrimenti non è possibile interrompere il suono.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nSi è fermato correttamente.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nSi è fermato correttamente.",
             ["Hello "] = "Ciao ",
-            ["\nWelcome to SpotMusic "] = "\nBenvenuti a SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nBenvenuti a SpotifyMusic ",
             ["Informations"] = "Informazioni",
             ["Credits"] = "Crediti",
             ["Resources"] = "Risorse",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Sviluppatore SpotifyMusic)",
             ["Version: "] = "Versione: ",
             ["Stand Edition: "] = "Stand Edizione: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compressore WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Lo script controlla automaticamente la presenza di aggiornamenti al massimo ogni giorno, ma è possibile controllare manualmente utilizzando questa opzione in qualsiasi momento.",
             ["Check for Update"] = "Verifica dell'aggiornamento",
-            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nNessun aggiornamento trovato.",
+            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNessun aggiornamento trovato.",
         },
 
         es = { -- Spanish Language (Español)
@@ -282,23 +282,23 @@ end
             ["Provided for using GTAV natives."] = "Proporcionado para usar los nativos de GTAV",
             ["Visit my GitHub Page"] = "Visita mi página de GitHub",
             ["Join my TikTok"] = "Únete a mi TikTok",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nMúsica seleccionada: ",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nEl archivo de música no existe:",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nLa música se detuvo con éxito.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nLa música se detuvo con éxito.",
             ["Hello "] = "Hola ",
-            ["\nWelcome to SpotMusic "] = "\nBienvenido a SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nBienvenido a SpotifyMusic ",
             ["Informations"] = "Información",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desarrollador SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Desarrollador SpotifyMusic)",
             ["Version: "] = "Versión: ",
             ["Stand Edition: "] = "Stand Edición: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress"] = "Compresor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Update"] = "Comprobar la actualización",
-            ["> SpotMusic\nNo updates found."] = "> SpotMusic\nNo se han encontrado actualizaciones."
+            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones."
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -315,23 +315,23 @@ end
             ["Provided for using GTAV natives."] = "Fornecido para a utilização de nativos de GTAV.",
             ["Visit my GitHub Page"] = "Visite a minha página GitHub",
             ["Join my TikTok"] = "Junte-se ao meu TikTok",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nMúsica seleccionada: ",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nFicheiro de música não existe:",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nFicheiro de música não existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nA música parou com sucesso.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nA música parou com sucesso.",
             ["Hello "] = "Olá ",
-            ["\nWelcome to SpotMusic "] = "\nBem-vindo ao SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nBem-vindo ao SpotifyMusic ",
             ["Informations"] = "Informações",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotifyMusic)",
             ["Version: "] = "Versão: ",
             ["Stand Edition: "] = "Stand Edição: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
             ["WAV Compress"] = "Compressor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
             ["Check for Update"] = "Verificar por Actualização",
-            ["> SpotMusic\nNo updates found."] = "Nenhuma actualização encontrada",
+            ["> SpotifyMusic\nNo updates found."] = "Nenhuma actualização encontrada",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -348,23 +348,23 @@ end
             ["Provided for using GTAV natives."] = "Обеспечивает использование GTAV natives.",
             ["Visit my GitHub Page"] = "Посетите мою страницу на GitHub",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
-            ["> SpotMusic\nSelected Music: "] = "> SpotMusic\nВыбранная музыка: ",
-            ["> SpotMusic\nMusic file does not exist:"] = "> SpotMusic\nМузыкальный файл не существует:",
+            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nВыбранная музыка: ",
+            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
-            ["> SpotMusic\nMusic stopped successfully."] = "> SpotMusic\nМузыка успешно остановлена.",
+            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nМузыка успешно остановлена.",
             ["Hello "] = "Привет ",
-            ["\nWelcome to SpotMusic "] = "\nДобро пожаловать в SpotMusic ",
+            ["\nWelcome to SpotifyMusic "] = "\nДобро пожаловать в SpotifyMusic ",
             ["Informations"] = "Информация",
             ["Credits"] = "Кредиты",
             ["Resources"] = "Ресурсы",
-            ["StealthyAD.#8293 (Developer SpotMusic)"] = "StealthyAD.#8293 (Разрабо SpotMusic)",
+            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Разрабо SpotifyMusic)",
             ["Version: "] = "Версия: ",
             ["Stand Edition: "] = "Stand Издание: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
             ["WAV Compress"] = "WAV-компрессор",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
             ["Check for Update"] = "Проверка обновления",
-            ["> SpotMusic\nNo updates found."] = "Обновления не найдены"
+            ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены"
         }
     }
 
@@ -372,7 +372,7 @@ end
         if not english then
             local forcetranslate_str = tr_table[user_lang][str]
             if forcetranslate_str == nil or forcetranslate_str == "" then
-                util.toast("> SpotMusic (translation missing) : '"..str.."'",TOAST_CONSOLE)
+                util.toast("> SpotifyMusic (translation missing) : '"..str.."'",TOAST_CONSOLE)
             else
                 return forcetranslate_str
             end
@@ -386,27 +386,27 @@ end
 
     local sound_handle = nil
 
-    SpotRoot:action(ForceTranslate("Restart Script"), {'spotrestart'}, ForceTranslate("Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function()
+    SpotifyRoot:action(ForceTranslate("Restart Script"), {'spotifyrestart'}, ForceTranslate("Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function()
         sound_handle = aalib.play_sound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
         util.restart_script()
     end)
 
-    SpotRoot:divider(ForceTranslate("Main Menu"))
-    SpotRoot:hyperlink(ForceTranslate("WAV Compress"), "https://www.freeconvert.com/wav-compressor")
-    SpotRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."))
+    SpotifyRoot:divider(ForceTranslate("Main Menu"))
+    SpotifyRoot:hyperlink(ForceTranslate("WAV Compress"), "https://www.freeconvert.com/wav-compressor")
+    SpotifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."))
 
     --------------------------------
     -- Stop Sounds
     --------------------------------
 
-    SpotRoot:action(ForceTranslate("Stop Music"), {'spotstopmusic'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index)
+    SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index)
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
-            util.toast(ForceTranslate("> SpotMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            util.toast(ForceTranslate("> SpotifyMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
         else
             sound_handle = aalib.play_sound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if SpotFiles and SpotFiles ~= "" then -- check if SpotFiles is not nil or empty
-                util.toast(ForceTranslate('> SpotMusic\nMusic stopped successfully.'))
+                util.toast(ForceTranslate('> SpotifyMusic\nMusic stopped successfully.'))
             end
         end
     end)
@@ -418,15 +418,15 @@ end
     local songs_direct = join_path(script_store_dir, "")
     local songs = SpotLoading(songs_direct)
     
-    local SpotMusicList = SpotRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
+    local SpotifyMusicList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
         local selected_file = SpotFiles[selected_index]
         local sound_location = join_path(script_store_dir, selected_file)
         if not filesystem.exists(sound_location) then
-            util.toast("> SpotMusic : Sound file does not exist: " .. sound_location)
+            util.toast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
         else
             local display_text = string.gsub(string.gsub(selected_file, "%.wav$", ""), "%.WAV$", "")
             SpotPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
-            util.toast(ForceTranslate("> SpotMusic\nSelected Music: ") .. display_text)
+            util.toast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
         end
     end)
 
@@ -437,48 +437,53 @@ end
     util.create_thread(function()
         while true do
             UpdateAutoMusics()
-            menu.set_list_action_options(SpotMusicList, SpotFiles)
+            menu.set_list_action_options(SpotifyMusicList, SpotFiles)
             util.yield(5000)
         end
     end)
 
     if not SCRIPT_SILENT_START then
-        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotMusic ") ..SCRIPT_VERSION)
+        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotifyMusic ") ..SCRIPT_VERSION)
     end
+
+    util.on_stop(function()
+        local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
+        aalib.play_sound(sound_location_1, SND_FILENAME | SND_ASYNC)
+    end)
 
     --------------------------------
     -- Credits & GitHub
     --------------------------------
 
-    local SpotMiscs = SpotRoot:list(ForceTranslate("Miscellaneous"))
+    local SpotifyMiscs = SpotifyRoot:list(ForceTranslate("Miscellaneous"))
     ----------------
     -- Informations
     ----------------
 
-        SpotMiscs:divider(ForceTranslate("Informations"))
-        SpotMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
-        SpotMiscs:action(ForceTranslate("Stand Edition: ") ..edition_menu, {}, "", function()end)
-        SpotMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
-            auto_update_config.check_interval = 0
-            if auto_updater.run_auto_update(auto_update_config) then
-                util.toast(ForceTranslate("> SpotMusic\nNo updates found."))
-            end
-        end)
+        SpotifyMiscs:divider(ForceTranslate("Informations"))
+        SpotifyMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
+        SpotifyMiscs:action(ForceTranslate("Stand Edition: ") ..edition_menu, {}, "", function()end)
 
     -------------
     -- Credits
     -------------
 
-        SpotMiscs:divider(ForceTranslate("Credits"))
-        local SpotStealthy = SpotMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer SpotMusic)"))
-        SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/SpotMusic")
+        SpotifyMiscs:divider(ForceTranslate("Credits"))
+        local SpotStealthy = SpotifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer SpotifyMusic)"))
+        SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/SpotifyMusic")
         SpotStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
-        SpotMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
+        SpotifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
+		SpotifyMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+            auto_update_config.check_interval = 0
+            if auto_updater.run_auto_update(auto_update_config) then
+                util.toast(ForceTranslate("> SpotMusic\nNo updates found."))
+            end
+        end)
     
     -------------
     -- Resources
     -------------
 
-        SpotMiscs:divider(ForceTranslate("Resources"))
-        SpotMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
-        SpotMiscs:hyperlink("NativeDB", "https://nativedb.dotindustries.dev/natives", ForceTranslate("Provided for using GTAV natives."))
+        SpotifyMiscs:divider(ForceTranslate("Resources"))
+        SpotifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
+        SpotifyMiscs:hyperlink("NativeDB", "https://nativedb.dotindustries.dev/natives", ForceTranslate("Provided for using GTAV natives."))
