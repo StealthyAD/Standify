@@ -344,10 +344,10 @@ end
             ["WAV Compress & Converter"] = "Сжатие и преобразование WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
             ["Check for Update"] = "Проверка обновления",
-            ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены"
+            ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены",
 	    -- Converter & Compress
 	    ["Compressor"] = "компрессор",
-	    ["Converter"] = "Конвертер,
+	    ["Converter"] = "Конвертер
         }
     }
 
