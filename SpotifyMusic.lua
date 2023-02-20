@@ -180,7 +180,6 @@ end
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Il arrêtera votre musique instantanément. \nNOTE : Ne supprimez pas le dossier appelé Stop Sounds, la musique ne s'arrêtera pas et sera mise en boucle. Ne renommez pas le fichier.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Avoir crée le lua Startup Sound et je me suis inspiré pour créer le lua pour créer des playlists et rendre plus facile.",
             ["Provides much features & essentials for Lua Scripts."] = "Fournit beaucoup de fonctionnalités et d'éléments essentiels pour les scripts Lua.",
-            ["Provided for using GTAV natives."] = "Fourni en utilisant les natives.",
             ["Visit my GitHub Page"] = "Visite ma page GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
             ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMusique choisie: ",
@@ -217,7 +216,6 @@ end
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Die Musik wird sofort gestoppt. HINWEIS: Löschen Sie nicht den Ordner 'Stop Sounds', sonst wird die Musik nicht gestoppt und in einer Schleife abgespielt. Benennen Sie die Datei nicht um.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Erstellt Startup Sound und ich verbessere die Lua, um Playlists zu erstellen und einfacher zu machen.",
             ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
-            ["Provided for using GTAV natives."] = "Vorgesehen für die Verwendung von GTAV-Eingeborenen.",
             ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
             ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nAusgewählte Musik: ",
@@ -253,7 +251,6 @@ end
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Detendrá tu música instantáneamente.\nNOTA: No borres la carpeta llamada Detener Sonidos, la música no se detendrá y se reproducirá en bucle. No cambies el nombre del archivo. Se detendrá la música al instante",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Creado Startup Sound y mejoro el lua para crear Listas de Reproducción y hacerlo más fácil.",
             ["Provides much features & essentials for Lua Scripts."] = "Proporciona muchas características y elementos esenciales para scripts Lua.",
-            ["Provided for using GTAV natives."] = "Proporcionado para usar los nativos de GTAV",
             ["Visit my GitHub Page"] = "Visita mi página de GitHub",
             ["Join my TikTok"] = "Únete a mi TikTok",
             ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
@@ -289,7 +286,6 @@ end
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Não apague a pasta chamada Stop Sounds, a música não pára e faz um looping. Não renomeie o ficheiro.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Criei o Startup Sound e melhorei a lua para criar listas de reprodução e tornar mais fácil.",
             ["Provides much features & essentials for Lua Scripts."] = "Fornece muitas características & essências para Lua Scripts.",
-            ["Provided for using GTAV natives."] = "Fornecido para a utilização de nativos de GTAV.",
             ["Visit my GitHub Page"] = "Visite a minha página GitHub",
             ["Join my TikTok"] = "Junte-se ao meu TikTok",
             ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
@@ -325,7 +321,6 @@ end
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Это мгновенно остановит вашу музыку.\nNOTE: Не удаляйте папку под названием Stop Sounds, музыка не остановится и зациклится. Не переименовывайте файл.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Создал Startup Sound и улучшаю lua, чтобы создавать плейлисты и сделать проще.",
             ["Provides much features & essentials for Lua Scripts."] = "Предоставляет много возможностей и основ для Lua скриптов.",
-            ["Provided for using GTAV natives."] = "Обеспечивает использование GTAV natives.",
             ["Visit my GitHub Page"] = "Посетите мою страницу на GitHub",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
             ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nВыбранная музыка: ",
@@ -495,4 +490,3 @@ end
 
         SpotifyMiscs:divider(ForceTranslate("Resources"))
         SpotifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
-        SpotifyMiscs:hyperlink("NativeDB", "https://nativedb.dotindustries.dev/natives", ForceTranslate("Provided for using GTAV natives."))
