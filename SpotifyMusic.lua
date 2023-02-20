@@ -200,9 +200,9 @@ end
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
             ["Check for Update"] = "Vérifier les mises à jour",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nPas de mise à jour trouvé.",
-	    -- Converter & Compress
-	    ["Compressor"] = "Compresseur",
-	    ["Converter"] = "Convertisseur,
+            -- Converter & Compress
+            ["Compressor"] = "Compresseur",
+            ["Converter"] = "Convertisseur",
         },
 
         de = { -- German Language (Deutsch)
@@ -237,9 +237,9 @@ end
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Update"] = "Überprüfung auf Aktualisierung",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nKeine Updates gefunden.",
-	    -- Converter & Compress
-	    ["Compressor"] = "Kompressor",
-	    ["Converter"] = "Konverter,
+            -- Converter & Compress
+            ["Compressor"] = "Kompressor",
+            ["Converter"] = "Konverter",
         },
         es = { -- Spanish Language (Español)
             ["Restart Script"] = "Script de reinicio",
@@ -273,9 +273,9 @@ end
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Update"] = "Comprobar la actualización",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones.",
-	    -- Converter & Compress
-	    ["Compressor"] = "Compresor",
-	    ["Converter"] = "Conversor,
+            -- Converter & Compress
+            ["Compressor"] = "Compresor",
+            ["Converter"] = "Conversor",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Restart Script"] = "Reiniciar o Roteiro",
@@ -309,9 +309,9 @@ end
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
             ["Check for Update"] = "Verificar por Actualização",
             ["> SpotifyMusic\nNo updates found."] = "Nenhuma actualização encontrada",
-	    -- Converter & Compress
-	    ["Compressor"] = "Compressor",
-	    ["Converter"] = "Conversor,
+            -- Converter & Compress
+            ["Compressor"] = "Compressor",
+            ["Converter"] = "Conversor",
         },
         ru = { -- Russian Language (русский)
             ["Restart Script"] = "Сценарий перезапуска",
@@ -345,9 +345,9 @@ end
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
             ["Check for Update"] = "Проверка обновления",
             ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены",
-	    -- Converter & Compress
-	    ["Compressor"] = "компрессор",
-	    ["Converter"] = "Конвертер
+            -- Converter & Compress
+            ["Compressor"] = "компрессор",
+            ["Converter"] = "Конвертер"
         }
     }
 
