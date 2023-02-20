@@ -4,6 +4,12 @@ SpotifyMusic can use wav files which you can import each favorite music, it's fo
 
 Inspired X-Force features and Lance's Startup Sounds which we can upload own musics but Stand don't have these features so I decided to create and using some luas script to support.
 
+```
+- Compatible All Stand Versions.
+- Multi Language Included (EN, FR, PT, ES, RU)
+- .wav file compatible and refresh music features.
+```
+
 Installation
 --------------------
 
