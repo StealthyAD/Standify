@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.1 bis"
+local SCRIPT_VERSION = "0.17.2"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
@@ -198,7 +198,7 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
             ["WAV Compress & Converter"] = "Compresseur et convertisseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
-            ["Check for Update"] = "Vérifier les mises à jour",
+            ["Check for Updates"] = "Vérifier les mises à jour",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nPas de mise à jour trouvé.",
             -- Converter & Compress
             ["Compressor"] = "Compresseur",
@@ -235,7 +235,7 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
             ["WAV Compress & Converter"] = "WAV-Kompressor & Konverter",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
-            ["Check for Update"] = "Überprüfung auf Aktualisierung",
+            ["Check for Updates"] = "Überprüfung auf Aktualisierung",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nKeine Updates gefunden.",
             -- Converter & Compress
             ["Compressor"] = "Kompressor",
@@ -271,7 +271,7 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress & Converter"] = "Compresor y conversor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
-            ["Check for Update"] = "Comprobar la actualización",
+            ["Check for Updates"] = "Comprobar la actualización",
             ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones.",
             -- Converter & Compress
             ["Compressor"] = "Compresor",
@@ -307,7 +307,7 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
             ["WAV Compress & Converter"] = "WAV Compressor & Conversor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
-            ["Check for Update"] = "Verificar por Actualização",
+            ["Check for Updates"] = "Verificar por Actualização",
             ["> SpotifyMusic\nNo updates found."] = "Nenhuma actualização encontrada",
             -- Converter & Compress
             ["Compressor"] = "Compressor",
@@ -343,7 +343,7 @@ end
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
             ["WAV Compress & Converter"] = "Сжатие и преобразование WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
-            ["Check for Update"] = "Проверка обновления",
+            ["Check for Updates"] = "Проверка обновления",
             ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены",
             -- Converter & Compress
             ["Compressor"] = "компрессор",
@@ -472,7 +472,7 @@ end
         SpotifyMiscs:divider(ForceTranslate("Informations"))
         SpotifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
         SpotifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
-	    SpotifyMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+	    SpotifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
                 util.toast(ForceTranslate("> SpotifyMusic\nNo updates found."))
