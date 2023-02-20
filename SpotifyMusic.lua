@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.16 bis-1"
+local SCRIPT_VERSION = "0.17"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
@@ -69,14 +69,16 @@ end
         end
     end
 
+    local current_sound_handle = nil
+
     local function SpotLoading(directory)
         local SpotLoadedSongs = {}
         for _, filepath in ipairs(filesystem.list_files(directory)) do
             local _, filename, ext = string.match(filepath, "(.-)([^\\/]-%.?([^%.\\/]*))$")
-            if not filesystem.is_dir(script_store_dir) and ext == "wav" then
+            if not filesystem.is_dir(filepath) and ext == "wav" then
                 local name = string.gsub(filename, "%.wav$", "")
-                local sound_location = join_path(script_store_dir, name .. ".wav")
-                SpotLoadedSongs[#SpotLoadedSongs + 1] = {file=name, sound=aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)}
+                local sound_location = join_path(directory, filename)
+                SpotLoadedSongs[#SpotLoadedSongs + 1] = {file=name, sound=sound_location}
             end
         end
         return SpotLoadedSongs
@@ -382,17 +384,34 @@ end
     --------------------------------
 
     local songs_direct = join_path(script_store_dir, "")
-    local songs = SpotLoading(songs_direct)
+    local SpotLoadedSongs = SpotLoading(songs_direct)
+    local SpotFiles = {}
+    for _, song in ipairs(SpotLoadedSongs) do
+        SpotFiles[#SpotFiles + 1] = song.file
+    end
+    
+    local function play_sound(sound_location)
+        if current_sound_handle then
+            aalib.stop_sound(current_sound_handle)
+            current_sound_handle = nil
+        end
+        current_sound_handle = aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)
+    end
     
     local SpotifyMusicList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
         local selected_file = SpotFiles[selected_index]
-        local sound_location = join_path(script_store_dir, selected_file)
-        if not filesystem.exists(sound_location) then
-            util.toast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
-        else
-            local display_text = string.gsub(string.gsub(selected_file, "%.wav$", ""), "%.WAV$", "")
-            SpotPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
-            util.toast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
+        for _, song in ipairs(SpotLoadedSongs) do
+            if song.file == selected_file then
+                local sound_location = song.sound
+                if not filesystem.exists(sound_location) then
+                    util.toast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
+                else
+                    local display_text = string.gsub(selected_file, "%.wav$", "")
+                    play_sound(sound_location)
+                    util.toast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
+                end
+                break
+            end
         end
     end)
 
@@ -430,7 +449,7 @@ end
         SpotifyMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
         SpotifyMiscs:action(ForceTranslate("Stand Edition: ") ..edition_menu, {}, "", function()end)
 	SpotifyMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
-            auto_update_config.check_interval = 0
+        auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
                 util.toast(ForceTranslate("> SpotifyMusic\nNo updates found."))
             end
