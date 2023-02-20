@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.2"
+local SCRIPT_VERSION = "0.17.3"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
@@ -169,13 +169,13 @@ end
 
     local tr_table = {
         fr = { -- French Language (Français)
-            ["Restart Script"] = "Redémarrer le Script",
+            ["Refresh Script"] = "Actualiser le Script",
             ["Main Menu"] = "Menu Principal",
             ["Open Music Folders"] = "Ouvrir le dossier Musique",
             ["Stop Music"] = "Arrêter la musique",
             ["Saved Playlists"] = "Playlists sauvegardés",
             ["Miscellaneous"] = "Divers Options",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Redémarre instantanément le script si il y'a des problèmes qui peuvent dégénérer.\nNOTE: Cela va couper instantanément la musique.",
+            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Ré-actualise instantanément le script si il y'a des problèmes qui peuvent dégénérer.\nNOTE: Cela va couper instantanément la musique.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Modifier la disposition de votre musique et profitez-en au maximum.\nNOTE: vous devrez obligatoirement mettre sous forme de fichier .wav\nLes fichiers MP3 ou d'autres fichiers contenant des fichiers invalides ne seront pas acceptés.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Il arrêtera votre musique instantanément. \nNOTE : Ne supprimez pas le dossier appelé Stop Sounds, la musique ne s'arrêtera pas et sera mise en boucle. Ne renommez pas le fichier.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Avoir crée le lua Startup Sound et je me suis inspiré pour créer le lua pour créer des playlists et rendre plus facile.",
@@ -205,13 +205,13 @@ end
         },
 
         de = { -- German Language (Deutsch)
-            ["Restart Script"] = "Neustart-Skript",
+            ["Refresh Script"] = "Das Skript aktualisieren",
             ["Main Menu"] = "Hauptmenü",
             ["Open Music Folders"] = "Musikordner öffnen",
             ["Stop Music"] = "Musik anhalten",
             ["Saved Playlists"] = "Gespeicherte Playlists",
             ["Miscellaneous"] = "Diverse",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Starten Sie das Skript bei Problemen sofort neu.\nHinweis: Die Musik wird sofort abgeschaltet.",
+            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Aktualisieren Sie das Skript sofort, wenn Sie Probleme haben.\nHinweis: Die Musik wird sofort abgeschaltet.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Bearbeiten Sie Ihre Musik und genießen Sie sie.\nHinweis: Sie müssen eine .wav-Datei einfügen.\nMP3 oder andere Dateien mit ungültigen Dateien werden nicht akzeptiert.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Die Musik wird sofort gestoppt. HINWEIS: Löschen Sie nicht den Ordner 'Stop Sounds', sonst wird die Musik nicht gestoppt und in einer Schleife abgespielt. Benennen Sie die Datei nicht um.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Erstellt Startup Sound und ich verbessere die Lua, um Playlists zu erstellen und einfacher zu machen.",
@@ -240,13 +240,13 @@ end
             ["Converter"] = "Konverter",
         },
         es = { -- Spanish Language (Español)
-            ["Restart Script"] = "Script de reinicio",
+            ["Refresh Script"] = "Actualizar script",
             ["Main Menu"] = "Menú principal",
             ["Open Music Folders"] = "Abrir carpetas de música",
             ["Stop Music"] = "Detener música",
             ["Saved Playlists"] = "Listas de reproducción guardadas",
             ["Miscellaneous"] = "Varios",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Reinicia instantáneamente el script si tienes algún problema.\nNOTA: Apagará instantáneamente la música.",
+            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Actualice instantáneamente el script si tiene algún problema.\nNOTA: Se apagará instantáneamente la música.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Edita tu música y disfruta.\nNOTA: Necesitas poner archivo .wav.\nNo se aceptan MP3 u otros archivos que contengan archivos inválidos.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Detendrá tu música instantáneamente.\nNOTA: No borres la carpeta llamada Detener Sonidos, la música no se detendrá y se reproducirá en bucle. No cambies el nombre del archivo. Se detendrá la música al instante",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Creado Startup Sound y mejoro el lua para crear Listas de Reproducción y hacerlo más fácil.",
@@ -275,13 +275,13 @@ end
             ["Converter"] = "Conversor",
         },
         pt = { -- Portuguese/Brazil Language (Português)
-            ["Restart Script"] = "Reiniciar o Roteiro",
+            ["Refresh Script"] = "Atualize o script",
             ["Main Menu"] = "Menu principal",
             ["Open Music Folders"] = "Pastas de Música Abertas",
             ["Stop Music"] = "Parar a música",
             ["Saved Playlists"] = "Listas de Reprodução Guardadas",
             ["Miscellaneous"] = "Miscelânea",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Reinicie instantaneamente o guião se tiver algum problema.\nNOTE: Irá encerrar instantaneamente a música",
+            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Actualizar instantaneamente o guião se tiver algum problema.\nNOTE: Irá encerrar instantaneamente a música.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Edite a sua música e desfrute.\nNOTE: É necessário colocar ficheiro .wav.\nMP3 ou outro ficheiro contendo ficheiros inválidos não são aceites.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Não apague a pasta chamada Stop Sounds, a música não pára e faz um looping. Não renomeie o ficheiro.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Criei o Startup Sound e melhorei a lua para criar listas de reprodução e tornar mais fácil.",
@@ -310,13 +310,13 @@ end
             ["Converter"] = "Conversor",
         },
         ru = { -- Russian Language (русский)
-            ["Restart Script"] = "Сценарий перезапуска",
+            ["Refresh Script"] = "Обновить скрипт",
             ["Main Menu"] = "Главное меню",
             ["Open Music Folders"] = "Открыть папки с музыкой",
             ["Stop Music"] = "Остановить музыку",
             ["Saved Playlists"] = "Сохраненные плейлисты",
             ["Miscellaneous"] = "Разное",
-            ["Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Перезапустите скрипт, если возникнут проблемы.\nNOTE: Он мгновенно выключит музыку.",
+            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "При возникновении проблем мгновенно обновите скрипт.\nПРИМЕЧАНИЕ: Он мгновенно выключит музыку.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Редактируйте музыку и наслаждайтесь.\nNOTE: Вам нужно вставить .wav файл.\nMP3 или другие файлы, содержащие недействительный файл, не принимаются.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Это мгновенно остановит вашу музыку.\nNOTE: Не удаляйте папку под названием Stop Sounds, музыка не остановится и зациклится. Не переименовывайте файл.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Создал Startup Sound и улучшаю lua, чтобы создавать плейлисты и сделать проще.",
@@ -364,7 +364,7 @@ end
 
     local sound_handle = nil
 
-    SpotifyRoot:action(ForceTranslate("Restart Script"), {'spotifyrestart'}, ForceTranslate("Restart instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function()
+    SpotifyRoot:action(ForceTranslate("Refresh Script"), {'spotifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function()
         sound_handle = aalib.play_sound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
         util.restart_script()
     end)
