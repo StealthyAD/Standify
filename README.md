@@ -6,7 +6,7 @@ Inspired X-Force features and Lance's Startup Sounds which we can upload own mus
 
 ```
 - Compatible All Stand Versions.
-- Multi Language Included (EN, FR, PT, ES, RU)
+- Multi Language Included (English (default), French, Spanish, Portuguese, Russian)
 - .wav file compatible and refresh music features.
 ```
 
