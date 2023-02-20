@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.1"
+local SCRIPT_VERSION = "0.17.1 bis"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
@@ -470,9 +470,9 @@ end
     ----------------
 
         SpotifyMiscs:divider(ForceTranslate("Informations"))
-        SpotifyMiscs:action(ForceTranslate("Version: ") ..SCRIPT_VERSION, {}, "", function()end)
-        SpotifyMiscs:action(ForceTranslate("Stand Edition: ") ..edition_menu, {}, "", function()end)
-	SpotifyMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+        SpotifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
+        SpotifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
+	    SpotifyMiscs:action(ForceTranslate("Check for Update"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
                 util.toast(ForceTranslate("> SpotifyMusic\nNo updates found."))
