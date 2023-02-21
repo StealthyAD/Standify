@@ -1,12 +1,12 @@
 --[[
 
-    SpotifyMusic for Stand by StealthyAD.
+    Standify for Stand by StealthyAD.
     Based on Startup Sounds by Lance
 
     "Upload easiest your own musics and use quickly as fast as possible."
 
     INTRODUCION: 
-    SpotifyMusic can use wav files which you can import each favorite music, 
+    Standify can use wav files which you can import each favorite music, 
     Inspired X-Force features and Lance's Startup Sounds which we can
     upload own musics  but Stand don't have these features so I decided 
     to create and using some luas script to support.
@@ -27,7 +27,7 @@
     local SpotPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.17.7"
+    local SCRIPT_VERSION = "0.18"
     local edition_menu = "99.4"
 
     util.require_natives(1663599433)
@@ -48,12 +48,12 @@
     --- Locate songs.wav and stop music easily.
     ----=======================================----
 
-    local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\songs
+    local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\Standify\songs
     if not filesystem.is_dir(script_store_dir) then
         filesystem.mkdirs(script_store_dir)
     end
 
-    local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\stop_sounds
+    local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\Standify\stop_sounds
     if not filesystem.is_dir(script_store_dir_stop) then
         filesystem.mkdirs(script_store_dir_stop)
     end
@@ -119,7 +119,7 @@
 
     local default_check_interval = 604800
     local auto_update_config = {
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotifyMusic/main/SpotifyMusic.lua",
+        source_url="https://raw.githubusercontent.com/StealthyAD/Standify/main/Standify.lua",
         script_relpath=SCRIPT_RELPATH,
         switch_to_branch=selected_branch,
         verify_file_begins_with="--",
@@ -152,7 +152,7 @@
     
     -- Run Auto Update
     auto_updater.run_auto_update({
-        source_url="https://raw.githubusercontent.com/StealthyAD/SpotifyMusic/main/SpotifyMusic.lua",
+        source_url="https://raw.githubusercontent.com/StealthyAD/Standify/main/Standify.lua",
         script_relpath=SCRIPT_RELPATH,
         verify_file_begins_with="--"
     })
@@ -187,7 +187,7 @@
                 end
             end
             english = true
-            SpotToast("> SpotifyMusic\nSorry your language isn't supported. Script language set to English.")
+            SpotToast("> Standify\nSorry your language isn't supported. Script language set to English.")
         end
         SupportedLang()
     end
@@ -207,23 +207,23 @@
             ["Provides much features & essentials for Lua Scripts."] = "Fournit beaucoup de fonctionnalités et d'éléments essentiels pour les scripts Lua.",
             ["Visit my GitHub Page"] = "Visite ma page GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMusique choisie: ",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nLe fichier musical n'existe pas :",
+            ["> Standify\nSelected Music: "] = "> Standify\nMusique choisie: ",
+            ["> Standify\nMusic file does not exist:"] = "> Standify\nLe fichier musical n'existe pas :",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nMusique arrêté avec succès.",
+            ["> Standify\nMusic stopped successfully."] = "> Standify\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
-            ["\nWelcome to SpotifyMusic "] = "\nBienvenue sur le script SpotifyMusic ",
+            ["\nWelcome to Standify "] = "\nBienvenue sur le script Standify ",
             ["Informations"] = "Informations",
             ["Credits"] = "Crédits",
             ["Resources"] = "Ressources",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Développeur SpotifyMusic)",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Développeur Standify)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Edition: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
             ["WAV Compress & Converter"] = "Compresseur et convertisseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
             ["Check for Updates"] = "Vérifier les mises à jour",
-            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nPas de mise à jour trouvé.",
+            ["> Standify\nNo updates found."] = "> Standify\nPas de mise à jour trouvé.",
             -- Converter & Compress
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
@@ -243,23 +243,23 @@
             ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
             ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nAusgewählte Musik: ",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nDie Musikdatei existiert nicht:",
+            ["> Standify\nSelected Music: "] = "> Standify\nAusgewählte Musik: ",
+            ["> Standify\nMusic file does not exist:"] = "> Standify\nDie Musikdatei existiert nicht:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nWurde erfolgreich beendet.",
+            ["> Standify\nMusic stopped successfully."] = "> Standify\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
-            ["\nWelcome to SpotifyMusic "] = "\nWillkommen im script SpotifyMusic ",
+            ["\nWelcome to Standify "] = "\nWillkommen im script Standify ",
             ["Informations"] = "Informationen",
             ["Credits"] = "Impressum",
             ["Resources"] = "Ressourcen",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Entwickler SpotifyMusic)",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Entwickler Standify)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Ausgabe: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
             ["WAV Compress & Converter"] = "WAV-Kompressor & Konverter",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Updates"] = "Überprüfung auf Aktualisierung",
-            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nKeine Updates gefunden.",
+            ["> Standify\nNo updates found."] = "> Standify\nKeine Updates gefunden.",
             -- Converter & Compress
             ["Compressor"] = "Kompressor",
             ["Converter"] = "Konverter",
@@ -278,23 +278,23 @@
             ["Provides much features & essentials for Lua Scripts."] = "Proporciona muchas características y elementos esenciales para scripts Lua.",
             ["Visit my GitHub Page"] = "Visita mi página de GitHub",
             ["Join my TikTok"] = "Únete a mi TikTok",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nEl archivo de música no existe:",
+            ["> Standify\nSelected Music: "] = "> Standify\nMúsica seleccionada: ",
+            ["> Standify\nMusic file does not exist:"] = "> Standify\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nLa música se detuvo con éxito.",
+            ["> Standify\nMusic stopped successfully."] = "> Standify\nLa música se detuvo con éxito.",
             ["Hello "] = "Hola ",
-            ["\nWelcome to SpotifyMusic "] = "\nBienvenido a SpotifyMusic ",
+            ["\nWelcome to Standify "] = "\nBienvenido a Standify ",
             ["Informations"] = "Información",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Desarrollador SpotifyMusic)",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Desarrollador Standify)",
             ["Version: "] = "Versión: ",
             ["Stand Edition: "] = "Stand Edición: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
             ["WAV Compress & Converter"] = "Compresor y conversor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Updates"] = "Comprobar la actualización",
-            ["> SpotifyMusic\nNo updates found."] = "> SpotifyMusic\nNo se han encontrado actualizaciones.",
+            ["> Standify\nNo updates found."] = "> Standify\nNo se han encontrado actualizaciones.",
             -- Converter & Compress
             ["Compressor"] = "Compresor",
             ["Converter"] = "Conversor",
@@ -313,23 +313,23 @@
             ["Provides much features & essentials for Lua Scripts."] = "Fornece muitas características & essências para Lua Scripts.",
             ["Visit my GitHub Page"] = "Visite a minha página GitHub",
             ["Join my TikTok"] = "Junte-se ao meu TikTok",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nMúsica seleccionada: ",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nFicheiro de música não existe:",
+            ["> Standify\nSelected Music: "] = "> Standify\nMúsica seleccionada: ",
+            ["> Standify\nMusic file does not exist:"] = "> Standify\nFicheiro de música não existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nA música parou com sucesso.",
+            ["> Standify\nMusic stopped successfully."] = "> Standify\nA música parou com sucesso.",
             ["Hello "] = "Olá ",
-            ["\nWelcome to SpotifyMusic "] = "\nBem-vindo ao SpotifyMusic ",
+            ["\nWelcome to Standify "] = "\nBem-vindo ao Standify ",
             ["Informations"] = "Informações",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Desenvolvedor SpotifyMusic)",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Desenvolvedor Standify)",
             ["Version: "] = "Versão: ",
             ["Stand Edition: "] = "Stand Edição: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
             ["WAV Compress & Converter"] = "WAV Compressor & Conversor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
             ["Check for Updates"] = "Verificar por Actualização",
-            ["> SpotifyMusic\nNo updates found."] = "Nenhuma actualização encontrada",
+            ["> Standify\nNo updates found."] = "Nenhuma actualização encontrada",
             -- Converter & Compress
             ["Compressor"] = "Compressor",
             ["Converter"] = "Conversor",
@@ -348,23 +348,23 @@
             ["Provides much features & essentials for Lua Scripts."] = "Предоставляет много возможностей и основ для Lua скриптов.",
             ["Visit my GitHub Page"] = "Посетите мою страницу на GitHub",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
-            ["> SpotifyMusic\nSelected Music: "] = "> SpotifyMusic\nВыбранная музыка: ",
-            ["> SpotifyMusic\nMusic file does not exist:"] = "> SpotifyMusic\nМузыкальный файл не существует:",
+            ["> Standify\nSelected Music: "] = "> Standify\nВыбранная музыка: ",
+            ["> Standify\nMusic file does not exist:"] = "> Standify\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
-            ["> SpotifyMusic\nMusic stopped successfully."] = "> SpotifyMusic\nМузыка успешно остановлена.",
+            ["> Standify\nMusic stopped successfully."] = "> Standify\nМузыка успешно остановлена.",
             ["Hello "] = "Привет ",
-            ["\nWelcome to SpotifyMusic "] = "\nДобро пожаловать в SpotifyMusic ",
+            ["\nWelcome to Standify "] = "\nДобро пожаловать в Standify ",
             ["Informations"] = "Информация",
             ["Credits"] = "Кредиты",
             ["Resources"] = "Ресурсы",
-            ["StealthyAD.#8293 (Developer SpotifyMusic)"] = "StealthyAD.#8293 (Разрабо SpotifyMusic)",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Разрабо Standify)",
             ["Version: "] = "Версия: ",
             ["Stand Edition: "] = "Stand Издание: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
             ["WAV Compress & Converter"] = "Сжатие и преобразование WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
             ["Check for Updates"] = "Проверка обновления",
-            ["> SpotifyMusic\nNo updates found."] = "Обновления не найдены",
+            ["> Standify\nNo updates found."] = "Обновления не найдены",
             -- Converter & Compress
             ["Compressor"] = "компрессор",
             ["Converter"] = "Конвертер"
@@ -375,7 +375,7 @@
         if not english then
             local forcetranslate_str = tr_table[user_lang][str]
             if forcetranslate_str == nil or forcetranslate_str == "" then
-                SpotToast("> SpotifyMusic (translation missing) : '"..str.."'",TOAST_CONSOLE)
+                SpotToast("> Standify (translation missing) : '"..str.."'",TOAST_CONSOLE)
             else
                 return forcetranslate_str
             end
@@ -416,18 +416,18 @@
     SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
-            SpotToast(ForceTranslate("> SpotifyMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            SpotToast(ForceTranslate("> Standify\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
         else
             sound_handle = SpotPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if SpotFiles and SpotFiles ~= "" then -- check if SpotFiles is not nil or empty
-                SpotToast(ForceTranslate('> SpotifyMusic\nMusic stopped successfully.'))
+                SpotToast(ForceTranslate('> Standify\nMusic stopped successfully.'))
             end
         end
     end)
 
     ----============================================================================----
     ---                         Saved Playlists
-    --- All of your musics stored on %appdata%\Stand\Lua Scripts\SpotifyMusic\songs\
+    --- All of your musics stored on %appdata%\Stand\Lua Scripts\Standify\songs\
     ----============================================================================----
 
     local songs_direct = join_path(script_store_dir, "")
@@ -444,17 +444,17 @@
         current_sound_handle = SpotPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
     end
     
-    local SpotifyMusicList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
+    local StandifyList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
         local selected_file = SpotFiles[selected_index]
         for _, song in ipairs(SpotLoadedSongs) do
             if song.file == selected_file then
                 local sound_location = song.sound
                 if not filesystem.exists(sound_location) then
-                    SpotToast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
+                    SpotToast("> Standify : Sound file does not exist: " .. sound_location)
                 else
                     local display_text = string.gsub(selected_file, "%.wav$", "")
                     SpotPlay(sound_location)
-                    SpotToast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
+                    SpotToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
                 end
                 break
             end
@@ -469,13 +469,13 @@
     util.create_thread(function()
         while true do
             UpdateAutoMusics()
-            menu.set_list_action_options(SpotifyMusicList, SpotFiles)
+            menu.set_list_action_options(StandifyList, SpotFiles)
             SpotYield(5000)
         end
     end)
 
     if not SCRIPT_SILENT_START then
-        SpotToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotifyMusic ") ..SCRIPT_VERSION)
+        SpotToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
     end
 
     util.on_stop(function()
@@ -496,13 +496,13 @@
 	    SpotifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
-                SpotToast(ForceTranslate("> SpotifyMusic\nNo updates found."))
+                SpotToast(ForceTranslate("> Standify\nNo updates found."))
             end
         end)
 
         SpotifyMiscs:divider(ForceTranslate("Credits"))
-        local SpotStealthy = SpotifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer SpotifyMusic)"))
-        SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/SpotifyMusic")
+        local SpotStealthy = SpotifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer Standify)"))
+        SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
         SpotStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         SpotifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
 
