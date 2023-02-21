@@ -27,8 +27,8 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19.5"
-    local edition_menu = "99.6"
+    local SCRIPT_VERSION = "0.19.6"
+    local edition_menu = "99.5"
 
     util.require_natives(1663599433)
     util.keep_running()
@@ -222,7 +222,7 @@
             ["\nSelectedMusic: "] = "\nMusique choisie: ",
             ["\nMusic file does not exist:"] = "\nLe fichier musical n'existe pas :",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
-            ["Music stopped successfully."] = "Musique arrêté avec succès.",
+            ["\nMusic stopped successfully."] = "\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
             ["\nWelcome to Standify "] = "\nBienvenue sur le script Standify ",
             ["Informations"] = "Informations",
@@ -260,10 +260,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
             ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
-            ["\nSelectedMusic: "] = "Ausgewählte Musik: ",
-            ["\nMusic file does not exist:"] = "Die Musikdatei existiert nicht:",
+            ["\nSelectedMusic: "] = "\nAusgewählte Musik: ",
+            ["\nMusic file does not exist:"] = "\nDie Musikdatei existiert nicht:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
-            ["Music stopped successfully."] = "Wurde erfolgreich beendet.",
+            ["\nMusic stopped successfully."] = "\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
             ["\nWelcome to Standify "] = "\nWillkommen im script Standify ",
             ["Informations"] = "Informationen",
@@ -304,7 +304,7 @@
             ["\nSelectedMusic: "] = "\nMúsica seleccionada: ",
             ["\nMusic file does not exist:"] = "\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
-            ["Music stopped successfully."] = "La música se detuvo con éxito.",
+            ["\nMusic stopped successfully."] = "\nLa música se detuvo con éxito.",
             ["Hello "] = "Hola ",
             ["\nWelcome to Standify "] = "\nBienvenido a Standify ",
             ["Informations"] = "Información",
@@ -316,7 +316,7 @@
             ["WAV Compress & Converter"] = "Compresor y conversor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Updates"] = "Comprobar la actualización",
-            ["\nNo updates found."] = "No se han encontrado actualizaciones.",
+            ["\nNo updates found."] = "\nNo se han encontrado actualizaciones.",
             -- Converter & Compress
             ["Compressor"] = "Compresor",
             ["Converter"] = "Conversor",
@@ -344,7 +344,7 @@
             ["\nSelectedMusic: "] = "\nMúsica seleccionada: ",
             ["\nMusic file does not exist:"] = "\nFicheiro de música não existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
-            ["Music stopped successfully."] = "A música parou com sucesso.",
+            ["\nMusic stopped successfully."] = "\nA música parou com sucesso.",
             ["Hello "] = "Olá ",
             ["\nWelcome to Standify "] = "\nBem-vindo ao Standify ",
             ["Informations"] = "Informações",
@@ -384,7 +384,7 @@
             ["\nSelectedMusic: "] = "\nВыбранная музыка: ",
             ["\nMusic file does not exist:"] = "\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
-            ["Music stopped successfully."] = "Музыка успешно остановлена.",
+            ["\nMusic stopped successfully."] = "\nМузыка успешно остановлена.",
             ["Hello "] = "Привет ",
             ["\nWelcome to Standify "] = "\nДобро пожаловать в Standify ",
             ["Informations"] = "Информация",
