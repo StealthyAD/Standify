@@ -275,7 +275,7 @@
             ["WAV Compress & Converter"] = "WAV-Kompressor & Konverter",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Updates"] = "Überprüfung auf Aktualisierung",
-            ["\nNo updates found."] = "Keine Updates gefunden.",
+            ["\nNo updates found."] = "\nKeine Updates gefunden.",
             -- Converter & Compress
             ["Compressor"] = "Kompressor",
             ["Converter"] = "Konverter",
