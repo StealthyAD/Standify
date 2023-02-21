@@ -13,7 +13,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.3"
+local SCRIPT_VERSION = "0.17.4"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
@@ -411,7 +411,6 @@ end
     
     local function play_sound(sound_location)
         if current_sound_handle then
-            aalib.stop_sound(current_sound_handle)
             current_sound_handle = nil
         end
         current_sound_handle = aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)
