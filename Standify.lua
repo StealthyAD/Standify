@@ -170,8 +170,6 @@
         script_relpath=SCRIPT_RELPATH,
         verify_file_begins_with="--"
     })
-    auto_updater.run_auto_update(auto_update_config)
-
 
     ----=========================================================----
     ---               Translation Features
