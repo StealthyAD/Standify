@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19"
+    local SCRIPT_VERSION = "0.19.2"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -242,10 +242,10 @@
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
             -- Random Music
-	    ["Play Random Music"] = "Joue une musique aléatoire",
-	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
-	    ["> Standify\nRandom music selected: "] = "> Standify\nMusique aléatoire choisie: ",
-	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nIl n'y a pas de musique dans le dossier de stockage.",
+            ["Play Random Music"] = "Joue une musique aléatoire",
+            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
+            ["> Standify\nRandom music selected: "] = "> Standify\nMusique aléatoire choisie: ",
+            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nIl n'y a pas de musique dans le dossier de stockage.",
         },
 
         de = { -- German Language (Deutsch)
@@ -283,11 +283,12 @@
             ["Compressor"] = "Kompressor",
             ["Converter"] = "Konverter",
             -- Random Music
-	    ["Play Random Music"] = "Zufällige Musik abspielen",	
-	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
-	    ["> Standify\nRandom music selected: "] = "> Standify\nZufällig ausgewählte Musik: ",
-	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nEs befindet sich keine Musik im Speicherordner.",
+            ["Play Random Music"] = "Zufällige Musik abspielen",	
+            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
+            ["> Standify\nRandom music selected: "] = "> Standify\nZufällig ausgewählte Musik: ",
+            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nEs befindet sich keine Musik im Speicherordner.",
         },
+
         es = { -- Spanish Language (Español)
             ["Refresh Script"] = "Actualizar script",
             ["Main Menu"] = "Menú principal",
@@ -323,10 +324,10 @@
             ["Compressor"] = "Compresor",
             ["Converter"] = "Conversor",
             -- Random Music
-	    ["Play Random Music"] = "Reproducir música aleatoria",
-	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Reproducir una música al azar.\nNOTA: Tienes cada intervalo para hacer clic en la acción para seleccionar la música al azar.",
-	    ["> Standify\nRandom music selected: "] = "> Standify\nMúsica seleccionada al azar: ",
-	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNo hay música en la carpeta de almacenamiento.",
+            ["Play Random Music"] = "Reproducir música aleatoria",
+            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Reproducir una música al azar.\nNOTA: Tienes cada intervalo para hacer clic en la acción para seleccionar la música al azar.",
+            ["> Standify\nRandom music selected: "] = "> Standify\nMúsica seleccionada al azar: ",
+            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNo hay música en la carpeta de almacenamiento.",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Refresh Script"] = "Atualize o script",
@@ -363,10 +364,10 @@
             ["Compressor"] = "Compressor",
             ["Converter"] = "Conversor",
             -- Random Music
-	    ["Play Random Music"] = "Reproduzir música aleatória",
-	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Tocar uma música aleatória.\nNOTA: Você tem cada intervalo para clicar na ação para selecionar música aleatória.",
-	    ["> Standify\nRandom music selected: "] = "> Standify\nMúsica aleatória selecionada: ",
-	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNão há música na pasta de armazenamento.",
+            ["Play Random Music"] = "Reproduzir música aleatória",
+            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Tocar uma música aleatória.\nNOTA: Você tem cada intervalo para clicar na ação para selecionar música aleatória.",
+            ["> Standify\nRandom music selected: "] = "> Standify\nMúsica aleatória selecionada: ",
+            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNão há música na pasta de armazenamento.",
         },
         ru = { -- Russian Language (русский)
             ["Refresh Script"] = "Обновить скрипт",
@@ -403,10 +404,10 @@
             ["Compressor"] = "компрессор",
             ["Converter"] = "Конвертер",
             -- Random Music
-	    ["Play Random Music"] = "Воспроизведение случайной музыки",
-	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Воспроизведение случайной музыки.\nПРИМЕЧАНИЕ: У вас есть каждый интервал, чтобы нажать на действие для выбора случайной музыки.",
-	    ["> Standify\nRandom music selected: "] = "> Standify\nСлучайный выбор музыки: ",
-	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nВ папке хранения нет музыки."
+            ["Play Random Music"] = "Воспроизведение случайной музыки",
+            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Воспроизведение случайной музыки.\nПРИМЕЧАНИЕ: У вас есть каждый интервал, чтобы нажать на действие для выбора случайной музыки.",
+            ["> Standify\nRandom music selected: "] = "> Standify\nСлучайный выбор музыки: ",
+            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nВ папке хранения нет музыки."
         }
     }
 
@@ -429,12 +430,56 @@
 
     local sound_handle = nil
 
+    StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
     StandifyRoot:action(ForceTranslate("Refresh Script"), {'Standifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
         sound_handle = StandifyPlaySound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
         StandifyRestart()
     end)
 
     StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
+
+    
+    ----============================================================================----
+    ---                         Saved Playlists
+    --- All of your musics stored on %appdata%\Stand\Lua Scripts\Standify\songs\
+    ----============================================================================----
+
+    local songs_direct = join_path(script_store_dir, "")
+    local StandifyLoadedSongs = StandifyLoading(songs_direct)
+    local StandifyFiles = {}
+    for _, song in ipairs(StandifyLoadedSongs) do
+        StandifyFiles[#StandifyFiles + 1] = song.file
+    end
+    
+    local function StandifyPlay(sound_location)
+        if current_sound_handle then
+            current_sound_handle = nil
+        end
+        current_sound_handle = StandifyPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
+    end
+    
+    local StandifyList = StandifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), StandifyFiles, function(selected_index)
+        local selected_file = StandifyFiles[selected_index]
+        for _, song in ipairs(StandifyLoadedSongs) do
+            if song.file == selected_file then
+                local sound_location = song.sound
+                if not filesystem.exists(sound_location) then
+                    StandifyToast("> Standify : Sound file does not exist: " .. sound_location)
+                else
+                    local display_text = string.gsub(selected_file, "%.wav$", "")
+                    StandifyPlay(sound_location)
+                    StandifyToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
+                end
+                break
+            end
+        end
+    end)
+
+    ----=====================================================----
+    ---               Hyperlinks
+    ---     Only for download converter or sometimes
+    ----=====================================================----
+
     local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
     StandifyConprVerter:divider(ForceTranslate("Compressor"))
     StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
@@ -445,7 +490,6 @@
     StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
     StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
     StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
-    StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
 
     ----=====================================================----
     ---               Random Music Manual
@@ -486,42 +530,6 @@
             sound_handle = StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if StandifyFiles and StandifyFiles ~= "" then -- check if StandifyFiles is not nil or empty
                 StandifyToast(ForceTranslate('> Standify\nMusic stopped successfully.'))
-            end
-        end
-    end)
-
-    ----============================================================================----
-    ---                         Saved Playlists
-    --- All of your musics stored on %appdata%\Stand\Lua Scripts\Standify\songs\
-    ----============================================================================----
-
-    local songs_direct = join_path(script_store_dir, "")
-    local StandifyLoadedSongs = StandifyLoading(songs_direct)
-    local StandifyFiles = {}
-    for _, song in ipairs(StandifyLoadedSongs) do
-        StandifyFiles[#StandifyFiles + 1] = song.file
-    end
-    
-    local function StandifyPlay(sound_location)
-        if current_sound_handle then
-            current_sound_handle = nil
-        end
-        current_sound_handle = StandifyPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
-    end
-    
-    local StandifyList = StandifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), StandifyFiles, function(selected_index)
-        local selected_file = StandifyFiles[selected_index]
-        for _, song in ipairs(StandifyLoadedSongs) do
-            if song.file == selected_file then
-                local sound_location = song.sound
-                if not filesystem.exists(sound_location) then
-                    StandifyToast("> Standify : Sound file does not exist: " .. sound_location)
-                else
-                    local display_text = string.gsub(selected_file, "%.wav$", "")
-                    StandifyPlay(sound_location)
-                    StandifyToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
-                end
-                break
             end
         end
     end)
