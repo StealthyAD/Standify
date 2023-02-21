@@ -18,43 +18,47 @@
 
 ]]--
 
--------------------
--- Core Functions
--------------------
+----======================================----
+---             Core Functions
+--- The most essential part of Lua Script.
+----======================================----
 
-local aalib = require("aalib")
-local SpotPlaySound = aalib.play_sound
-local SND_ASYNC<const> = 0x0001
-local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.5"
-local edition_menu = "99.4"
+    local aalib = require("aalib")
+    local SpotPlaySound = aalib.play_sound
+    local SND_ASYNC<const> = 0x0001
+    local SND_FILENAME<const> = 0x00020000
+    local SCRIPT_VERSION = "0.17.6"
+    local edition_menu = "99.4"
 
-util.require_natives(1663599433)
-util.keep_running()
+    util.require_natives(1663599433)
+    util.keep_running()
 
---------------------------------
--- Root Parts
---------------------------------
+    ----=====================================----
+    ---             Core Functions
+    --- Defined where the function is located
+    ----=====================================----
 
     local SpotifyRoot = menu.my_root()
 
---------------------------------
--- File Storage Direction
---------------------------------
+    ----=======================================----
+    --- File Directory
+    --- Locate songs.wav and stop music easily.
+    ----=======================================----
 
-local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\songs
-if not filesystem.is_dir(script_store_dir) then
-    filesystem.mkdirs(script_store_dir)
-end
+    local script_store_dir = filesystem.store_dir() .. SCRIPT_NAME .. '\\songs' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\songs
+    if not filesystem.is_dir(script_store_dir) then
+        filesystem.mkdirs(script_store_dir)
+    end
 
-local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\stop_sounds
-if not filesystem.is_dir(script_store_dir_stop) then
-    filesystem.mkdirs(script_store_dir_stop)
-end
+    local script_store_dir_stop = filesystem.store_dir() .. SCRIPT_NAME .. '/stop_sounds' -- Redirects to %appdata%\Stand\Lua Scripts\store\SpotifyMusic\stop_sounds
+    if not filesystem.is_dir(script_store_dir_stop) then
+        filesystem.mkdirs(script_store_dir_stop)
+    end
 
---------------------------------
--- Function Execution Important
---------------------------------
+    ----=============================================----
+    ---                 Functions
+    --- The Most important part how the script works
+    ----=============================================----
 
     local function ends_with(str, ending)
         return ending == "" or str:sub(-#ending) == ending
@@ -104,9 +108,11 @@ end
         return nil
     end
 	
---------------------------------
--- Update Features
---------------------------------
+    ----=============================================----
+    ---                Updates Features
+    --- Update manually/automatically the Lua Scripts
+    ---     Import from Hexarobi Auto-Updater.
+    ----=============================================----
 
     local default_check_interval = 604800
     local auto_update_config = {
@@ -149,9 +155,12 @@ end
     })
     auto_updater.run_auto_update(auto_update_config)
 
---------------------------------
--- Translations Features
---------------------------------
+
+    ----=========================================================----
+    ---               Translation Features
+    --- Translate Easier the language based on your language game
+    ----=========================================================----
+
 
     user_lang = lang.get_current()
     local en_table = {"en","en-us","hornyuwu","uwu","sex"}
@@ -371,19 +380,20 @@ end
         return str
     end
 
---------------------------------
--- Main Menu Features
---------------------------------
+    ----=====================================================----
+    ---               Main Menu Features
+    ---     All of the functions, actions, list are available
+    ----=====================================================----
 
     local sound_handle = nil
 
-    SpotifyRoot:action(ForceTranslate("Refresh Script"), {'spotifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function()
+    SpotifyRoot:action(ForceTranslate("Refresh Script"), {'spotifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
         sound_handle = aalib.play_sound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
         util.restart_script()
     end)
 
-    SpotifyRoot:divider(ForceTranslate("Main Menu"))
-    local SpotifyConprVerter = SpotifyRoot:list(ForceTranslate("WAV Compress & Converter"))
+    SpotifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
+    local SpotifyConprVerter = SpotifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
     SpotifyConprVerter:divider(ForceTranslate("Compressor"))
     SpotifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
     SpotifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
@@ -393,13 +403,14 @@ end
     SpotifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
     SpotifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
     SpotifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
-    SpotifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."))
+    SpotifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
 
-    --------------------------------
-    -- Stop Sounds
-    --------------------------------
+    ----================================================----
+    ---               Stop Sounds
+    ---     Automatically end the musics while playing.
+    ----================================================----
 
-    SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index)
+    SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
             util.toast(ForceTranslate("> SpotifyMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
@@ -411,9 +422,10 @@ end
         end
     end)
 
-    --------------------------------
-    -- Saved Playlists
-    --------------------------------
+    ----============================================================================----
+    ---                         Saved Playlists
+    --- All of your musics stored on %appdata%\Stand\Lua Scripts\SpotifyMusic\songs\
+    ----============================================================================----
 
     local songs_direct = join_path(script_store_dir, "")
     local SpotLoadedSongs = SpotLoading(songs_direct)
@@ -446,9 +458,10 @@ end
         end
     end)
 
-    --------------------------------
-    -- Execution File Looped
-    --------------------------------
+    ----================================================----
+    ---               Loop Features
+    ---        Useful features to refresh Musics
+    ----================================================----
 
     util.create_thread(function()
         while true do
@@ -467,14 +480,12 @@ end
         aalib.play_sound(sound_location_1, SND_FILENAME | SND_ASYNC)
     end)
 
-    --------------------------------
-    -- Credits & GitHub
-    --------------------------------
+    ----=====================================================----
+    ---               Credits/GitHub Page & Updates
+    ---        Script Meta for checking credits/page/updates
+    ----=====================================================----
 
     local SpotifyMiscs = SpotifyRoot:list(ForceTranslate("Miscellaneous"))
-    ----------------
-    -- Informations
-    ----------------
 
         SpotifyMiscs:divider(ForceTranslate("Informations"))
         SpotifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
@@ -486,19 +497,11 @@ end
             end
         end)
 
-    -------------
-    -- Credits
-    -------------
-
         SpotifyMiscs:divider(ForceTranslate("Credits"))
         local SpotStealthy = SpotifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer SpotifyMusic)"))
         SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/SpotifyMusic")
         SpotStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         SpotifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
-    
-    -------------
-    -- Resources
-    -------------
 
         SpotifyMiscs:divider(ForceTranslate("Resources"))
         SpotifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
