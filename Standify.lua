@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19.2"
+    local SCRIPT_VERSION = "0.19.3"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -230,6 +230,7 @@
             ["Informations"] = "Informations",
             ["Credits"] = "Crédits",
             ["Resources"] = "Ressources",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Développeur Standify)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Edition: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
@@ -270,6 +271,7 @@
             ["Informations"] = "Informationen",
             ["Credits"] = "Impressum",
             ["Resources"] = "Ressourcen",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Entwickler Standify)",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Ausgabe: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
@@ -310,6 +312,7 @@
             ["Informations"] = "Información",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Desarrollador Standify)",
             ["Version: "] = "Versión: ",
             ["Stand Edition: "] = "Stand Edición: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
@@ -349,6 +352,7 @@
             ["Informations"] = "Informações",
             ["Credits"] = "Créditos",
             ["Resources"] = "Recursos",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Desenvolvedor Standify)",
             ["Version: "] = "Versão: ",
             ["Stand Edition: "] = "Stand Edição: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
@@ -388,6 +392,7 @@
             ["Informations"] = "Информация",
             ["Credits"] = "Кредиты",
             ["Resources"] = "Ресурсы",
+            ["StealthyAD.#8293 (Developer Standify)"] = "StealthyAD.#8293 (Разрабо Standify)",
             ["Version: "] = "Версия: ",
             ["Stand Edition: "] = "Stand Издание: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
@@ -491,12 +496,17 @@
     ---     Just click one time to choose your random music
     ----=====================================================----
 
+    local played_songs = {} 
     local function StandifyAuto()
         random_enabled = not random_enabled
         if random_enabled and current_sound_handle == nil then
             local song_files = filesystem.list_files(script_store_dir)
             if #song_files > 0 then
-                local song_path = song_files[math.random(#song_files)]
+                local song_path
+                repeat 
+                    song_path = song_files[math.random(#song_files)]
+                until not played_songs[song_path]
+                played_songs[song_path] = true 
                 AutoPlay(song_path)
                 local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
                 StandifyToast(ForceTranslate("> Standify\nRandom music selected: ") .. song_title)
@@ -569,7 +579,7 @@
         end)
 
         StandifyMiscs:divider(ForceTranslate("Credits"))
-        local StandifyStealthy = StandifyMiscs:list("StealthyAD.")
+        local StandifyStealthy = StandifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer Standify)"))
         StandifyStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
         StandifyStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
