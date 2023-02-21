@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19.4"
+    local SCRIPT_VERSION = "0.19.5"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -548,7 +548,7 @@
     end)
 
     if not SCRIPT_SILENT_START then
-        StandifyToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
+        StandifyToast("> Standify " ..SCRIPT_VERSION.. ForceTranslate("\nHello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
     end
 
     util.on_stop(function()
