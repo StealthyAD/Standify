@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19.6"
+    local SCRIPT_VERSION = "0.19.7"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -239,7 +239,7 @@
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
             -- Random Music
-            ["Play Random Music"] = "Joue une musique aléatoire",
+            ["Play Random Music"] = "Jouer une musique aléatoire",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
             ["\nRandom music selected: "] = "\nMusique aléatoire choisie: ",
             ["\nThere is no music in the storage folder."] = "\nIl n'y a pas de musique dans le dossier de stockage.",
