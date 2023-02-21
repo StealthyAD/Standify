@@ -24,10 +24,10 @@
 ----======================================----
 
     local aalib = require("aalib")
-    local SpotPlaySound = aalib.play_sound
+    local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.18"
+    local SCRIPT_VERSION = "0.18.1"
     local edition_menu = "99.4"
 
     util.require_natives(1663599433)
@@ -38,10 +38,10 @@
     --- Defined where the function is located
     ----=====================================----
 
-    local SpotifyRoot = menu.my_root()
-    local SpotYield = util.yield
-    local SpotToast = util.toast
-    local SpotRestart = util.restart_script
+    local StandifyRoot = menu.my_root()
+    local StandifyYield = util.yield
+    local StandifyToast = util.toast
+    local StandifyRestart = util.restart_script
 
     ----=======================================----
     --- File Directory
@@ -67,7 +67,7 @@
         return ending == "" or str:sub(-#ending) == ending
     end
 
-    local SpotFiles = {}
+    local StandifyFiles = {}
         function UpdateAutoMusics()
             Music_TempFiles = {}
             for i, path in ipairs(filesystem.list_files(script_store_dir)) do
@@ -76,7 +76,7 @@
                     Music_TempFiles[#Music_TempFiles+1] = file_str
                 end
             end
-            SpotFiles = Music_TempFiles
+            StandifyFiles = Music_TempFiles
         end
         UpdateAutoMusics()
 
@@ -91,17 +91,17 @@
 
     local current_sound_handle = nil
 
-    local function SpotLoading(directory)
-        local SpotLoadedSongs = {}
+    local function StandifyLoading(directory)
+        local StandifyLoadedSongs = {}
         for _, filepath in ipairs(filesystem.list_files(directory)) do
             local _, filename, ext = string.match(filepath, "(.-)([^\\/]-%.?([^%.\\/]*))$")
             if not filesystem.is_dir(filepath) and ext == "wav" then
                 local name = string.gsub(filename, "%.wav$", "")
                 local sound_location = join_path(directory, filename)
-                SpotLoadedSongs[#SpotLoadedSongs + 1] = {file=name, sound=sound_location}
+                StandifyLoadedSongs[#StandifyLoadedSongs + 1] = {file=name, sound=sound_location}
             end
         end
-        return SpotLoadedSongs
+        return StandifyLoadedSongs
     end
 
     function GetFileNameFromPath(path) -- Redirect to the filename
@@ -130,20 +130,20 @@
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
     if not status then
-        local auto_update_complete = nil SpotToast("Installing auto-updater...", TOAST_ALL)
+        local auto_update_complete = nil StandifyToast("Installing auto-updater...", TOAST_ALL)
         async_http.init("raw.githubusercontent.com", "/hexarobi/stand-lua-auto-updater/main/auto-updater.lua",
             function(result, headers, status_code)
                 local function parse_auto_update_result(result, headers, status_code)
                     local error_prefix = "Error downloading auto-updater: "
-                    if status_code ~= 200 then SpotToast(error_prefix..status_code, TOAST_ALL) return false end
-                    if not result or result == "" then SpotToast(error_prefix.."Found empty file.", TOAST_ALL) return false end
+                    if status_code ~= 200 then StandifyToast(error_prefix..status_code, TOAST_ALL) return false end
+                    if not result or result == "" then StandifyToast(error_prefix.."Found empty file.", TOAST_ALL) return false end
                     filesystem.mkdir(filesystem.scripts_dir() .. "lib")
                     local file = io.open(filesystem.scripts_dir() .. "lib\\auto-updater.lua", "wb")
-                    if file == nil then SpotToast(error_prefix.."Could not open file for writing.", TOAST_ALL) return false end
-                    file:write(result) file:close() SpotToast("Successfully installed auto-updater lib", TOAST_ALL) return true
+                    if file == nil then StandifyToast(error_prefix.."Could not open file for writing.", TOAST_ALL) return false end
+                    file:write(result) file:close() StandifyToast("Successfully installed auto-updater lib", TOAST_ALL) return true
                 end
                 auto_update_complete = parse_auto_update_result(result, headers, status_code)
-            end, function() SpotToast("Error downloading auto-updater lib. Update failed to download.", TOAST_ALL) end)
+            end, function() StandifyToast("Error downloading auto-updater lib. Update failed to download.", TOAST_ALL) end)
         async_http.dispatch() local i = 1 while (auto_update_complete == nil and i < 40) do util.yield(250) i = i + 1 end
         if auto_update_complete == nil then error("Error downloading auto-updater lib. HTTP Request timeout") end
         auto_updater = require("auto-updater")
@@ -187,7 +187,7 @@
                 end
             end
             english = true
-            SpotToast("> Standify\nSorry your language isn't supported. Script language set to English.")
+            StandifyToast("> Standify\nSorry your language isn't supported. Script language set to English.")
         end
         SupportedLang()
     end
@@ -375,7 +375,7 @@
         if not english then
             local forcetranslate_str = tr_table[user_lang][str]
             if forcetranslate_str == nil or forcetranslate_str == "" then
-                SpotToast("> Standify (translation missing) : '"..str.."'",TOAST_CONSOLE)
+                StandifyToast("> Standify (translation missing) : '"..str.."'",TOAST_CONSOLE)
             else
                 return forcetranslate_str
             end
@@ -390,37 +390,37 @@
 
     local sound_handle = nil
 
-    SpotifyRoot:action(ForceTranslate("Refresh Script"), {'spotifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
-        sound_handle = SpotPlaySound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
-        SpotRestart()
+    StandifyRoot:action(ForceTranslate("Refresh Script"), {'Standifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
+        sound_handle = StandifyPlaySound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
+        StandifyRestart()
     end)
 
-    SpotifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
-    local SpotifyConprVerter = SpotifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
-    SpotifyConprVerter:divider(ForceTranslate("Compressor"))
-    SpotifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
-    SpotifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
-    SpotifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
-    SpotifyConprVerter:divider(ForceTranslate("Converter"))
-    SpotifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
-    SpotifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
-    SpotifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
-    SpotifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
-    SpotifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
+    StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
+    local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
+    StandifyConprVerter:divider(ForceTranslate("Compressor"))
+    StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
+    StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
+    StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
+    StandifyConprVerter:divider(ForceTranslate("Converter"))
+    StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
+    StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
+    StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
+    StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
+    StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
 
     ----================================================----
     ---               Stop Sounds
     ---     Automatically end the musics while playing.
     ----================================================----
 
-    SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
+    StandifyRoot:action(ForceTranslate("Stop Music"), {'Standifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
-            SpotToast(ForceTranslate("> Standify\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            StandifyToast(ForceTranslate("> Standify\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
         else
-            sound_handle = SpotPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
-            if SpotFiles and SpotFiles ~= "" then -- check if SpotFiles is not nil or empty
-                SpotToast(ForceTranslate('> Standify\nMusic stopped successfully.'))
+            sound_handle = StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
+            if StandifyFiles and StandifyFiles ~= "" then -- check if StandifyFiles is not nil or empty
+                StandifyToast(ForceTranslate('> Standify\nMusic stopped successfully.'))
             end
         end
     end)
@@ -431,30 +431,30 @@
     ----============================================================================----
 
     local songs_direct = join_path(script_store_dir, "")
-    local SpotLoadedSongs = SpotLoading(songs_direct)
-    local SpotFiles = {}
-    for _, song in ipairs(SpotLoadedSongs) do
-        SpotFiles[#SpotFiles + 1] = song.file
+    local StandifyLoadedSongs = StandifyLoading(songs_direct)
+    local StandifyFiles = {}
+    for _, song in ipairs(StandifyLoadedSongs) do
+        StandifyFiles[#StandifyFiles + 1] = song.file
     end
     
-    local function SpotPlay(sound_location)
+    local function StandifyPlay(sound_location)
         if current_sound_handle then
             current_sound_handle = nil
         end
-        current_sound_handle = SpotPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
+        current_sound_handle = StandifyPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
     end
     
-    local StandifyList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
-        local selected_file = SpotFiles[selected_index]
-        for _, song in ipairs(SpotLoadedSongs) do
+    local StandifyList = StandifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), StandifyFiles, function(selected_index)
+        local selected_file = StandifyFiles[selected_index]
+        for _, song in ipairs(StandifyLoadedSongs) do
             if song.file == selected_file then
                 local sound_location = song.sound
                 if not filesystem.exists(sound_location) then
-                    SpotToast("> Standify : Sound file does not exist: " .. sound_location)
+                    StandifyToast("> Standify : Sound file does not exist: " .. sound_location)
                 else
                     local display_text = string.gsub(selected_file, "%.wav$", "")
-                    SpotPlay(sound_location)
-                    SpotToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
+                    StandifyPlay(sound_location)
+                    StandifyToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
                 end
                 break
             end
@@ -469,18 +469,18 @@
     util.create_thread(function()
         while true do
             UpdateAutoMusics()
-            menu.set_list_action_options(StandifyList, SpotFiles)
-            SpotYield(5000)
+            menu.set_list_action_options(StandifyList, StandifyFiles)
+            StandifyYield(5000)
         end
     end)
 
     if not SCRIPT_SILENT_START then
-        SpotToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
+        StandifyToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
     end
 
     util.on_stop(function()
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
-        SpotPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
+        StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
     end)
 
     ----=====================================================----
@@ -488,23 +488,23 @@
     ---        Script Meta for checking credits/page/updates
     ----=====================================================----
 
-    local SpotifyMiscs = SpotifyRoot:list(ForceTranslate("Miscellaneous"))
+    local StandifyMiscs = StandifyRoot:list(ForceTranslate("Miscellaneous"))
 
-        SpotifyMiscs:divider(ForceTranslate("Informations"))
-        SpotifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
-        SpotifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
-	    SpotifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+        StandifyMiscs:divider(ForceTranslate("Informations"))
+        StandifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
+        StandifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
+	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
-                SpotToast(ForceTranslate("> Standify\nNo updates found."))
+                StandifyToast(ForceTranslate("> Standify\nNo updates found."))
             end
         end)
 
-        SpotifyMiscs:divider(ForceTranslate("Credits"))
-        local SpotStealthy = SpotifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer Standify)"))
-        SpotStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
-        SpotStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
-        SpotifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
+        StandifyMiscs:divider(ForceTranslate("Credits"))
+        local StandifyStealthy = StandifyMiscs:list(ForceTranslate("StealthyAD.#8293 (Developer Standify)"))
+        StandifyStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
+        StandifyStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
+        StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
 
-        SpotifyMiscs:divider(ForceTranslate("Resources"))
-        SpotifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
+        StandifyMiscs:divider(ForceTranslate("Resources"))
+        StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
