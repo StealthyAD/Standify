@@ -282,7 +282,7 @@
             -- Random Music
             ["Play Random Music"] = "Zufällige Musik abspielen",	
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
-            ["\nRandom music selected: "] = "Zufällig ausgewählte Musik: ",
+            ["\nRandom music selected: "] = "\nZufällig ausgewählte Musik: ",
             ["\nThere is no music in the storage folder."] = "\nEs befindet sich keine Musik im Speicherordner.",
             ["\nSound file does not exist: "] = "\nSounddatei existiert nicht: ",
         },
