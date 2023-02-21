@@ -1,6 +1,6 @@
-# SpotifyMusic for Stand
+# Standify for Stand
 
-SpotifyMusic can use wav files which you can import each favorite music, it's for Stand Lua API Documentation. Inspired by Lance to get Music Sounds.
+Standify can use wav files which you can import each favorite music, it's for Stand Lua API Documentation. Inspired by Lance to get Music Sounds.
 
 Inspired X-Force features and Lance's Startup Sounds which we can upload own musics but Stand don't have these features so I decided to create and using some luas script to support.
 
@@ -13,7 +13,7 @@ Inspired X-Force features and Lance's Startup Sounds which we can upload own mus
 Installation
 --------------------
 
-1. Copy 'SpotMusic.lua' to %appdata%\Stand\Lua Scripts
+1. Copy 'Standify.lua' to %appdata%\Stand\Lua Scripts
 2. Copy 'lib' and 'store' folder into %appdata%\Stand\Lua Scripts
 3. Done and enjoy your music.
 
