@@ -1,9 +1,22 @@
--------------------------------
----      SpotifyMusic by
----       StealthyAD
----    For Stand Mod Menu
----     Multi-Language
--------------------------------
+--[[
+
+    SpotifyMusic for Stand by StealthyAD.
+    Based on Startup Sounds by Lance
+
+    "Upload easiest your own musics and use quickly as fast as possible."
+
+    INTRODUCION: 
+    SpotifyMusic can use wav files which you can import each favorite music, 
+    Inspired X-Force features and Lance's Startup Sounds which we can
+    upload own musics  but Stand don't have these features so I decided 
+    to create and using some luas script to support.
+
+    Features:
+    - Compatible All Stand Versions.
+    - Multi Language Included (English (default), French, Spanish, Portuguese, Russian)
+    - .wav file compatible and refresh music features.
+
+]]--
 
 -------------------
 -- Core Functions
@@ -13,7 +26,7 @@ local aalib = require("aalib")
 local SpotPlaySound = aalib.play_sound
 local SND_ASYNC<const> = 0x0001
 local SND_FILENAME<const> = 0x00020000
-local SCRIPT_VERSION = "0.17.4"
+local SCRIPT_VERSION = "0.17.5"
 local edition_menu = "99.4"
 
 util.require_natives(1663599433)
