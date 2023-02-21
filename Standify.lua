@@ -229,7 +229,7 @@
             ["\nWelcome to Standify "] = "\nBienvenue sur le script Standify ",
             ["Informations"] = "Informations",
             ["Credits"] = "Crédits",
-            ["Resources"] = "Ressources",
+            ["Resources & Updates"] = "Ressources et mises à jour",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Edition: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "Attention: Dossier lourd, vérifiez que vous avez un gros stockage, en moyenne un fichier .wav est entre 25-50 Mo.",
@@ -269,7 +269,7 @@
             ["\nWelcome to Standify "] = "\nWillkommen im script Standify ",
             ["Informations"] = "Informationen",
             ["Credits"] = "Impressum",
-            ["Resources"] = "Ressourcen",
+            ["Resources & Updates"] = "Ressourcen & Updates",
             ["Version: "] = "Version: ",
             ["Stand Edition: "] = "Stand Ausgabe: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "WARNUNG: Schwerer Ordner, also prüfen Sie, ob Sie viel Speicherplatz haben, mindestens eine durchschnittliche .wav-Datei: 25-100 MB.",
@@ -309,7 +309,7 @@
             ["\nWelcome to Standify "] = "\nBienvenido a Standify ",
             ["Informations"] = "Información",
             ["Credits"] = "Créditos",
-            ["Resources"] = "Recursos",
+            ["Resources & Updates"] = "Recursos y actualización",
             ["Version: "] = "Versión: ",
             ["Stand Edition: "] = "Stand Edición: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTENCIA: Carpeta pesada, así que compruebe si tiene gran almacenamiento, al menos archivo .wav promedio: 25-100 MB.",
@@ -348,7 +348,7 @@
             ["\nWelcome to Standify "] = "\nBem-vindo ao Standify ",
             ["Informations"] = "Informações",
             ["Credits"] = "Créditos",
-            ["Resources"] = "Recursos",
+            ["Resources & Updates"] = "Recursos & Atualizações",
             ["Version: "] = "Versão: ",
             ["Stand Edition: "] = "Stand Edição: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
@@ -387,7 +387,7 @@
             ["\nWelcome to Standify "] = "\nДобро пожаловать в Standify ",
             ["Informations"] = "Информация",
             ["Credits"] = "Кредиты",
-            ["Resources"] = "Ресурсы",
+            ["Resources & Updates"] = "Ресурсы и обновления",
             ["Version: "] = "Версия: ",
             ["Stand Edition: "] = "Stand Издание: ",
             ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ВНИМАНИЕ: тяжелая папка, поэтому проверьте, есть ли у вас большой объем памяти, по крайней мере, средний .wav файл: 25-100 МБ.",
@@ -566,12 +566,6 @@
         StandifyMiscs:divider(ForceTranslate("Informations"))
         StandifyMiscs:readonly(ForceTranslate("Version: ") ..SCRIPT_VERSION)
         StandifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
-	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
-        auto_update_config.check_interval = 0
-            if auto_updater.run_auto_update(auto_update_config) then
-                StandifyToast(ForceTranslate("> Standify\nNo updates found."))
-            end
-        end)
 
         StandifyMiscs:divider(ForceTranslate("Credits"))
         local StandifyStealthy = StandifyMiscs:list("StealthyAD.#8293")
@@ -579,5 +573,11 @@
         StandifyStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
 
-        StandifyMiscs:divider(ForceTranslate("Resources"))
+        StandifyMiscs:divider(ForceTranslate("Ressources & Updates"))
         StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
+	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
+        auto_update_config.check_interval = 0
+            if auto_updater.run_auto_update(auto_update_config) then
+                StandifyToast(ForceTranslate("> Standify\nNo updates found."))
+            end
+        end)
