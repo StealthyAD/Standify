@@ -34,7 +34,7 @@
     util.keep_running()
 
     ----=====================================----
-    ---             Core Functions
+    ---        Core/Variables Functions
     --- Defined where the function is located
     ----=====================================----
 
