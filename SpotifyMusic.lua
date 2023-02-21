@@ -39,6 +39,9 @@
     ----=====================================----
 
     local SpotifyRoot = menu.my_root()
+    local SpotYield = util.yield
+    local SpotToast = util.toast
+    local SpotRestart = util.restart_script
 
     ----=======================================----
     --- File Directory
@@ -127,20 +130,20 @@
     -- Auto Updater from https://github.com/hexarobi/stand-lua-auto-updater
     local status, auto_updater = pcall(require, "auto-updater")
     if not status then
-        local auto_update_complete = nil util.toast("Installing auto-updater...", TOAST_ALL)
+        local auto_update_complete = nil SpotToast("Installing auto-updater...", TOAST_ALL)
         async_http.init("raw.githubusercontent.com", "/hexarobi/stand-lua-auto-updater/main/auto-updater.lua",
             function(result, headers, status_code)
                 local function parse_auto_update_result(result, headers, status_code)
                     local error_prefix = "Error downloading auto-updater: "
-                    if status_code ~= 200 then util.toast(error_prefix..status_code, TOAST_ALL) return false end
-                    if not result or result == "" then util.toast(error_prefix.."Found empty file.", TOAST_ALL) return false end
+                    if status_code ~= 200 then SpotToast(error_prefix..status_code, TOAST_ALL) return false end
+                    if not result or result == "" then SpotToast(error_prefix.."Found empty file.", TOAST_ALL) return false end
                     filesystem.mkdir(filesystem.scripts_dir() .. "lib")
                     local file = io.open(filesystem.scripts_dir() .. "lib\\auto-updater.lua", "wb")
-                    if file == nil then util.toast(error_prefix.."Could not open file for writing.", TOAST_ALL) return false end
-                    file:write(result) file:close() util.toast("Successfully installed auto-updater lib", TOAST_ALL) return true
+                    if file == nil then SpotToast(error_prefix.."Could not open file for writing.", TOAST_ALL) return false end
+                    file:write(result) file:close() SpotToast("Successfully installed auto-updater lib", TOAST_ALL) return true
                 end
                 auto_update_complete = parse_auto_update_result(result, headers, status_code)
-            end, function() util.toast("Error downloading auto-updater lib. Update failed to download.", TOAST_ALL) end)
+            end, function() SpotToast("Error downloading auto-updater lib. Update failed to download.", TOAST_ALL) end)
         async_http.dispatch() local i = 1 while (auto_update_complete == nil and i < 40) do util.yield(250) i = i + 1 end
         if auto_update_complete == nil then error("Error downloading auto-updater lib. HTTP Request timeout") end
         auto_updater = require("auto-updater")
@@ -184,7 +187,7 @@
                 end
             end
             english = true
-            util.toast("> SpotifyMusic\nSorry your language isn't supported. Script language set to English.")
+            SpotToast("> SpotifyMusic\nSorry your language isn't supported. Script language set to English.")
         end
         SupportedLang()
     end
@@ -372,7 +375,7 @@
         if not english then
             local forcetranslate_str = tr_table[user_lang][str]
             if forcetranslate_str == nil or forcetranslate_str == "" then
-                util.toast("> SpotifyMusic (translation missing) : '"..str.."'",TOAST_CONSOLE)
+                SpotToast("> SpotifyMusic (translation missing) : '"..str.."'",TOAST_CONSOLE)
             else
                 return forcetranslate_str
             end
@@ -388,8 +391,8 @@
     local sound_handle = nil
 
     SpotifyRoot:action(ForceTranslate("Refresh Script"), {'spotifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
-        sound_handle = aalib.play_sound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
-        util.restart_script()
+        sound_handle = SpotPlaySound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
+        SpotRestart()
     end)
 
     SpotifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
@@ -413,11 +416,11 @@
     SpotifyRoot:action(ForceTranslate("Stop Music"), {'spotifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
-            util.toast(ForceTranslate("> SpotifyMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            SpotToast(ForceTranslate("> SpotifyMusic\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
         else
-            sound_handle = aalib.play_sound(sound_location_1, SND_FILENAME | SND_ASYNC)
+            sound_handle = SpotPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if SpotFiles and SpotFiles ~= "" then -- check if SpotFiles is not nil or empty
-                util.toast(ForceTranslate('> SpotifyMusic\nMusic stopped successfully.'))
+                SpotToast(ForceTranslate('> SpotifyMusic\nMusic stopped successfully.'))
             end
         end
     end)
@@ -434,11 +437,11 @@
         SpotFiles[#SpotFiles + 1] = song.file
     end
     
-    local function play_sound(sound_location)
+    local function SpotPlay(sound_location)
         if current_sound_handle then
             current_sound_handle = nil
         end
-        current_sound_handle = aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC)
+        current_sound_handle = SpotPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
     end
     
     local SpotifyMusicList = SpotifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), SpotFiles, function(selected_index)
@@ -447,11 +450,11 @@
             if song.file == selected_file then
                 local sound_location = song.sound
                 if not filesystem.exists(sound_location) then
-                    util.toast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
+                    SpotToast("> SpotifyMusic : Sound file does not exist: " .. sound_location)
                 else
                     local display_text = string.gsub(selected_file, "%.wav$", "")
-                    play_sound(sound_location)
-                    util.toast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
+                    SpotPlay(sound_location)
+                    SpotToast(ForceTranslate("> SpotifyMusic\nSelected Music: ") .. display_text)
                 end
                 break
             end
@@ -467,17 +470,17 @@
         while true do
             UpdateAutoMusics()
             menu.set_list_action_options(SpotifyMusicList, SpotFiles)
-            util.yield(5000)
+            SpotYield(5000)
         end
     end)
 
     if not SCRIPT_SILENT_START then
-        util.toast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotifyMusic ") ..SCRIPT_VERSION)
+        SpotToast(ForceTranslate("Hello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to SpotifyMusic ") ..SCRIPT_VERSION)
     end
 
     util.on_stop(function()
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
-        aalib.play_sound(sound_location_1, SND_FILENAME | SND_ASYNC)
+        SpotPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
     end)
 
     ----=====================================================----
@@ -493,7 +496,7 @@
 	    SpotifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
-                util.toast(ForceTranslate("> SpotifyMusic\nNo updates found."))
+                SpotToast(ForceTranslate("> SpotifyMusic\nNo updates found."))
             end
         end)
 
