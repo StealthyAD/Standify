@@ -28,7 +28,7 @@
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
     local SCRIPT_VERSION = "0.19.5"
-    local edition_menu = "99.5"
+    local edition_menu = "99.6"
 
     util.require_natives(1663599433)
     util.keep_running()
@@ -219,10 +219,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Fournit beaucoup de fonctionnalités et d'éléments essentiels pour les scripts Lua.",
             ["Visit my GitHub Page"] = "Visite ma page GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
-            ["> Standify\nSelected Music: "] = "> Standify\nMusique choisie: ",
-            ["> Standify\nMusic file does not exist:"] = "> Standify\nLe fichier musical n'existe pas :",
+            ["\nSelectedMusic: "] = "\nMusique choisie: ",
+            ["\nMusic file does not exist:"] = "\nLe fichier musical n'existe pas :",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
-            ["> Standify\nMusic stopped successfully."] = "> Standify\nMusique arrêté avec succès.",
+            ["Music stopped successfully."] = "Musique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
             ["\nWelcome to Standify "] = "\nBienvenue sur le script Standify ",
             ["Informations"] = "Informations",
@@ -234,15 +234,16 @@
             ["WAV Compress & Converter"] = "Compresseur et convertisseur WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Le script vérifiera automatiquement les mises à jour au plus tard tous les jours, mais vous pouvez vérifier manuellement en utilisant cette option à tout moment.",
             ["Check for Updates"] = "Vérifier les mises à jour",
-            ["> Standify\nNo updates found."] = "> Standify\nPas de mise à jour trouvé.",
+            ["\nNo updates found."] = "\nPas de mise à jour trouvé.",
             -- Converter & Compress
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
             -- Random Music
             ["Play Random Music"] = "Joue une musique aléatoire",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
-            ["> Standify\nRandom music selected: "] = "> Standify\nMusique aléatoire choisie: ",
-            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nIl n'y a pas de musique dans le dossier de stockage.",
+            ["\nRandom music selected: "] = "\nMusique aléatoire choisie: ",
+            ["\nThere is no music in the storage folder."] = "\nIl n'y a pas de musique dans le dossier de stockage.",
+            ["\nSound file does not exist: "] = "\nLe fichier son n'existe pas: ",
         },
 
         de = { -- German Language (Deutsch)
@@ -259,10 +260,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
             ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
-            ["> Standify\nSelected Music: "] = "> Standify\nAusgewählte Musik: ",
-            ["> Standify\nMusic file does not exist:"] = "> Standify\nDie Musikdatei existiert nicht:",
+            ["\nSelectedMusic: "] = "Ausgewählte Musik: ",
+            ["\nMusic file does not exist:"] = "Die Musikdatei existiert nicht:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
-            ["> Standify\nMusic stopped successfully."] = "> Standify\nWurde erfolgreich beendet.",
+            ["Music stopped successfully."] = "Wurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
             ["\nWelcome to Standify "] = "\nWillkommen im script Standify ",
             ["Informations"] = "Informationen",
@@ -274,15 +275,16 @@
             ["WAV Compress & Converter"] = "WAV-Kompressor & Konverter",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Das Skript sucht höchstens einmal täglich automatisch nach Aktualisierungen, aber Sie können diese Option auch jederzeit manuell nutzen.",
             ["Check for Updates"] = "Überprüfung auf Aktualisierung",
-            ["> Standify\nNo updates found."] = "> Standify\nKeine Updates gefunden.",
+            ["\nNo updates found."] = "Keine Updates gefunden.",
             -- Converter & Compress
             ["Compressor"] = "Kompressor",
             ["Converter"] = "Konverter",
             -- Random Music
             ["Play Random Music"] = "Zufällige Musik abspielen",	
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
-            ["> Standify\nRandom music selected: "] = "> Standify\nZufällig ausgewählte Musik: ",
-            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nEs befindet sich keine Musik im Speicherordner.",
+            ["\nRandom music selected: "] = "Zufällig ausgewählte Musik: ",
+            ["\nThere is no music in the storage folder."] = "\nEs befindet sich keine Musik im Speicherordner.",
+            ["\nSound file does not exist: "] = "\nSounddatei existiert nicht: ",
         },
 
         es = { -- Spanish Language (Español)
@@ -299,10 +301,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Proporciona muchas características y elementos esenciales para scripts Lua.",
             ["Visit my GitHub Page"] = "Visita mi página de GitHub",
             ["Join my TikTok"] = "Únete a mi TikTok",
-            ["> Standify\nSelected Music: "] = "> Standify\nMúsica seleccionada: ",
-            ["> Standify\nMusic file does not exist:"] = "> Standify\nEl archivo de música no existe:",
+            ["\nSelectedMusic: "] = "\nMúsica seleccionada: ",
+            ["\nMusic file does not exist:"] = "\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
-            ["> Standify\nMusic stopped successfully."] = "> Standify\nLa música se detuvo con éxito.",
+            ["Music stopped successfully."] = "La música se detuvo con éxito.",
             ["Hello "] = "Hola ",
             ["\nWelcome to Standify "] = "\nBienvenido a Standify ",
             ["Informations"] = "Información",
@@ -314,15 +316,16 @@
             ["WAV Compress & Converter"] = "Compresor y conversor WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "El script comprobará automáticamente si hay actualizaciones como máximo a diario, pero puede comprobarlo manualmente utilizando esta opción en cualquier momento.",
             ["Check for Updates"] = "Comprobar la actualización",
-            ["> Standify\nNo updates found."] = "> Standify\nNo se han encontrado actualizaciones.",
+            ["\nNo updates found."] = "No se han encontrado actualizaciones.",
             -- Converter & Compress
             ["Compressor"] = "Compresor",
             ["Converter"] = "Conversor",
             -- Random Music
             ["Play Random Music"] = "Reproducir música aleatoria",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Reproducir una música al azar.\nNOTA: Tienes cada intervalo para hacer clic en la acción para seleccionar la música al azar.",
-            ["> Standify\nRandom music selected: "] = "> Standify\nMúsica seleccionada al azar: ",
-            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNo hay música en la carpeta de almacenamiento.",
+            ["\nRandom music selected: "] = "\nMúsica seleccionada al azar: ",
+            ["\nThere is no music in the storage folder."] = "\nNo hay música en la carpeta de almacenamiento.",
+            ["\nSound file does not exist: "] = "\nEl archivo de sonido no existe: ",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Refresh Script"] = "Atualize o script",
@@ -338,10 +341,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Fornece muitas características & essências para Lua Scripts.",
             ["Visit my GitHub Page"] = "Visite a minha página GitHub",
             ["Join my TikTok"] = "Junte-se ao meu TikTok",
-            ["> Standify\nSelected Music: "] = "> Standify\nMúsica seleccionada: ",
-            ["> Standify\nMusic file does not exist:"] = "> Standify\nFicheiro de música não existe:",
+            ["\nSelectedMusic: "] = "\nMúsica seleccionada: ",
+            ["\nMusic file does not exist:"] = "\nFicheiro de música não existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
-            ["> Standify\nMusic stopped successfully."] = "> Standify\nA música parou com sucesso.",
+            ["Music stopped successfully."] = "A música parou com sucesso.",
             ["Hello "] = "Olá ",
             ["\nWelcome to Standify "] = "\nBem-vindo ao Standify ",
             ["Informations"] = "Informações",
@@ -353,15 +356,16 @@
             ["WAV Compress & Converter"] = "WAV Compressor & Conversor",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
             ["Check for Updates"] = "Verificar por Actualização",
-            ["> Standify\nNo updates found."] = "Nenhuma actualização encontrada",
+            ["\nNo updates found."] = "\nNenhuma actualização encontrada",
             -- Converter & Compress
             ["Compressor"] = "Compressor",
             ["Converter"] = "Conversor",
             -- Random Music
             ["Play Random Music"] = "Reproduzir música aleatória",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Tocar uma música aleatória.\nNOTA: Você tem cada intervalo para clicar na ação para selecionar música aleatória.",
-            ["> Standify\nRandom music selected: "] = "> Standify\nMúsica aleatória selecionada: ",
-            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNão há música na pasta de armazenamento.",
+            ["\nRandom music selected: "] = "\nMúsica aleatória selecionada: ",
+            ["\nThere is no music in the storage folder."] = "\nNão há música na pasta de armazenamento.",
+            ["\nSound file does not exist: "] = "\nO arquivo de som não existe: ",
         },
         ru = { -- Russian Language (русский)
             ["Refresh Script"] = "Обновить скрипт",
@@ -377,10 +381,10 @@
             ["Provides much features & essentials for Lua Scripts."] = "Предоставляет много возможностей и основ для Lua скриптов.",
             ["Visit my GitHub Page"] = "Посетите мою страницу на GitHub",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
-            ["> Standify\nSelected Music: "] = "> Standify\nВыбранная музыка: ",
-            ["> Standify\nMusic file does not exist:"] = "> Standify\nМузыкальный файл не существует:",
+            ["\nSelectedMusic: "] = "\nВыбранная музыка: ",
+            ["\nMusic file does not exist:"] = "\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
-            ["> Standify\nMusic stopped successfully."] = "> Standify\nМузыка успешно остановлена.",
+            ["Music stopped successfully."] = "Музыка успешно остановлена.",
             ["Hello "] = "Привет ",
             ["\nWelcome to Standify "] = "\nДобро пожаловать в Standify ",
             ["Informations"] = "Информация",
@@ -392,15 +396,16 @@
             ["WAV Compress & Converter"] = "Сжатие и преобразование WAV",
             ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "Скрипт будет автоматически проверять наличие обновлений не чаще, чем ежедневно, но вы можете вручную проверять их с помощью этой опции в любое время.",
             ["Check for Updates"] = "Проверка обновления",
-            ["> Standify\nNo updates found."] = "Обновления не найдены",
+            ["\nNo updates found."] = "\nОбновления не найдены",
             -- Converter & Compress
             ["Compressor"] = "компрессор",
             ["Converter"] = "Конвертер",
             -- Random Music
             ["Play Random Music"] = "Воспроизведение случайной музыки",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Воспроизведение случайной музыки.\nПРИМЕЧАНИЕ: У вас есть каждый интервал, чтобы нажать на действие для выбора случайной музыки.",
-            ["> Standify\nRandom music selected: "] = "> Standify\nСлучайный выбор музыки: ",
-            ["> Standify\nThere is no music in the storage folder."] = "> Standify\nВ папке хранения нет музыки."
+            ["\nRandom music selected: "] = "\nСлучайный выбор музыки: ",
+            ["\nThere is no music in the storage folder."] = "\nВ папке хранения нет музыки.",
+            ["\nSound file does not exist: "] = "\nЗвуковой файл не существует: "
         }
     }
 
@@ -457,11 +462,11 @@
             if song.file == selected_file then
                 local sound_location = song.sound
                 if not filesystem.exists(sound_location) then
-                    StandifyToast("> Standify : Sound file does not exist: " .. sound_location)
+                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSound file does not exist: ") .. sound_location)
                 else
                     local display_text = string.gsub(selected_file, "%.wav$", "")
                     StandifyPlay(sound_location)
-                    StandifyToast(ForceTranslate("> Standify\nSelected Music: ") .. display_text)
+                    StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nSelected Music: ") .. display_text)
                 end
                 break
             end
@@ -502,9 +507,9 @@
                 played_songs[song_path] = true 
                 AutoPlay(song_path)
                 local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
-                StandifyToast(ForceTranslate("> Standify\nRandom music selected: ") .. song_title)
+                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nRandom music selected: ") .. song_title)
             else
-                StandifyToast(ForceTranslate("> Standify\nThere is no music in the storage folder."))
+                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nThere is no music in the storage folder."))
             end
         elseif not random_enabled and current_sound_handle then
             current_sound_handle = nil
@@ -523,11 +528,11 @@
     StandifyRoot:action(ForceTranslate("Stop Music"), {'Standifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
         local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
         if not filesystem.exists(sound_location_1) then
-            StandifyToast(ForceTranslate("> Standify\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
         else
             sound_handle = StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if StandifyFiles and StandifyFiles ~= "" then -- check if StandifyFiles is not nil or empty
-                StandifyToast(ForceTranslate('> Standify\nMusic stopped successfully.'))
+                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate('\nMusic stopped successfully.'))
             end
         end
     end)
@@ -576,6 +581,6 @@
 	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
-                StandifyToast(ForceTranslate("> Standify\nNo updates found."))
+                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nNo updates found."))
             end
         end)
