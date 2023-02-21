@@ -18,3 +18,4 @@ Installation
 3. Done and enjoy your music.
 
 NOTE: One of musics having different format files like .mp3, .wgg, .ogg, etc... are not compatible with Stand. So be advise, use .wav converter music to work.
+- No volume settings added because the .dll file does not provide volume control functionality
