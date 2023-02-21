@@ -27,8 +27,8 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.18.1"
-    local edition_menu = "99.4"
+    local SCRIPT_VERSION = "0.19"
+    local edition_menu = "99.5"
 
     util.require_natives(1663599433)
     util.keep_running()
@@ -90,6 +90,20 @@
     end
 
     local current_sound_handle = nil
+    local random_enabled = false
+
+    local function AutoPlay(sound_location)
+        if current_sound_handle then
+            aalib.stop_sound(current_sound_handle)
+            current_sound_handle = nil
+        end
+    
+        current_sound_handle = aalib.play_sound(sound_location, SND_FILENAME | SND_ASYNC, function()
+            if random_enabled then
+                AutoPlay(sound_location)
+            end
+        end)
+    end
 
     local function StandifyLoading(directory)
         local StandifyLoadedSongs = {}
@@ -227,6 +241,11 @@
             -- Converter & Compress
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
+            -- Random Music
+	    ["Play Random Music"] = "Joue une musique aléatoire",
+	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
+	    ["> Standify\nRandom music selected: "] = "> Standify\nMusique aléatoire choisie: ",
+	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nIl n'y a pas de musique dans le dossier de stockage.",
         },
 
         de = { -- German Language (Deutsch)
@@ -263,6 +282,11 @@
             -- Converter & Compress
             ["Compressor"] = "Kompressor",
             ["Converter"] = "Konverter",
+            -- Random Music
+	    ["Play Random Music"] = "Zufällige Musik abspielen",	
+	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
+	    ["> Standify\nRandom music selected: "] = "> Standify\nZufällig ausgewählte Musik: ",
+	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nEs befindet sich keine Musik im Speicherordner.",
         },
         es = { -- Spanish Language (Español)
             ["Refresh Script"] = "Actualizar script",
@@ -298,6 +322,11 @@
             -- Converter & Compress
             ["Compressor"] = "Compresor",
             ["Converter"] = "Conversor",
+            -- Random Music
+	    ["Play Random Music"] = "Reproducir música aleatoria",
+	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Reproducir una música al azar.\nNOTA: Tienes cada intervalo para hacer clic en la acción para seleccionar la música al azar.",
+	    ["> Standify\nRandom music selected: "] = "> Standify\nMúsica seleccionada al azar: ",
+	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNo hay música en la carpeta de almacenamiento.",
         },
         pt = { -- Portuguese/Brazil Language (Português)
             ["Refresh Script"] = "Atualize o script",
@@ -333,6 +362,11 @@
             -- Converter & Compress
             ["Compressor"] = "Compressor",
             ["Converter"] = "Conversor",
+            -- Random Music
+	    ["Play Random Music"] = "Reproduzir música aleatória",
+	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Tocar uma música aleatória.\nNOTA: Você tem cada intervalo para clicar na ação para selecionar música aleatória.",
+	    ["> Standify\nRandom music selected: "] = "> Standify\nMúsica aleatória selecionada: ",
+	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nNão há música na pasta de armazenamento.",
         },
         ru = { -- Russian Language (русский)
             ["Refresh Script"] = "Обновить скрипт",
@@ -367,7 +401,12 @@
             ["> Standify\nNo updates found."] = "Обновления не найдены",
             -- Converter & Compress
             ["Compressor"] = "компрессор",
-            ["Converter"] = "Конвертер"
+            ["Converter"] = "Конвертер",
+            -- Random Music
+	    ["Play Random Music"] = "Воспроизведение случайной музыки",
+	    ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Воспроизведение случайной музыки.\nПРИМЕЧАНИЕ: У вас есть каждый интервал, чтобы нажать на действие для выбора случайной музыки.",
+	    ["> Standify\nRandom music selected: "] = "> Standify\nСлучайный выбор музыки: ",
+	    ["> Standify\nThere is no music in the storage folder."] = "> Standify\nВ папке хранения нет музыки."
         }
     }
 
@@ -407,6 +446,32 @@
     StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
     StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
     StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
+
+    ----=====================================================----
+    ---               Random Music Manual
+    ---     Just click one time to choose your random music
+    ----=====================================================----
+
+    local function StandifyAuto()
+        random_enabled = not random_enabled
+        if random_enabled and current_sound_handle == nil then
+            local song_files = filesystem.list_files(script_store_dir)
+            if #song_files > 0 then
+                local song_path = song_files[math.random(#song_files)]
+                AutoPlay(song_path)
+                local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
+                StandifyToast(ForceTranslate("> Standify\nRandom music selected: ") .. song_title)
+            else
+                StandifyToast(ForceTranslate("> Standify\nThere is no music in the storage folder."))
+            end
+        elseif not random_enabled and current_sound_handle then
+            current_sound_handle = nil
+        end
+    end
+
+    StandifyRoot:action(ForceTranslate("Play Random Music"), {'standifyrandom'}, ForceTranslate("Play a random music.\nNOTE: You have each interval to click the action to select random music."), function(selected_index)
+        StandifyAuto()
+    end)
 
     ----================================================----
     ---               Stop Sounds
