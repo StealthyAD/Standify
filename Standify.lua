@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20"
+    local SCRIPT_VERSION = "0.20.1"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -393,6 +393,22 @@
         StandifyRestart()
     end)
 
+    ----=====================================================----
+    ---               Hyperlinks
+    ---     Only for download converter or sometimes
+    ----=====================================================----
+    
+    local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
+    StandifyConprVerter:divider(ForceTranslate("Compressor"))
+    StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
+    StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
+    StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
+    StandifyConprVerter:divider(ForceTranslate("Converter"))
+    StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
+    StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
+    StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
+    StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
+
     StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
 
     ----============================================================================----
@@ -430,22 +446,6 @@
             end
         end
     end)
-
-    ----=====================================================----
-    ---               Hyperlinks
-    ---     Only for download converter or sometimes
-    ----=====================================================----
-
-    local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
-    StandifyConprVerter:divider(ForceTranslate("Compressor"))
-    StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
-    StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
-    StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
-    StandifyConprVerter:divider(ForceTranslate("Converter"))
-    StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
-    StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
-    StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
-    StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
 
     ----=====================================================----
     ---               Random Music Manual
