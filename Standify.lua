@@ -528,7 +528,7 @@
         StandifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
 
         StandifyMiscs:divider(ForceTranslate("Credits"))
-        local StandifyStealthy = StandifyMiscs:list("StealthyAD.#8293")
+        local StandifyStealthy = StandifyMiscs:list("StealthyAD.")
         StandifyStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
         StandifyStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
         StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
