@@ -386,12 +386,11 @@
     ----=====================================================----
 
     local sound_handle = nil
-
-    StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
     StandifyRoot:action(ForceTranslate("Refresh Script"), {'Standifyrefresh'}, ForceTranslate("Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."), function() -- Refresh Script
         sound_handle = StandifyPlaySound(join_path(script_store_dir_stop, "stop.wav"), SND_FILENAME | SND_ASYNC)
         StandifyRestart()
     end)
+    StandifyRoot:hyperlink(ForceTranslate("Open Music Folders"), "file://"..script_store_dir, ForceTranslate("Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted.")) -- Open Music Folder contains your own Musics
 
     ----=====================================================----
     ---               Hyperlinks
