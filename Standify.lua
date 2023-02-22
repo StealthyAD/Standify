@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.2"
+    local SCRIPT_VERSION = "0.20.3"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -217,7 +217,7 @@
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Il arrêtera votre musique instantanément. \nNOTE : Ne supprimez pas le dossier appelé Stop Sounds, la musique ne s'arrêtera pas et sera mise en boucle. Ne renommez pas le fichier.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Avoir crée le lua Startup Sound et je me suis inspiré pour créer le lua pour créer des playlists et rendre plus facile.",
             ["Provides much features & essentials for Lua Scripts."] = "Fournit beaucoup de fonctionnalités et d'éléments essentiels pour les scripts Lua.",
-            ["Visit my GitHub Page"] = "Visite ma page GitHub",
+            ["GitHub Source"] = "Source GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
             ["\nSelected Music: "] = "\nMusique choisie: ",
             ["\nMusic file does not exist:"] = "\nLe fichier musical n'existe pas :",
@@ -258,7 +258,7 @@
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Die Musik wird sofort gestoppt. HINWEIS: Löschen Sie nicht den Ordner 'Stop Sounds', sonst wird die Musik nicht gestoppt und in einer Schleife abgespielt. Benennen Sie die Datei nicht um.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Erstellt Startup Sound und ich verbessere die Lua, um Playlists zu erstellen und einfacher zu machen.",
             ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
-            ["Visit my GitHub Page"] = "Besuchen Sie meine Github-Seite",
+            ["GitHub Source"] = "GitHub Quelle",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
             ["\nSelected Music: "] = "\nAusgewählte Musik: ",
             ["\nMusic file does not exist:"] = "\nDie Musikdatei existiert nicht:",
@@ -298,7 +298,7 @@
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Detendrá tu música instantáneamente.\nNOTA: No borres la carpeta llamada Detener Sonidos, la música no se detendrá y se reproducirá en bucle. No cambies el nombre del archivo. Se detendrá la música al instante",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Creado Startup Sound y mejoro el lua para crear Listas de Reproducción y hacerlo más fácil.",
             ["Provides much features & essentials for Lua Scripts."] = "Proporciona muchas características y elementos esenciales para scripts Lua.",
-            ["Visit my GitHub Page"] = "Visita mi página de GitHub",
+            ["GitHub Source"] = "GitHub Fuente",
             ["Join my TikTok"] = "Únete a mi TikTok",
             ["\nSelected Music: "] = "\nMúsica seleccionada: ",
             ["\nMusic file does not exist:"] = "\nEl archivo de música no existe:",
@@ -338,7 +338,7 @@
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Это мгновенно остановит вашу музыку.\nNOTE: Не удаляйте папку под названием Stop Sounds, музыка не остановится и зациклится. Не переименовывайте файл.",
             ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Создал Startup Sound и улучшаю lua, чтобы создавать плейлисты и сделать проще.",
             ["Provides much features & essentials for Lua Scripts."] = "Предоставляет много возможностей и основ для Lua скриптов.",
-            ["Visit my GitHub Page"] = "Посетите мою страницу на GitHub",
+            ["GitHub Source"] = "GitHub Source",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
             ["\nSelected Music: "] = "\nВыбранная музыка: ",
             ["\nMusic file does not exist:"] = "\nМузыкальный файл не существует:",
@@ -528,13 +528,12 @@
         StandifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
 
         StandifyMiscs:divider(ForceTranslate("Credits"))
-        local StandifyStealthy = StandifyMiscs:list("StealthyAD.")
-        StandifyStealthy:hyperlink(ForceTranslate("Visit my GitHub Page"), "https://github.com/StealthyAD/Standify")
-        StandifyStealthy:hyperlink(ForceTranslate("Join my TikTok"), "https://www.tiktok.com/@xstealthyhd")
+        StandifyMiscs:action("StealthyAD.", {}, "", function()end)
         StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
 
         StandifyMiscs:divider(ForceTranslate("Resources & Updates"))
         StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
+	    StandifyMiscs:hyperlink(ForceTranslate("GitHub Source"), "https://github.com/StealthyAD/Standify")
 	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
