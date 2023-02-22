@@ -28,7 +28,7 @@ Why the Stop Sound won't work?
 - R: You don't have dragged your folder called "Standify" which include stop_sounds "Stand\Lua Scripts\store\Standify"
 
 Why I can't use .mp3 format file?
-- R: Because I prefer use .wav and I don't have an idea to search .dll file which we can execute mp3 format file.
+- R: mp3 are restricted because .wav becomes a standard at the expense of .mp3 because it is linked to the aalib.dll file.
 
 How to convert .mp3 files to .wav file and why .wav file still heavy?
 - R: You can convert mp3 files & compress files to reduce size: "Stand > Lua Scripts > Standify > WAV Compress & Converter"
