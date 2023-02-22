@@ -24,11 +24,11 @@ NOTE: One of musics having different format files like .mp3, .wgg, .ogg, etc... 
 Q&A
 ---
 
-Q: Why the Stop Sound won't work?
+Why the Stop Sound won't work?
 - R: You don't have dragged your folder called "Standify" which include stop_sounds "Stand\Lua Scripts\store\Standify"
 
-Q: Why I can't use .mp3 format file?
+Why I can't use .mp3 format file?
 - R: Because I prefer use .wav and I don't have an idea to search .dll file which we can execute mp3 format file.
 
-Q: How to convert .mp3 files to .wav file and why .wav file still heavy?
+How to convert .mp3 files to .wav file and why .wav file still heavy?
 - R: You can convert mp3 files & compress files to reduce size: "Stand > Lua Scripts > Standify > WAV Compress & Converter"
