@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.19.7"
+    local SCRIPT_VERSION = "0.20"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -199,7 +199,7 @@
                 end
             end
             english = true
-            StandifyToast("> Standify\nSorry your language isn't supported. Script language set to English.")
+            StandifyToast("> Standify "..SCRIPT_VERSION.. "\nSorry your language isn't supported. Script language set to English.")
         end
         SupportedLang()
     end
@@ -239,7 +239,7 @@
             ["Compressor"] = "Compresseur",
             ["Converter"] = "Convertisseur",
             -- Random Music
-            ["Play Random Music"] = "Jouer une musique aléatoire",
+            ["Play Random Music"] = "Joue une musique aléatoire",
             ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
             ["\nRandom music selected: "] = "\nMusique aléatoire choisie: ",
             ["\nThere is no music in the storage folder."] = "\nIl n'y a pas de musique dans le dossier de stockage.",
@@ -286,7 +286,6 @@
             ["\nThere is no music in the storage folder."] = "\nEs befindet sich keine Musik im Speicherordner.",
             ["\nSound file does not exist: "] = "\nSounddatei existiert nicht: ",
         },
-
         es = { -- Spanish Language (Español)
             ["Refresh Script"] = "Actualizar script",
             ["Main Menu"] = "Menú principal",
@@ -326,46 +325,6 @@
             ["\nRandom music selected: "] = "\nMúsica seleccionada al azar: ",
             ["\nThere is no music in the storage folder."] = "\nNo hay música en la carpeta de almacenamiento.",
             ["\nSound file does not exist: "] = "\nEl archivo de sonido no existe: ",
-        },
-        pt = { -- Portuguese/Brazil Language (Português)
-            ["Refresh Script"] = "Atualize o script",
-            ["Main Menu"] = "Menu principal",
-            ["Open Music Folders"] = "Pastas de Música Abertas",
-            ["Stop Music"] = "Parar a música",
-            ["Saved Playlists"] = "Listas de Reprodução Guardadas",
-            ["Miscellaneous"] = "Miscelânea",
-            ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Actualizar instantaneamente o guião se tiver algum problema.\nNOTE: Irá encerrar instantaneamente a música.",
-            ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Edite a sua música e desfrute.\nNOTE: É necessário colocar ficheiro .wav.\nMP3 ou outro ficheiro contendo ficheiros inválidos não são aceites.",
-            ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Não apague a pasta chamada Stop Sounds, a música não pára e faz um looping. Não renomeie o ficheiro.",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Criei o Startup Sound e melhorei a lua para criar listas de reprodução e tornar mais fácil.",
-            ["Provides much features & essentials for Lua Scripts."] = "Fornece muitas características & essências para Lua Scripts.",
-            ["Visit my GitHub Page"] = "Visite a minha página GitHub",
-            ["Join my TikTok"] = "Junte-se ao meu TikTok",
-            ["\nSelected Music: "] = "\nMúsica seleccionada: ",
-            ["\nMusic file does not exist:"] = "\nFicheiro de música não existe:",
-            ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: É necessário obter o ficheiro, caso contrário não se pode parar o som.",
-            ["\nMusic stopped successfully."] = "\nA música parou com sucesso.",
-            ["Hello "] = "Olá ",
-            ["\nWelcome to Standify "] = "\nBem-vindo ao Standify ",
-            ["Informations"] = "Informações",
-            ["Credits"] = "Créditos",
-            ["Resources & Updates"] = "Recursos & Atualizações",
-            ["Version: "] = "Versão: ",
-            ["Stand Edition: "] = "Stand Edição: ",
-            ["WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."] = "ADVERTÊNCIA: pasta pesada, por isso verifique se tem um grande armazenamento, pelo menos um ficheiro .wav médio: 25-100 MB.",
-            ["WAV Compress & Converter"] = "WAV Compressor & Conversor",
-            ["The script will automatically check for updates at most daily, but you can manually check using this option anytime."] = "O script verificará automaticamente as actualizações no máximo diariamente, mas pode verificar manualmente usando esta opção em qualquer altura.",
-            ["Check for Updates"] = "Verificar por Actualização",
-            ["\nNo updates found."] = "\nNenhuma actualização encontrada",
-            -- Converter & Compress
-            ["Compressor"] = "Compressor",
-            ["Converter"] = "Conversor",
-            -- Random Music
-            ["Play Random Music"] = "Reproduzir música aleatória",
-            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Tocar uma música aleatória.\nNOTA: Você tem cada intervalo para clicar na ação para selecionar música aleatória.",
-            ["\nRandom music selected: "] = "\nMúsica aleatória selecionada: ",
-            ["\nThere is no music in the storage folder."] = "\nNão há música na pasta de armazenamento.",
-            ["\nSound file does not exist: "] = "\nO arquivo de som não existe: ",
         },
         ru = { -- Russian Language (русский)
             ["Refresh Script"] = "Обновить скрипт",
@@ -413,7 +372,7 @@
         if not english then
             local forcetranslate_str = tr_table[user_lang][str]
             if forcetranslate_str == nil or forcetranslate_str == "" then
-                StandifyToast("> Standify (translation missing) : '"..str.."'",TOAST_CONSOLE)
+                StandifyToast("> Standify"..SCRIPT_VERSION.. " (translation missing) : '"..str.."'",TOAST_CONSOLE)
             else
                 return forcetranslate_str
             end
@@ -436,7 +395,6 @@
 
     StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
 
-    
     ----============================================================================----
     ---                         Saved Playlists
     --- All of your musics stored on %appdata%\Stand\Lua Scripts\Standify\songs\
@@ -466,7 +424,7 @@
                 else
                     local display_text = string.gsub(selected_file, "%.wav$", "")
                     StandifyPlay(sound_location)
-                    StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nSelected Music: ") .. display_text)
+                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSelected Music: ") .. display_text)
                 end
                 break
             end
@@ -507,9 +465,9 @@
                 played_songs[song_path] = true 
                 AutoPlay(song_path)
                 local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
-                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nRandom music selected: ") .. song_title)
+                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nRandom music selected: ") .. song_title)
             else
-                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nThere is no music in the storage folder."))
+                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nThere is no music in the storage folder."))
             end
         elseif not random_enabled and current_sound_handle then
             current_sound_handle = nil
