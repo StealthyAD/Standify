@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.1"
+    local SCRIPT_VERSION = "0.20.2"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
