@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.3"
+    local SCRIPT_VERSION = "0.20.4"
     local edition_menu = "99.5"
 
     util.require_natives(1663599433)
@@ -403,6 +403,7 @@
     StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
     StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
     StandifyConprVerter:divider(ForceTranslate("Converter"))
+    StandifyConprVerter:hyperlink("YouTube WAV Converter", "https://www.ukc.com.np/p/youtube-wav.html")
     StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
     StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
     StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
