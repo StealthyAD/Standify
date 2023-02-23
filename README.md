@@ -34,4 +34,5 @@ How to convert .mp3 files to .wav file and why .wav file still heavy?
 - R: You can convert mp3 files & compress files to reduce size: "Stand > Lua Scripts > Standify > WAV Compress & Converter"
 
 Why the sound is too loud?
-- R: You can amplify the sound by using various software like Audacity, Premiere Pro, etc...
+- R: You can amplify the sound by using various software like Audacity, Premiere Pro, etc... Then we don't have volume parameter because the .dll file don't provide volume control.
+
