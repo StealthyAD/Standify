@@ -33,5 +33,5 @@ Why I can't use .mp3 format file?
 How to convert .mp3 files to .wav file and why .wav file still heavy?
 - R: You can convert mp3 files & compress files to reduce size: "Stand > Lua Scripts > Standify > WAV Compress & Converter"
 
-Why the sound i too loud
+Why the sound is too loud?
 - R: You can amplify the sound by using various software like Audacity, Premiere Pro, etc...
