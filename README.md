@@ -39,5 +39,5 @@ Why the sound is too loud?
 Recommended scripts to install easier the script:
 _________________________________________________
 
-You can use ['Script Manager'](https://github.com/hexarobi/stand-lua-scriptmanager) made by Hexarobi to download scripts.
+You can use [Script Manager](https://github.com/hexarobi/stand-lua-scriptmanager) made by Hexarobi to download scripts.
 
