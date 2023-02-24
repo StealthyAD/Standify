@@ -36,3 +36,8 @@ How to convert .mp3 files to .wav file and why .wav file still heavy?
 Why the sound is too loud?
 - R: You can amplify the sound by using various software like Audacity, Premiere Pro, etc... Then we don't have volume parameter because the .dll file don't provide volume control.
 
+Recommended scripts to install easier the script:
+_________________________________________________
+
+You can use ['Script Manager'](https://github.com/hexarobi/stand-lua-scriptmanager) made by Hexarobi to download scripts.
+
