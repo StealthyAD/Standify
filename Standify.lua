@@ -27,8 +27,8 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.5"
-    local edition_menu = "100.2"
+    local SCRIPT_VERSION = "0.20.7"
+    local edition_menu = "100.7"
 
     util.require_natives(1663599433)
     util.keep_running()
@@ -222,7 +222,6 @@
             ["\nSelected Music: "] = "\nMusique choisie: ",
             ["\nMusic file does not exist:"] = "\nLe fichier musical n'existe pas :",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE : Vous devez obtenir le fichier, sinon vous ne pourrez pas arrêter le son.",
-            ["\nMusic stopped successfully."] = "\nMusique arrêté avec succès.",
             ["Hello "] = "Bonjour ",
             ["\nWelcome to Standify "] = "\nBienvenue sur le script Standify ",
             ["Informations"] = "Informations",
@@ -262,8 +261,6 @@
             ["Join my TikTok"] = "Meinem TikTok beitreten",
             ["\nSelected Music: "] = "\nAusgewählte Musik: ",
             ["\nMusic file does not exist:"] = "\nDie Musikdatei existiert nicht:",
-            ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nHinweis: Sie müssen die Datei erhalten, sonst können Sie den Ton nicht anhalten.",
-            ["\nMusic stopped successfully."] = "\nWurde erfolgreich beendet.",
             ["Hello "] = "Guten Tag ",
             ["\nWelcome to Standify "] = "\nWillkommen im script Standify ",
             ["Informations"] = "Informationen",
@@ -303,7 +300,6 @@
             ["\nSelected Music: "] = "\nMúsica seleccionada: ",
             ["\nMusic file does not exist:"] = "\nEl archivo de música no existe:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTA: Es necesario obtener el archivo, de lo contrario no se puede detener el sonido.",
-            ["\nMusic stopped successfully."] = "\nLa música se detuvo con éxito.",
             ["Hello "] = "Hola ",
             ["\nWelcome to Standify "] = "\nBienvenido a Standify ",
             ["Informations"] = "Información",
@@ -343,7 +339,6 @@
             ["\nSelected Music: "] = "\nВыбранная музыка: ",
             ["\nMusic file does not exist:"] = "\nМузыкальный файл не существует:",
             ["\n\nNOTE: You need to get the file, otherwise you can't stop the sound."] = "\n\nNOTE: Вам нужно получить файл, иначе вы не сможете остановить звук.",
-            ["\nMusic stopped successfully."] = "\nМузыка успешно остановлена.",
             ["Hello "] = "Привет ",
             ["\nWelcome to Standify "] = "\nДобро пожаловать в Standify ",
             ["Informations"] = "Информация",
@@ -490,7 +485,6 @@
         else
             sound_handle = StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             if StandifyFiles and StandifyFiles ~= "" then -- check if StandifyFiles is not nil or empty
-                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate('\nMusic stopped successfully.'))
             end
         end
     end)
