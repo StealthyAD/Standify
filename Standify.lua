@@ -27,8 +27,8 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.7"
-    local edition_menu = "100.7"
+    local SCRIPT_VERSION = "0.20.8"
+    local edition_menu = "100.9"
 
     util.require_natives(1663599433)
     util.keep_running()
@@ -67,7 +67,6 @@
         return ending == "" or str:sub(-#ending) == ending
     end
 
-    local StandifyFiles = {}
         function UpdateAutoMusics()
             Music_TempFiles = {}
             for i, path in ipairs(filesystem.list_files(script_store_dir)) do
@@ -392,124 +391,122 @@
     ---     Only for download converter or sometimes
     ----=====================================================----
     
-    local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
-    StandifyConprVerter:divider(ForceTranslate("Compressor"))
-    StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
-    StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
-    StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
-    StandifyConprVerter:divider(ForceTranslate("Converter"))
-    StandifyConprVerter:hyperlink("YouTube WAV Converter", "https://www.ukc.com.np/p/youtube-wav.html")
-    StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
-    StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
-    StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
-    StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
+        local StandifyConprVerter = StandifyRoot:list(ForceTranslate("WAV Compress & Converter")) -- Website Converter & Compress WAV. MP3 are not available
+        StandifyConprVerter:divider(ForceTranslate("Compressor"))
+        StandifyConprVerter:hyperlink("WAV Compressor", "https://www.freeconvert.com/wav-compressor")
+        StandifyConprVerter:hyperlink("xconvert", "https://www.xconvert.com/compress-wav")
+        StandifyConprVerter:hyperlink("youcompress", "https://www.youcompress.com/wav/")
+        StandifyConprVerter:divider(ForceTranslate("Converter"))
+        StandifyConprVerter:hyperlink("YouTube WAV Converter", "https://www.ukc.com.np/p/youtube-wav.html")
+        StandifyConprVerter:hyperlink("WAV Converter", "https://www.freeconvert.com/wav-converter")
+        StandifyConprVerter:hyperlink("cloudconvert", "https://cloudconvert.com/wav-converter")
+        StandifyConprVerter:hyperlink("online-convert", "https://audio.online-convert.com/convert-to-wav")
+        StandifyConprVerter:hyperlink("online-audio-coverter", "https://online-audio-converter.com/")
 
-    StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
+        StandifyRoot:divider(ForceTranslate("Main Menu")) -- Main Menu Divider
 
     ----============================================================================----
     ---                         Saved Playlists
     --- All of your musics stored on %appdata%\Stand\Lua Scripts\Standify\songs\
     ----============================================================================----
 
-    local songs_direct = join_path(script_store_dir, "")
-    local StandifyLoadedSongs = StandifyLoading(songs_direct)
-    local StandifyFiles = {}
-    for _, song in ipairs(StandifyLoadedSongs) do
-        StandifyFiles[#StandifyFiles + 1] = song.file
-    end
-    
-    local function StandifyPlay(sound_location)
-        if current_sound_handle then
-            current_sound_handle = nil
-        end
-        current_sound_handle = StandifyPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
-    end
-    
-    local StandifyList = StandifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), StandifyFiles, function(selected_index)
-        local selected_file = StandifyFiles[selected_index]
+        local songs_direct = join_path(script_store_dir, "")
+        local StandifyLoadedSongs = StandifyLoading(songs_direct)
+        local StandifyFiles = {}
         for _, song in ipairs(StandifyLoadedSongs) do
-            if song.file == selected_file then
-                local sound_location = song.sound
-                if not filesystem.exists(sound_location) then
-                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSound file does not exist: ") .. sound_location)
-                else
-                    local display_text = string.gsub(selected_file, "%.wav$", "")
-                    StandifyPlay(sound_location)
-                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSelected Music: ") .. display_text)
-                end
-                break
-            end
+            StandifyFiles[#StandifyFiles + 1] = song.file
         end
-    end)
+        
+        local function StandifyPlay(sound_location)
+            if current_sound_handle then
+                current_sound_handle = nil
+            end
+            current_sound_handle = StandifyPlaySound(sound_location, SND_FILENAME | SND_ASYNC)
+        end
+        
+        local StandifyList = StandifyRoot:list_action(ForceTranslate("Saved Playlists"), {}, ForceTranslate("WARNING: Heavy folder, so check if you have big storage, atleast average .wav file: 25-100 MB."), StandifyFiles, function(selected_index)
+            local selected_file = StandifyFiles[selected_index]
+            for _, song in ipairs(StandifyLoadedSongs) do
+                if song.file == selected_file then
+                    local sound_location = song.sound
+                    if not filesystem.exists(sound_location) then
+                        StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSound file does not exist: ") .. sound_location)
+                    else
+                        local display_text = string.gsub(selected_file, "%.wav$", "")
+                        StandifyPlay(sound_location)
+                        StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nSelected Music: ") .. display_text)
+                    end
+                    break
+                end
+            end
+        end)
 
     ----=====================================================----
     ---               Random Music Manual
     ---     Just click one time to choose your random music
     ----=====================================================----
 
-    local played_songs = {} 
-    local function StandifyAuto()
-        random_enabled = not random_enabled
-        if random_enabled and current_sound_handle == nil then
-            local song_files = filesystem.list_files(script_store_dir)
-            if #song_files > 0 then
-                local song_path
-                repeat 
-                    song_path = song_files[math.random(#song_files)]
-                until not played_songs[song_path]
-                played_songs[song_path] = true 
-                AutoPlay(song_path)
-                local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
-                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nRandom music selected: ") .. song_title)
-            else
-                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nThere is no music in the storage folder."))
+        local played_songs = {} 
+        local function StandifyAuto()
+            random_enabled = not random_enabled
+            if random_enabled and current_sound_handle == nil then
+                local song_files = filesystem.list_files(script_store_dir)
+                if #song_files > 0 then
+                    local song_path
+                    repeat 
+                        song_path = song_files[math.random(#song_files)]
+                    until not played_songs[song_path]
+                    played_songs[song_path] = true 
+                    AutoPlay(song_path)
+                    local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
+                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nRandom music selected: ") .. song_title)
+                else
+                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nThere is no music in the storage folder."))
+                end
+            elseif not random_enabled and current_sound_handle then
+                current_sound_handle = nil
             end
-        elseif not random_enabled and current_sound_handle then
-            current_sound_handle = nil
         end
-    end
 
-    StandifyRoot:action(ForceTranslate("Play Random Music"), {'standifyrandom'}, ForceTranslate("Play a random music.\nNOTE: You have each interval to click the action to select random music."), function(selected_index)
-        StandifyAuto()
-    end)
+        StandifyRoot:action(ForceTranslate("Play Random Music"), {'standifyrandom'}, ForceTranslate("Play a random music.\nNOTE: You have each interval to click the action to select random music."), function(selected_index)
+            StandifyAuto()
+        end)
 
     ----================================================----
     ---               Stop Sounds
     ---     Automatically end the musics while playing.
     ----================================================----
 
-    StandifyRoot:action(ForceTranslate("Stop Music"), {'Standifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
-        local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
-        if not filesystem.exists(sound_location_1) then
-            StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
-        else
-            sound_handle = StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
-            if StandifyFiles and StandifyFiles ~= "" then -- check if StandifyFiles is not nil or empty
+        StandifyRoot:action(ForceTranslate("Stop Music"), {'Standifystop'}, ForceTranslate("It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."), function(selected_index) -- Force automatically stop your musics
+            local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
+            if not filesystem.exists(sound_location_1) then
+                StandifyToast("> Standify "..SCRIPT_VERSION..ForceTranslate("\nMusic file does not exist: ") .. sound_location_1.. ForceTranslate("\n\nNOTE: You need to get the file, otherwise you can't stop the sound."))
+            else
+                StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
             end
-        end
-    end)
+        end)
 
     ----================================================----
     ---               Loop Features
     ---        Useful features to refresh Musics
     ----================================================----
 
-    util.create_thread(function()
-        while true do
-            UpdateAutoMusics()
-            menu.set_list_action_options(StandifyList, StandifyFiles)
-            StandifyYield(5000)
+        util.create_thread(function()
+            while true do
+                UpdateAutoMusics()
+                menu.set_list_action_options(StandifyList, StandifyFiles)
+                StandifyYield(5000)
+            end
+        end)
+
+        if not SCRIPT_SILENT_START then
+            StandifyToast("> Standify " ..SCRIPT_VERSION.. ForceTranslate("\nHello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
         end
-    end)
 
-    if not SCRIPT_SILENT_START then
-        StandifyToast("> Standify " ..SCRIPT_VERSION.. ForceTranslate("\nHello ").. players.get_name(players.user()).. ForceTranslate("\nWelcome to Standify ") ..SCRIPT_VERSION)
-    end
-
-    util.on_stop(function()
-        local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
-        StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
-    end)
+        util.on_stop(function()
+            local sound_location_1 = join_path(script_store_dir_stop, "stop.wav")
+            StandifyPlaySound(sound_location_1, SND_FILENAME | SND_ASYNC)
+        end)
 
     ----=====================================================----
     ---               Credits/GitHub Page & Updates
@@ -523,8 +520,7 @@
         StandifyMiscs:readonly(ForceTranslate("Stand Edition: ") ..edition_menu)
 
         StandifyMiscs:divider(ForceTranslate("Credits"))
-        StandifyMiscs:action("StealthyAD.", {}, "", function()end)
-        StandifyMiscs:action("Lance", {}, ForceTranslate("Created Startup Sound and I improve the lua to create Playlists and make easier."), function()end)
+        StandifyMiscs:hyperlink("StealthyAD.", "https://github.com/StealthyAD")
 
         StandifyMiscs:divider(ForceTranslate("Resources & Updates"))
         StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
