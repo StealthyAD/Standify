@@ -27,7 +27,7 @@
     local StandifyPlaySound = aalib.play_sound
     local SND_ASYNC<const> = 0x0001
     local SND_FILENAME<const> = 0x00020000
-    local SCRIPT_VERSION = "0.20.8"
+    local SCRIPT_VERSION = "0.20.9"
     local edition_menu = "100.9"
 
     util.require_natives(1663599433)
@@ -238,7 +238,7 @@
             ["Converter"] = "Convertisseur",
             -- Random Music
             ["Play Random Music"] = "Joue une musique aléatoire",
-            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Jouer une musique aléatoire.\nNOTE : Vous devez cliquer à chaque intervalle sur l'action pour sélectionner la musique aléatoire.",	
+            ["Play a random music."] = "Jouer une musique aléatoire.",	
             ["\nRandom music selected: "] = "\nMusique aléatoire choisie: ",
             ["\nThere is no music in the storage folder."] = "\nIl n'y a pas de musique dans le dossier de stockage.",
             ["\nSound file does not exist: "] = "\nLe fichier son n'existe pas: ",
@@ -277,7 +277,7 @@
             ["Converter"] = "Konverter",
             -- Random Music
             ["Play Random Music"] = "Zufällige Musik abspielen",	
-            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Zufallsmusik abspielen.\nHINWEIS: Sie müssen in jedem Intervall auf die Aktion klicken, um Zufallsmusik auszuwählen.",
+            ["Play a random music."] = "Zufallsmusik abspielen.",
             ["\nRandom music selected: "] = "\nZufällig ausgewählte Musik: ",
             ["\nThere is no music in the storage folder."] = "\nEs befindet sich keine Musik im Speicherordner.",
             ["\nSound file does not exist: "] = "\nSounddatei existiert nicht: ",
@@ -316,7 +316,7 @@
             ["Converter"] = "Conversor",
             -- Random Music
             ["Play Random Music"] = "Reproducir música aleatoria",
-            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Reproducir una música al azar.\nNOTA: Tienes cada intervalo para hacer clic en la acción para seleccionar la música al azar.",
+            ["Play a random music."] = "Reproducir una música al azar.",
             ["\nRandom music selected: "] = "\nMúsica seleccionada al azar: ",
             ["\nThere is no music in the storage folder."] = "\nNo hay música en la carpeta de almacenamiento.",
             ["\nSound file does not exist: "] = "\nEl archivo de sonido no existe: ",
@@ -355,7 +355,7 @@
             ["Converter"] = "Конвертер",
             -- Random Music
             ["Play Random Music"] = "Воспроизведение случайной музыки",
-            ["Play a random music.\nNOTE: You have each interval to click the action to select random music."] = "Воспроизведение случайной музыки.\nПРИМЕЧАНИЕ: У вас есть каждый интервал, чтобы нажать на действие для выбора случайной музыки.",
+            ["Play a random music."] = "Воспроизведение случайной музыки.",
             ["\nRandom music selected: "] = "\nСлучайный выбор музыки: ",
             ["\nThere is no music in the storage folder."] = "\nВ папке хранения нет музыки.",
             ["\nSound file does not exist: "] = "\nЗвуковой файл не существует: "
@@ -448,29 +448,25 @@
 
         local played_songs = {} 
         local function StandifyAuto()
-            random_enabled = not random_enabled
-            if random_enabled and current_sound_handle == nil then
-                local song_files = filesystem.list_files(script_store_dir)
-                if #song_files > 0 then
-                    local song_path
-                    repeat 
-                        song_path = song_files[math.random(#song_files)]
-                    until not played_songs[song_path]
-                    played_songs[song_path] = true 
-                    AutoPlay(song_path)
-                    local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
-                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nRandom music selected: ") .. song_title)
-                else
-                    StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nThere is no music in the storage folder."))
-                end
-            elseif not random_enabled and current_sound_handle then
-                current_sound_handle = nil
+            local song_files = filesystem.list_files(script_store_dir)
+            if #song_files > 0 then
+                local song_path
+                repeat 
+                    song_path = song_files[math.random(#song_files)]
+                until not played_songs[song_path]
+                played_songs[song_path] = true 
+                AutoPlay(song_path)
+                local song_title = string.match(song_path, ".+\\([^%.]+)%.%w+$")
+                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nRandom music selected: ") .. song_title)
+            else
+                StandifyToast("> Standify "..SCRIPT_VERSION.. ForceTranslate("\nThere is no music in the storage folder."))
             end
         end
 
-        StandifyRoot:action(ForceTranslate("Play Random Music"), {'standifyrandom'}, ForceTranslate("Play a random music.\nNOTE: You have each interval to click the action to select random music."), function(selected_index)
+        StandifyRoot:action(ForceTranslate("Play Random Music"), {'standifyrandom'}, ForceTranslate("Play a random music."), function()
             StandifyAuto()
         end)
+
 
     ----================================================----
     ---               Stop Sounds
@@ -495,7 +491,7 @@
             while true do
                 UpdateAutoMusics()
                 menu.set_list_action_options(StandifyList, StandifyFiles)
-                StandifyYield(5000)
+                StandifyYield(2500)
             end
         end)
 
