@@ -214,8 +214,6 @@
             ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Ré-actualise instantanément le script si il y'a des problèmes qui peuvent dégénérer.\nNOTE: Cela va couper instantanément la musique.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Modifier la disposition de votre musique et profitez-en au maximum.\nNOTE: vous devrez obligatoirement mettre sous forme de fichier .wav\nLes fichiers MP3 ou d'autres fichiers contenant des fichiers invalides ne seront pas acceptés.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Il arrêtera votre musique instantanément. \nNOTE : Ne supprimez pas le dossier appelé Stop Sounds, la musique ne s'arrêtera pas et sera mise en boucle. Ne renommez pas le fichier.",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Avoir crée le lua Startup Sound et je me suis inspiré pour créer le lua pour créer des playlists et rendre plus facile.",
-            ["Provides much features & essentials for Lua Scripts."] = "Fournit beaucoup de fonctionnalités et d'éléments essentiels pour les scripts Lua.",
             ["GitHub Source"] = "Source GitHub",
             ["Join my TikTok"] = "Rejoins mon TikTok",
             ["\nSelected Music: "] = "\nMusique choisie: ",
@@ -254,8 +252,6 @@
             ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Aktualisieren Sie das Skript sofort, wenn Sie Probleme haben.\nHinweis: Die Musik wird sofort abgeschaltet.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Bearbeiten Sie Ihre Musik und genießen Sie sie.\nHinweis: Sie müssen eine .wav-Datei einfügen.\nMP3 oder andere Dateien mit ungültigen Dateien werden nicht akzeptiert.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Die Musik wird sofort gestoppt. HINWEIS: Löschen Sie nicht den Ordner 'Stop Sounds', sonst wird die Musik nicht gestoppt und in einer Schleife abgespielt. Benennen Sie die Datei nicht um.",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Erstellt Startup Sound und ich verbessere die Lua, um Playlists zu erstellen und einfacher zu machen.",
-            ["Provides much features & essentials for Lua Scripts."] = "Bietet viele Funktionen und Grundlagen für Lua-Skripte.",
             ["GitHub Source"] = "GitHub Quelle",
             ["Join my TikTok"] = "Meinem TikTok beitreten",
             ["\nSelected Music: "] = "\nAusgewählte Musik: ",
@@ -292,8 +288,6 @@
             ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "Actualice instantáneamente el script si tiene algún problema.\nNOTA: Se apagará instantáneamente la música.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Edita tu música y disfruta.\nNOTA: Necesitas poner archivo .wav.\nNo se aceptan MP3 u otros archivos que contengan archivos inválidos.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Detendrá tu música instantáneamente.\nNOTA: No borres la carpeta llamada Detener Sonidos, la música no se detendrá y se reproducirá en bucle. No cambies el nombre del archivo. Se detendrá la música al instante",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Creado Startup Sound y mejoro el lua para crear Listas de Reproducción y hacerlo más fácil.",
-            ["Provides much features & essentials for Lua Scripts."] = "Proporciona muchas características y elementos esenciales para scripts Lua.",
             ["GitHub Source"] = "GitHub Fuente",
             ["Join my TikTok"] = "Únete a mi TikTok",
             ["\nSelected Music: "] = "\nMúsica seleccionada: ",
@@ -331,8 +325,6 @@
             ["Refresh instantly the script if have any problems.\nNOTE: It will Instantly shut down music."] = "При возникновении проблем мгновенно обновите скрипт.\nПРИМЕЧАНИЕ: Он мгновенно выключит музыку.",
             ["Edit your music and enjoy.\nNOTE: You need to put .wav file.\nMP3 or another files contains invalid file are not accepted."] = "Редактируйте музыку и наслаждайтесь.\nNOTE: Вам нужно вставить .wav файл.\nMP3 или другие файлы, содержащие недействительный файл, не принимаются.",
             ["It will stop your music instantly.\nNOTE: Don't delete the folder called Stop Sounds, music won't stop and looped. Don't rename file."] = "Это мгновенно остановит вашу музыку.\nNOTE: Не удаляйте папку под названием Stop Sounds, музыка не остановится и зациклится. Не переименовывайте файл.",
-            ["Created Startup Sound and I improve the lua to create Playlists and make easier."] = "Создал Startup Sound и улучшаю lua, чтобы создавать плейлисты и сделать проще.",
-            ["Provides much features & essentials for Lua Scripts."] = "Предоставляет много возможностей и основ для Lua скриптов.",
             ["GitHub Source"] = "GitHub Source",
             ["Join my TikTok"] = "Присоединяйтесь к моему TikTok",
             ["\nSelected Music: "] = "\nВыбранная музыка: ",
@@ -519,7 +511,7 @@
         StandifyMiscs:hyperlink("StealthyAD.", "https://github.com/StealthyAD")
 
         StandifyMiscs:divider(ForceTranslate("Resources & Updates"))
-        StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation", ForceTranslate("Provides much features & essentials for Lua Scripts."))
+        StandifyMiscs:hyperlink("Stand API", "https://stand.gg/help/lua-api-documentation")
 	    StandifyMiscs:hyperlink(ForceTranslate("GitHub Source"), "https://github.com/StealthyAD/Standify")
 	    StandifyMiscs:action(ForceTranslate("Check for Updates"), {}, ForceTranslate("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
