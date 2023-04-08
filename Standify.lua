@@ -27,7 +27,7 @@
         local StandifyPlaySound = aalib.play_sound
         local SND_ASYNC<const> = 0x0001
         local SND_FILENAME<const> = 0x00020000
-        local StandifyVersion = "0.2"
+        local StandifyVersion = "0.21"
         local StandifyMSG = "> Standify "..StandifyVersion
 
         util.keep_running()
@@ -72,10 +72,21 @@
             filesystem.mkdirs(script_store_dir_stop)
         end
 
+        local script_resources_dir = filesystem.resources_dir() .. SCRIPT_NAME -- Redirects to %appdata%\Stand\Lua Scripts\resources\Standify
+        if not filesystem.is_dir(script_resources_dir) then
+            filesystem.mkdirs(script_resources_dir)
+        end
+
     ----=============================================----
     ---                 Functions
     --- The Most important part how the script works
     ----=============================================----
+
+        local function linear_transition(start_value, end_value, duration, current_time)
+            local progress = current_time / duration
+            progress = math.min(progress, 1)
+            return start_value + (end_value - start_value) * progress
+        end
 
         local function ends_with(str, ending)
             return ending == "" or str:sub(-#ending) == ending
@@ -185,6 +196,22 @@
         local added_files = {}
         local songs_direct = join_path(script_store_dir, "")
         local StandifyLoadedSongs = StandifyLoading(songs_direct)
+
+        local function CheckSongs() -- Verify if the .wav is in Standify Folder (songs)
+            local new_song_files = filesystem.list_files(script_store_dir)
+            for _, song_path in ipairs(new_song_files) do
+                if not song_files[song_path] and string.match(song_path, "%.wav$") then
+                    StandifyLoadedSongs = StandifyLoading(songs_direct)
+                    StandifyFiles = {}
+                    for _, song in ipairs(StandifyLoadedSongs) do
+                        StandifyFiles[#StandifyFiles + 1] = song.file
+                        song_files[song.file] = true
+                    end
+                    break
+                end
+            end
+        end
+
         local function check_music_folder()
             local StandifyFiles = {}
             for _, song in ipairs(StandifyLoadedSongs) do
@@ -426,6 +453,7 @@
             while true do
                 UpdateAutoMusics()
                 check_music_folder()
+                CheckSongs()
                 StandifyYield(250)
             end
         end)
@@ -473,3 +501,33 @@
             auto_update_config.clean_reinstall = true
             auto_updater.run_auto_update(auto_update_config)
         end)
+
+    ----================================================----
+    ---               Logo Function
+    ---        Show Standify Logo quick
+    ----================================================----
+
+        if SCRIPT_MANUAL_START and not SCRIPT_SILENT_START then
+            local StandifyLogo = directx.create_texture(script_resources_dir .. "/Standify.png")
+            local time_start = os.clock()
+            local duration = 1.5
+            local alpha_start = 0
+            local alpha_end = 255
+            local time_passed = 0
+            local display_duration = 3
+            while true do
+                local elapsed_time = os.clock() - time_start
+                if elapsed_time > duration + display_duration then
+                    break
+                end
+                if elapsed_time > duration then
+                    local alpha = linear_transition(alpha_end, alpha_start, duration, elapsed_time - display_duration)
+                    directx.draw_texture(StandifyLogo, 0.08, 0.08, 0.5, 0.5, 0.5, 0.5, 0, {r = 1, g = 1, b = 1, a = alpha/255})
+                elseif elapsed_time <= duration then
+                    local alpha = linear_transition(alpha_start, alpha_end, duration, elapsed_time)
+                    directx.draw_texture(StandifyLogo, 0.08, 0.08, 0.5, 0.5, 0.5, 0.5, 0, {r = 1, g = 1, b = 1, a = alpha/255})
+                end
+                time_passed = elapsed_time - duration
+                util.yield(0)
+            end
+        end
