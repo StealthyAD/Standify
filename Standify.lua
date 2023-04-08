@@ -485,7 +485,7 @@
         end, true)
 
         StandifySettings:action(FT("Changelog"), {}, "", function()
-            async_http.init("raw.githubusercontent.com","/StealthyAD/stand-Standify/main/changelog",function(content)
+            async_http.init("raw.githubusercontent.com","/StealthyAD/stand-Standify/main/Changelog",function(content)
                 if content ~= "404: Not Found" then
                     local changelog = string.gsub(content, "\n$", "")
                         StandNotify("\n"..changelog)
