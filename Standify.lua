@@ -300,7 +300,7 @@
 
         local default_check_interval = 604800
         local auto_update_config = {
-            source_url="https://raw.githubusercontent.com/StealthyAD/stand-Standify/main/Standify.lua",
+            source_url="https://raw.githubusercontent.com/StealthyAD/Standify/main/Standify.lua",
             script_relpath=SCRIPT_RELPATH,
             switch_to_branch=selected_branch,
             verify_file_begins_with="--",
@@ -309,7 +309,7 @@
             dependencies={
                 {
                     name="translations",
-                    source_url="https://raw.githubusercontent.com/StealthyAD/stand-Standify/main/lib/Standify/Translations.lua",
+                    source_url="https://raw.githubusercontent.com/StealthyAD/Standify/main/lib/Standify/Translations.lua",
                     script_relpath="lib/Standify/Translations.lua",
                     check_interval=default_check_interval,
                 },
@@ -499,7 +499,7 @@
 
         StandifySettings:divider(FT("Resources & Updates"))
 
-	    StandifySettings:hyperlink(FT("GitHub Source"), "https://github.com/StealthyAD/stand-Standify")
+	    StandifySettings:hyperlink(FT("GitHub Source"), "https://github.com/StealthyAD/Standify")
 	    StandifySettings:action(FT("Check for Updates"), {}, FT("The script will automatically check for updates at most daily, but you can manually check using this option anytime."), function()
         auto_update_config.check_interval = 0
             if auto_updater.run_auto_update(auto_update_config) then
