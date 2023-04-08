@@ -74,6 +74,7 @@
                 ["Refresh Musics"] = "Rafraîchir la musique",
                 ["Each time you delete music, we advise you to refresh the music using 'Refresh Musics'."] = "Chaque suppression de musique, on vous conseille d'actualiser la musique en utilisant 'Rafraîchir la musique'.",
                 ["Each time you add music, we advise you to refresh the music using 'Refresh Musics'."] = "Chaque ajout de musique, on vous conseille de refresh la musique en utilisant 'Rafraîchir la musique'.",
+                ["Changelog"] = "Changelog",
             },
 
             de = { -- German Language (Deutsch)
@@ -128,6 +129,7 @@
                 ["Refresh Musics"] = "Musik aktualisieren",
                 ["Each time you delete music, we advise you to refresh the music using 'Refresh Musics'."] = "Jedes Mal, wenn Sie Musik löschen, empfehlen wir Ihnen, die Musik mit 'Musik aktualisieren' zu aktualisieren.",
                 ["Each time you add music, we advise you to refresh the music using 'Refresh Musics'."] = "Jedes Mal, wenn Sie Musik hinzufügen, empfehlen wir Ihnen, die Musik mit 'Musik aktualisieren' zu aktualisieren.",
+                ["Changelog"] = "Änderungsprotokoll",
             },
             es = { -- Spanish Language (Español)
                 ["Main Menu"] = "Menú principal",
@@ -181,6 +183,7 @@
                 ["Refresh Musics"] = "Actualizar músicas",
                 ["Each time you delete music, we advise you to refresh the music using 'Refresh Musics'."] = "Cada vez que borres música, te recomendamos que actualices la música con 'Actualizar músicas'.",
                 ["Each time you add music, we advise you to refresh the music using 'Refresh Musics'."] = "Cada vez que agregue música, le recomendamos que actualice la música usando 'Actualizar músicas'.",
+                ["Changelog"] = "Lista de novedades",
             },
             ru = { -- Russian Language (русский)
                 ["Main Menu"] = "Главное меню",
@@ -234,6 +237,7 @@
                 ["Refresh Musics"] = "обновить музыку",
                 ["Each time you delete music, we advise you to refresh the music using 'Refresh Musics'."] = "Каждый раз, когда вы удаляете музыку, мы рекомендуем обновить музыку с помощью 'Обновить музыку'.",
                 ["Each time you add music, we advise you to refresh the music using 'Refresh Musics'."] = "Каждый раз, когда вы добавляете музыку, мы рекомендуем обновить музыку с помощью 'Обновить музыку'.",
+                ["Changelog"] = "Журнал изменений",
             }
         }
     return trans
