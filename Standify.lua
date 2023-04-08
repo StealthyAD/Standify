@@ -484,6 +484,16 @@
             ToggleNotify = on
         end, true)
 
+        StandifySettings:action(FT("Changelog"), {}, "", function()
+            async_http.init("raw.githubusercontent.com","/StealthyAD/stand-Standify/main/changelog",function(content)
+                if content ~= "404: Not Found" then
+                    local changelog = string.gsub(content, "\n$", "")
+                        StandNotify("\n"..changelog)
+                end
+            end)
+            async_http.dispatch()
+        end)
+
         StandifySettings:divider(FT("Credits"))
         StandifySettings:hyperlink("StealthyAD.", "https://github.com/StealthyAD")
 
