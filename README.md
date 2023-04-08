@@ -1,6 +1,5 @@
 # Standify Music for Stand Mod Menu.
-
-"Portable Spotify Stand and listen."
+![Standify](https://user-images.githubusercontent.com/125747450/230726512-2a161e87-46d9-4b3d-a85c-330bcb69d798.png)
 
 Standify can use wav files which you can import each favorite music, it's for Stand Mod Menu. Inspired by Lance to get Music Sounds.
 
