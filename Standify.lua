@@ -363,11 +363,11 @@
             util.open_folder(script_store_dir)
         end)
 
-        StandifyCooldown = StandifyOptions:slider(FT("Cooldown Random Music"), {"standifycrm"}, FT("Each interval has a specific time, do not spam like crazy and calm down."), 30, 300, 30, 1, function()end)
-
-        StandifyOptions:action(FT("Play Random Music"), {'standifyrandom'}, FT("Play a random music."), function()
+        StandifyList:action(FT("Play Random Music"), {'standifyrandom'}, FT("Play a random music."), function()
             StandifyAuto()
         end)
+
+        StandifyCooldown = StandifyOptions:slider(FT("Cooldown Random Music"), {"standifycrm"}, FT("Each interval has a specific time, do not spam like crazy and calm down."), 30, 300, 30, 1, function()end)
 
         local links = {
             {"WAV Compressor", "https://www.freeconvert.com/wav-compressor"},
@@ -385,7 +385,7 @@
         StandifyConprVerter:divider(FT("Converter")) for i = 4, #links do StandifyConprVerter:hyperlink(links[i][1], links[i][2]) end
         
         StandifyList:action(FT("Refresh Musics"), {}, "", function()
-            local countDown = 3000 
+            local countDown = 3000
             while countDown > 0 do
                 local seconds = math.ceil(countDown / 1000)
                 local secondsString = FT("seconds")
