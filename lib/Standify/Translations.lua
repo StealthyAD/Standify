@@ -45,7 +45,7 @@
                 ["No updates found."] = "Pas de mise à jour trouvé.",
                 ["Compressor"] = "Compresseur",
                 ["Converter"] = "Convertisseur",
-                ["Play Random Music"] = "Joue une musique aléatoire",
+                ["Play Random Music"] = "Jouer une musique aléatoire",
                 ["Play a random music."] = "Jouer une musique aléatoire.",
                 ["Cooldown Random Music"] = "Délai d'attente d'une musique aléatoire",
                 ["Random music selected: "] = "Musique aléatoire choisie: ",
