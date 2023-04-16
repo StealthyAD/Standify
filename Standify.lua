@@ -387,13 +387,18 @@
         StandifyList:action(FT("Refresh Musics"), {}, "", function()
             local countDown = 3000 
             while countDown > 0 do
-                StandNotify("Refreshing music in " .. math.ceil(countDown / 1000) .. " seconds...")
+                local seconds = math.ceil(countDown / 1000)
+                local secondsString = FT("seconds")
+                if seconds == 1 then
+                    secondsString = FT("second")
+                end
+                StandNotify(FT("Refreshing music in ") .. seconds .. " " .. secondsString .. "...")
                 util.yield(1000) 
                 countDown = countDown - 1000 
             end
             util.restart_script()
-            StandNotify("Refresh music complete.")
-        end)
+            StandNotify(FT("Refresh music complete."))
+        end)        
         
         StandifyList:divider(FT("Browse Musics"))
 
